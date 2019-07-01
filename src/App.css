@@ -1,0 +1,685 @@
+
+body{
+  margin: 0;
+  font-family: Roboto;
+}
+
+
+/*-------------------------*/
+/*       General           */
+/*-------------------------*/
+
+.App {
+  font-family: Roboto;
+}
+
+.menuBrand{
+  font-size: 36px;
+  font-weight: normal;
+  margin-left: 3%;
+  margin-top: 2%;
+  color: #7E7E7E;
+  /*position: absolute;*/
+}
+
+.mybutt{
+  background-color: #2699FB;
+  color: white;
+  font-size: 12px;
+  border-radius: 8px;
+  width: 120px;
+  height: 40px; 
+  margin-top: 4%;
+}
+
+/*-----------------------------------------------*/
+/*                 Landing Page                  */
+/*-----------------------------------------------*/
+
+.fullScroll{
+  height: 100vh !important;
+}
+
+/*-------------------------*/
+/*      Landing Page       */
+/*     Scroll Page 1       */
+/*-------------------------*/
+
+#climateheader1{
+  margin-top: 20%;
+  color: #7F7F7F;
+  font-size: 20px;
+}
+
+#climateheader2{
+  color: #707070;
+  font-size: 49px;
+}
+
+#climateheader3{
+  color: #7F7F7F;
+  font-size: 20px;
+  margin-top: 4%;
+}
+
+/*-------------------------*/
+/*      Landing Page       */
+/*     Scroll Page 2       */
+/*-------------------------*/
+
+#globaldataheader{
+  color: #707070;
+  font-size: 49px;
+  margin-top: 35%
+}
+#carbon_data{
+  width: 296px;
+  height: 609px;
+  margin-top: 20%;
+}
+#globaltext{
+  color: #7F7F7F;
+  font-size: 17px;
+  margin-top: 3%;
+}
+
+/*-------------------------*/
+/*      Landing Page       */
+/*     Scroll Page 3       */
+/*-------------------------*/
+#globalemissionheader{
+  color: #707070;
+  font-size: 49px;
+  margin-top: 10%
+}
+#globalemissiontext{
+  color: #7F7F7F;
+  font-size: 17px;
+}
+
+
+/*-------------------------*/
+/*      Slide Menu         */
+/*-------------------------*/
+
+
+.bm-item {
+  outline: none;
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #7E7E7E;
+  transition: color 0.2s;
+}
+
+.bm-item:hover {
+  color: #e2e2e2;
+}
+
+.bm-item:focus {
+  outline: none;
+}
+
+.bm-burger-button {
+  position: fixed;
+/*  display: inline-block;*/
+  margin-top: 1%;
+  width: 29.44px;
+  height: 19.66px;
+  left: 35.9px;
+  top: 31.56px;
+}
+
+.bm-burger-button{
+  outline: none;
+}
+
+
+.bm-burger-bars {
+  background: #7E7E7E;
+}
+
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+  margin-top: 20%;
+}
+
+.bm-cross {
+  background: #7E7E7E;
+}
+
+.bm-cross-button: focus{
+  outline: none;
+}
+
+
+.bm-menu {
+  background: white;
+  padding: 2.5em 1.5em 0;
+  font-size: 20px;
+  margin-top: 20%;
+  /*height: calc(100vh - 60px)*/
+}
+
+/*.bm-morph-shape {
+  fill: #7E7E7E;
+}*/
+
+.bm-item-list {
+  color: #7E7E7E;
+}
+
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+
+/*-----------------------------------------------*/
+/*                   Home Page                   */
+/*-----------------------------------------------*/
+
+.login{
+  outline: none;
+  border: none;
+  background-color: white;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Roboto;
+  color: #2699fb;
+  float: right !important;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.login:focus{
+  outline: none;
+}
+
+/*-----------------------------------------------*/
+/*                   Tool Page                   */
+/*-----------------------------------------------*/
+
+.myLabel{
+  height: 30px;
+  background-color: white;
+  position: sticky;
+}
+
+.listButton{
+  height: 6.5vh;
+  color: #6F6D6D;
+}
+.listButton:hover{
+  font-weight: bold;
+}
+.listButton:focus{
+  outline: none;
+  background-color: #F9FAFC;
+}
+
+/*-------------------------*/
+/*      Slide Button       */
+/*-------------------------*/
+
+#slideButton {
+  outline: none;
+  border: none;
+  background-color: white;
+/*  transition: all .2s cubic-bezier(0, 1.26, .8, 1.28);*/
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Roboto;
+  color: #2699fb;
+  float: right !important;
+}
+ 
+#slideButton:hover {
+  cursor: pointer;
+  transform: scale(1.06, 1.06);
+}
+ 
+/*-------------------------*/
+/*      Earth Menu         */
+/*-------------------------*/
+
+#earthMenu {
+  width: 50vw;
+  height: 90%;
+  margin-top: 5%;
+  background-color: #F5F5F5;
+  position: absolute; 
+  top: 0;
+  overflow: scroll;
+  z-index: 4;  
+  transform: translateX(-45vw);
+  border-right: 1px solid #D3D3D3;
+  min-width: 700px;
+}
+ 
+#earthMenu.hide {
+  animation: slideEL .5s forwards;
+}
+
+#earthMenu.show {
+  animation: slideER .5s forwards;
+}
+ 
+#earthMenu h2 a {
+  color: #333;
+  margin-left: 15px;
+  text-decoration: none;
+}
+ 
+#earthMenu h2 a:hover {
+  text-decoration: underline;
+}
+
+@keyframes slideER {
+  100% { transform: translateX(0vw); }
+  
+}
+@keyframes slideEL {
+  0% { transform: translateX(0vw); }
+  100% { transform: translateX(-45vw); }
+}
+
+/*-------------------------*/
+/*      Nation Menu        */
+/*-------------------------*/
+
+#nationMenu {
+  width: 60vw;
+  height: 90%;
+  margin-top: 5%;
+  background-color: #F5F5F5;
+  position: absolute; 
+  top: 0;
+  overflow: scroll;
+  z-index: 0;  
+  transform: translateX(-45vw);  
+  border-right: 1px solid #D3D3D3;
+  min-width: 1000px;
+}
+
+#nationMenu.hide {
+  animation: slideNL .5s forwards;
+}
+
+#nationMenu.show {
+  animation: slideNR .5s forwards;
+}
+
+@keyframes slideNR {
+  100% { transform: translateX(0vw); }
+/*  0% {width: 40vh;}
+  100% {width: 100vh;}*/
+  
+}
+@keyframes slideNL {
+  /*0% {width: 100vh;}
+  100% {width: 40vh}*/
+  0% { transform: translateX(0vw); }
+  100% { transform: translateX(-45vw); }
+}
+
+#myAccordian{
+  text-align: right;
+}
+
+
+/*-----------------------------------------------*/
+/*                  Actor Page                   */
+/*-----------------------------------------------*/
+
+#slideMenu {
+  height: 100vh;
+  /*top: 220px;*/
+  width: 15%;
+  background-color: #F5F5F5;
+  position: fixed; 
+  z-index: 20;  
+  transform: translateX(-40vw);  
+  border-right: 1px solid #D3D3D3;
+  /*min-width: 1000px;*/
+}
+
+#slideMenu.hide {
+  animation: slideSL .5s forwards;
+}
+#slideMenu.show {
+  animation: slideSR .5s forwards;
+}
+@keyframes slideSR {
+  100% { transform: translateX(0vw); }
+}
+@keyframes slideSL {
+  0% { transform: translateX(0vw); }
+  100% { transform: translateX(-40vw); }
+}
+.closeButton{
+  float: right;
+  background-color: white;
+  border: none;
+  margin-top: 8%; 
+  margin-right: 10%;
+  font-size: 20px;
+  color: #6F6D6D;
+}
+.closeButton:hover{
+  transform: scale(1.06, 1.06);
+}
+.topMenu{
+  height: 50vh;
+  width: 100%;
+  background-color: white;
+}
+#globe{
+  height: 100px;
+  width: 140px;
+  float: center;
+}
+
+.myNav{
+  border-bottom: 1px solid #E2E2E2; 
+  height: 80px !important;
+}
+
+.menuBars {
+  display: inline-block;
+  /*cursor: pointer;*/
+  padding-left: 20px;
+}
+.menuBars:hover {
+  transform: scale(1.1, 1.1);
+}
+.bar1, .bar2, .bar3 {
+  width: 30px;
+  height: 4px;
+  background-color: #6F6D6D;
+  margin: 4px ;
+  transition: 0.4s;
+}
+
+.searchBar{
+  padding-left: 80px;
+}
+.mySearch{
+  border-radius: 50px !important;
+  height: 25px !important;
+  width: 250px !important;
+  font-family: FontAwesome, Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  text-decoration: inherit;
+  padding-top: 8px;
+}
+
+.myPages{
+  color: #639063 !important;
+  padding-right: 20px !important;
+  padding-left: 20px !important;
+  font-size: 20px;
+ }
+ .myPages.active{
+  font-weight: bold;
+  border-bottom: 2px solid currentColor;
+ }
+
+.tabContainer{
+  height: 60px;
+  border-bottom: 1px solid #E2E2E2; 
+  text-align: center;
+  padding: 9px;
+}
+
+.myTabs{
+  outline: none;
+  border: none;
+  background-color: white;
+  color: #639063;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Roboto;
+  margin-top: 10px;
+  margin-right: 10px;
+  padding-bottom: 14px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+
+.myTabs:focus{
+  outline: none;
+  border-bottom: 2px solid currentColor !important;
+}
+
+.colHeader{
+  height: 80px;
+  color: #2699FB ;
+  font-weight: bold;
+  border-bottom: 1px solid #E2E2E2;
+  text-align: left;
+  padding-left: 30px;
+  padding-bottom: 0px;
+  padding-top: 40px;
+  position: sticky;
+}
+.scroller{
+  height: calc(100vh - 220px);
+  overflow: scroll;
+}
+
+.earthCol{
+  height: calc(100vh - 140px);
+  width: 10%;
+  border-right: 1px solid #E2E2E2;
+  position: fixed;
+  background-color: white;
+  z-index: 10;
+ }
+.nationCol{
+  height: calc(100vh - 140px);
+  width: 15%;
+  margin-left: 10%;
+  border-right: 1px solid #E2E2E2;
+  position: fixed;
+  background-color: white;
+  z-index: 10;
+ }
+
+.myCaret{
+  float: right;
+}
+.myCaret:hover{
+  font-weight: bold !important;
+}
+.subnatCol{
+  height: calc(100vh - 140px);
+  width: 15%;
+  margin-left: 25%;
+  border-right: 1px solid #E2E2E2;
+  position: fixed;
+  z-index: 10;
+ }
+.assetsCol{
+  height: calc(100vh - 140px);
+  width: 20%;
+  margin-left: 40%;
+  border-right: 1px solid #E2E2E2;
+  position: fixed;
+ }
+
+#stateTab {
+  height: 100vh;
+  top: 220px;
+  width: 20%;
+  background-color: #F5F5F5;
+  position: fixed; 
+  /*top: 0;
+  /*overflow: scroll;*/
+  z-index: 0;  
+  transform: translateX(0vw);  
+  border-right: 1px solid #D3D3D3;
+  /*min-width: 1000px;*/
+}
+
+#stateTab.hide {
+  animation: slideL .5s forwards;
+}
+
+#stateTab.show {
+  animation: slideR .5s forwards;
+}
+
+@keyframes slideR {
+  100% { transform: translateX(40vw); }
+/*  0% {width: 40vh;}
+  100% {width: 100vh;}*/
+  
+}
+@keyframes slideL {
+  /*0% {width: 100vh;}
+  100% {width: 40vh}*/
+  0% { transform: translateX(40vw); }
+  100% { transform: translateX(0vw); }
+}
+
+
+/*-----------------------------------------------*/
+/*                 For Reference                 */
+/*-----------------------------------------------*/
+
+
+/*.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.customlogin {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Roboto;
+  color: #2699fb;
+}
+
+.navbar-brand{
+  font-size: 36px;
+  font-family: Roboto !important;
+  color: #7e7e7e !important;
+}
+
+
+#roundButton {
+  background-color: #96D9FF;
+  margin-bottom: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 10px solid #0065A6;
+  outline: none;
+  transition: all .2s cubic-bezier(0, 1.26, .8, 1.28);
+}
+ 
+#roundButton:hover {
+  background-color: #96D9FF;
+  cursor: pointer;
+  border-color: #003557;
+  transform: scale(1.2, 1.2);
+}
+ 
+#roundButton:active {
+  border-color: #003557;
+  background-color: #FFF;
+}
+
+#flyoutMenu {
+  width: 25vw;
+  height: 100vh;
+  background-color: #F7f4f4;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: ease-in-out .5s;
+  transition: margin-left .5s;
+  transition: transform .3s cubic-bezier(0, .52, 0, 1);
+  overflow: scroll;
+  z-index: 1000;
+}
+ 
+#flyoutMenu.hide {
+  transform: translate3d(-100vw, 0, 0);
+}
+ 
+#flyoutMenu.show {
+  transform: translate3d(0vw, 0, 0);
+  transition: margin-left .5;
+  overflow: hidden;
+}
+ 
+#flyoutMenu h2 a {
+  color: #333;
+  margin-left: 15px;
+  text-decoration: none;
+}
+ 
+#flyoutMenu h2 a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+*/
+
+/*.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
