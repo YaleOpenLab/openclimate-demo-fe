@@ -331,6 +331,10 @@ body{
 /*                  Actor Page                   */
 /*-----------------------------------------------*/
 
+.tester{
+  z-index: 1000;
+}
+
 #slideMenu {
   height: 100vh;
   /*top: 220px;*/

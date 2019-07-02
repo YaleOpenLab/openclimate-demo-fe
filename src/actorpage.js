@@ -8,28 +8,36 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import ListGroup from 'react-bootstrap/ListGroup';
-import globe from './globe.png'
+import globe from './globe.png';
+
+import axios from "axios";
+
+const API_URL = 'http://localhost:8001';
+const username = 'amanda';
+const pwhash = '9a768ace36ff3d1771d5c145a544de3d68343b2e76093cb7b2a8ea89ac7f1a20c852e6fc1d71275b43abffefac381c5b906f55c3bcff4225353d02f1d3498758';
+
 
 // &#x1F50D;
 
-const states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+//const states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
 
 class ActorPage extends Component{	
 
+	componentDidMount() {
+    const url = `${API_URL}/us/states?username=${username}&pwhash=${pwhash}`;
+    axios.get(url).then(response => response.data)
+    .then((data) => {
+     	this.setState({ states: data.States })
+    })
+	}
 	constructor(props, context) {
 	  super(props, context);
 	  this.state = { visibleState: false };
 	  this.state = { visibleMenu: false };
-	  this.state = { lastIndex: 'Alabama' }
+	  this.state = { lastIndex: 'Alabama' };
 	  this.toggleState = this.toggleState.bind(this);
 	  this.toggleMenu = this.toggleMenu.bind(this);
-	  // this.renderRow = this.renderRow.bind(this);
-	  // this.stateList = states.map((state, i) => {
-	  // 	return {
-	  // 		id: i,
-	  // 		stateName: state
-	  // 	}
-	  // });
+	  this.state = { states: [] };
 	}
 	toggleState(index) {
 		if (index != this.state.lastIndex && this.state.visibleState == true) {this.setState({ visibleState: true });} 
@@ -39,14 +47,6 @@ class ActorPage extends Component{
 	toggleMenu() {
 		this.setState({ visibleMenu: !this.state.visibleMenu });
 	}
-	// renderRow(item){	
-	// 	return(
-	// 	  <ListGroup.Item as="button" className="listButton" key={id} onClick={this.toggleState.bind(this, i)} >
-	// 	  	<div style={{float: 'left'}}>{stateName}</div>
-	// 	  	<div style={{float: 'right'}}><i className="fa fa-angle-down"></i></div>
-	// 	  </ListGroup.Item>
-	// 	)
-	// }
 
 	render() {
 		return (	
@@ -79,7 +79,7 @@ class ActorPage extends Component{
 					<div className="colHeader">SUBNATIONAL</div>
 					<div className="scroller">
 						 <ListGroup variant="flush">
-						 {states.map((state, i) =>
+						 {this.state.states.map((state) =>
 							  <ListGroup.Item as="button" className="listButton" onClick={this.toggleState.bind(this, state)} >
 							  	<div style={{float: 'left'}}>{state}</div>
 							  	<div style={{float: 'right'}}><i className="fa fa-angle-down"></i></div>
@@ -87,12 +87,13 @@ class ActorPage extends Component{
 						</ListGroup>
 					</div>
 				</div>
-				<StateTab stateVisibility={this.state.visibleState} stateName={this.state.lastIndex} />
+				<StateTab stateVisibility={this.state.visibleState} stateName={this.state.lastIndex} tester={this.state.states}/>
 				<div className="assetsCol"><div className="colHeader">CLIMATE ACTION ASSETS</div></div>
 			</div>
 		)
 	}
-}
+}			
+
 
 export default ActorPage;
 
@@ -102,9 +103,18 @@ class StateTab extends Component {
     var visibility = "hide";
     if (this.props.stateVisibility) { visibility = "show"; }
     return (
-      <div id="stateTab" className={visibility}>
-      	<h1>{this.props.stateName}</h1>
-      </div>
+			<div id="stateTab" className={visibility}>
+				<h1>{this.props.stateName}</h1>	
+				{/*			
+				  <div className="tester">
+				  	{this.props.tester.map((state) => (
+						<div>
+							<h5>{state}</h5>
+						</div>
+					))}
+				</div>
+			*/}
+			</div>
     );
   }
 }
@@ -125,12 +135,3 @@ class SlideMenu extends Component {
     );
   }
 }
-
-
-
-
-
-
-
-
-
