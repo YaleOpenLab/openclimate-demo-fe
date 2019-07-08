@@ -267,12 +267,13 @@ body{
   background-color: #F5F5F5;
   position: absolute; 
   top: 0;
-  /*overflow: scroll;*/
+  overflow: scroll;
+  overflow-x: hidden;
   z-index: 4;  
   /*transform: translateX(-45vw);*/
-  transform: width(4vw);
+  transform: width(10vw);
   border-right: 1px solid #D3D3D3;
-  min-width: 700px;
+  /*min-width: 700px;*/
 }
  
 #earthMenu.hide {
@@ -294,14 +295,14 @@ body{
 }
 
 @keyframes slideER {
-  0% {width: 40vw;}
-  100% {width: 100vw;}
+  0% {width: 10vw;}
+  100% {width: 40vw;}
   /*100% { transform: translateX(0vw); }*/
   
 }
 @keyframes slideEL {
-  0% {width: 100vw;}
-  100% {width: 40vw}
+  0% {width: 40vw;}
+  100% {width: 10vw}
 /*  0% { transform: translateX(0vw); }
   100% { transform: translateX(-45vw); }*/
 }
@@ -311,17 +312,18 @@ body{
 /*-------------------------*/
 
 #nationMenu {
-  width: 60vw;
+  width: 20vw;
   height: 90%;
   margin-top: 5%;
   background-color: #F5F5F5;
   position: absolute; 
   top: 0;
-  /*overflow: scroll;*/
+  overflow: scroll;
+  overflow-x: hidden;
   z-index: 0;  
-  transform: translateX(-45vw);  
+  transform: translateX(10vw);  
   border-right: 1px solid #D3D3D3;
-  min-width: 1000px;
+  /*min-width: 1000px;*/
 }
 
 #nationMenu.hide {
@@ -333,7 +335,8 @@ body{
 }
 
 @keyframes slideNR {
-  100% { transform: translateX(0vw); }
+  /*0% { transform: translateX(0vw); }*/
+  100% { transform: translateX(40vw); }
 /*  0% {width: 40vh;}
   100% {width: 100vh;}*/
   
@@ -341,8 +344,8 @@ body{
 @keyframes slideNL {
   /*0% {width: 100vh;}
   100% {width: 40vh}*/
-  0% { transform: translateX(0vw); }
-  100% { transform: translateX(-45vw); }
+  0% { transform: translateX(40vw); }
+  100% { transform: translateX(10vw); }
 }
 
 #myAccordian{

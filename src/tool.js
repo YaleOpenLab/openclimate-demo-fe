@@ -33,7 +33,8 @@ class Tool extends Component{
 	}
 	toggleEarth() {
 	  this.setState({ visibleEarth: !this.state.visibleEarth });
-	  if (!this.state.visibleEarth) {this.setState({ visibleNation: true })};
+    this.setState({ visibleNation: !this.state.visibleNation });
+	  // if (!this.state.visibleEarth) {this.setState({ visibleNation: true })};
 	}
 	toggleNation() {
 	  this.setState({ visibleNation: !this.state.visibleNation });
@@ -89,9 +90,7 @@ class NationMenu extends Component {
     if (this.props.natlVisibility ) { visibility = "show"; }
     return (
       <div id="nationMenu" className={visibility}>
-        <div className="myLabel">
-          <button className="labelButton">NATION STATES</button>
-        </div>
+
       	<Accordion id="myAccordian">
 				  <Card>
 				    <Accordion.Toggle as={Card.Header} eventKey="0" className="listButton" >
@@ -112,7 +111,7 @@ class NationMenu extends Component {
 				    </Accordion.Collapse>
 				  </Card>
 				</Accordion>
-        <button id="slideButton" onClick={this.props.toggleNation} > Expand ></button>
+
       </div>
     );
   }
