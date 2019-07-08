@@ -221,21 +221,39 @@ body{
 /*      Slide Button       */
 /*-------------------------*/
 
-#slideButton {
+.labelButton{
   outline: none;
   border: none;
   background-color: white;
-/*  transition: all .2s cubic-bezier(0, 1.26, .8, 1.28);*/
   font-size: 16px;
   font-weight: bold;
   font-family: Roboto;
   color: #2699fb;
   float: right !important;
+
+}
+.labelButton:focus{
+  outline: none;
+}
+
+#slideButton {
+  outline: none;
+  border: none;
+  font-size: 12px;
+  font-family: Roboto;
+  color: #2699fb;
+  background-color: #F5F5F5;
+  text-decoration: underline;
+  float: right !important;  
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
  
 #slideButton:hover {
   cursor: pointer;
-  transform: scale(1.06, 1.06);
+  font-weight: bold;
+  /*transform: scale(1.06, 1.06);*/
 }
  
 /*-------------------------*/
@@ -243,15 +261,16 @@ body{
 /*-------------------------*/
 
 #earthMenu {
-  width: 50vw;
+  /*width: 50vw;*/
   height: 90%;
   margin-top: 5%;
   background-color: #F5F5F5;
   position: absolute; 
   top: 0;
-  overflow: scroll;
+  /*overflow: scroll;*/
   z-index: 4;  
-  transform: translateX(-45vw);
+  /*transform: translateX(-45vw);*/
+  transform: width(4vw);
   border-right: 1px solid #D3D3D3;
   min-width: 700px;
 }
@@ -275,12 +294,16 @@ body{
 }
 
 @keyframes slideER {
-  100% { transform: translateX(0vw); }
+  0% {width: 40vw;}
+  100% {width: 100vw;}
+  /*100% { transform: translateX(0vw); }*/
   
 }
 @keyframes slideEL {
-  0% { transform: translateX(0vw); }
-  100% { transform: translateX(-45vw); }
+  0% {width: 100vw;}
+  100% {width: 40vw}
+/*  0% { transform: translateX(0vw); }
+  100% { transform: translateX(-45vw); }*/
 }
 
 /*-------------------------*/
@@ -294,7 +317,7 @@ body{
   background-color: #F5F5F5;
   position: absolute; 
   top: 0;
-  overflow: scroll;
+  /*overflow: scroll;*/
   z-index: 0;  
   transform: translateX(-45vw);  
   border-right: 1px solid #D3D3D3;
