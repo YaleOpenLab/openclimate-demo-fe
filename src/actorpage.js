@@ -30,7 +30,7 @@ class ActorPage extends Component{
 	constructor(props, context) {
 	  super(props, context);
 	  this.state = { visibleState: false };
-	  this.state = { visibleMenu: false };
+	  this.state = { visibleMenu: false};
 	  this.state = { lastIndex: 'Alabama' };
 	  this.toggleState = this.toggleState.bind(this);
 	  this.toggleMenu = this.toggleMenu.bind(this);
