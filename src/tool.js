@@ -105,8 +105,8 @@ class NationMenu extends Component {
                                         <Accordion.Toggle as={Card.Header} eventKey={index} style={{textAlign: 'left'}} className="dropButton2">
                                             {nation}
                                         </Accordion.Toggle>
-                                        <Accordion.Collapse eventKey={index}>
-                                            <Card.Body>Wooohh</Card.Body>
+                                        <Accordion.Collapse eventKey={index}> wooh
+
                                         </Accordion.Collapse>
                                     </Card>)}
                             </Accordion>
