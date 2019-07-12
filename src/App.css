@@ -205,25 +205,43 @@ body{
   position: sticky;
   border-bottom: 1px solid #D3D3D3;
 }
-.dropButton1{
-  font-size: 16px;
-  font-weight: bold;
+
+#myAccordian{
   font-family: Roboto;
   color: #2699fb;
   background-color: white;
+}
+
+.dropButton1{
+  font-weight: bold;
+  background-color: white;
+  font-size: 16px;
   border-top: none;
 }
 .dropButton1:hover{
-  background-color: #E8E8E8;
+  background-color: #F5F5F5;
 }
-.dropButton2{
-  font-size: 13px;
-  font-weight: bold;
-  font-family: Roboto;
-  color: #2699fb;
-  text-transform: uppercase;
+.dropButton2{ 
   background-color: white;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding-left: 15%;
 }
+.dropButton2:hover{
+  background-color: #F5F5F5;
+}
+.dropButton3{
+  background-color: white;
+  color: #6F6D6D;
+  font-size: 12px;
+  border-top: 1px solid #D3D3D3;
+  text-transform: uppercase;
+  padding-left: 20%
+}
+.dropButton3:hover{
+  background-color: #F5F5F5;
+}
+
 .card{
   border-left: none;
   border-right: none;
@@ -302,21 +320,17 @@ body{
   border-right: 1px solid #D3D3D3;
   /*min-width: 700px;*/
 }
- 
 #earthMenu.hide {
   animation: slideEL .5s forwards;
 }
-
 #earthMenu.show {
   animation: slideER .5s forwards;
 }
- 
 #earthMenu h2 a {
   color: #333;
   margin-left: 15px;
   text-decoration: none;
 }
- 
 #earthMenu h2 a:hover {
   text-decoration: underline;
 }
@@ -324,14 +338,10 @@ body{
 @keyframes slideER {
   0% {width: 10vw;}
   100% {width: 40vw;}
-  /*100% { transform: translateX(0vw); }*/
-  
 }
 @keyframes slideEL {
   0% {width: 40vw;}
   100% {width: 10vw}
-/*  0% { transform: translateX(0vw); }
-  100% { transform: translateX(-45vw); }*/
 }
 
 /*-------------------------*/
@@ -347,36 +357,99 @@ body{
   top: 0;
   overflow: scroll;
   overflow-x: hidden;
-  z-index: 0;  
+  z-index: 1;  
   transform: translateX(10vw);  
   border-right: 1px solid #D3D3D3;
   /*min-width: 1000px;*/
 }
-
 #nationMenu.hide {
   animation: slideNL .5s forwards;
 }
-
 #nationMenu.show {
   animation: slideNR .5s forwards;
 }
 
 @keyframes slideNR {
-  /*0% { transform: translateX(0vw); }*/
   100% { transform: translateX(40vw); }
-/*  0% {width: 40vh;}
-  100% {width: 100vh;}*/
-  
 }
 @keyframes slideNL {
-  /*0% {width: 100vh;}
-  100% {width: 40vh}*/
   0% { transform: translateX(40vw); }
   100% { transform: translateX(10vw); }
 }
 
-/*#myAccordian{
-  text-align: right;
+/*-------------------------*/
+/*      Nation Slider      */
+/*-------------------------*/
+
+/*#nationSlider {
+  width: 45vw;
+  height: 90%;
+  margin-top: 5%;
+  background-color: black;
+  position: absolute; 
+  top: 0;
+  overflow-x: hidden;
+  z-index: 0;  
+  transform: translateX(-55vw);  
+  border-right: 1px solid #D3D3D3;
+}
+#nationSlider.hide {
+  animation: slideNSL .7s forwards;
+}
+#nationSlider.show {
+  animation: slideNSR .7s forwards;
+}*/
+
+
+
+#multiSlider {
+  width: 45vw;
+  height: 90%;
+  margin-top: 5%;
+  background-color: gray;
+  position: absolute; 
+  top: 0;
+  overflow-x: hidden;
+  z-index: 0;  
+  transform: translateX(-55vw);  
+  border-right: 1px solid #D3D3D3;
+}
+#multiSlider.hide {
+  animation: slideLeft .5s forwards;
+}
+#multiSlider.showSmall {
+  animation: slideRight .5s forwards;
+}
+#multiSlider.showBig {
+  animation: slideBig .5s forwards;
+}
+@keyframes slideRight {
+  100% { transform: translateX(55vw); }  
+}
+@keyframes slideLeft {
+  0% { transform: translateX(55vw); }
+  100% { transform: translateX(-55vw); }
+}
+@keyframes slideBig {
+  0% { transform: translateX(55vw); }
+  100% { transform: translateX(25vw); }
+  100% { width: 75vw; }  
+}
+
+/*#multiSlider.small {
+  animation: shrink .5s forwards;
+}
+#multiSlider.large {
+  animation: expand .5s forwards;
+}
+@keyframes shrink {
+  0% {width: 45vw; }
+  100% { width: 80vw; }  
+}
+@keyframes expand {
+  0% { transform: translateX(55vw); }
+  100% { transform: translateX(25vw); }
+  100% {width: 65vw; }
 }*/
 
 

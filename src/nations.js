@@ -1,4 +1,44 @@
 import React from 'react';
+import { Component } from 'react';
+import axios from "axios";
+
+
+const API_URL = 'http://localhost:8001';
+const username = 'amanda';
+const pwhash = '9a768ace36ff3d1771d5c145a544de3d68343b2e76093cb7b2a8ea89ac7f1a20c852e6fc1d71275b43abffefac381c5b906f55c3bcff4225353d02f1d3498758';
+
+
+class Nations extends Component{
+    componentDidMount() {
+        const url = `${API_URL}/country/all?username=${username}&pwhash=${pwhash}`;
+        axios.get(url).then(response => response.data)
+        .then((data) => {
+            console.log(data);
+            this.setState({countries: data[0]})
+            console.log(this.state.countries);
+        })
+    }
+    // constructor(props, context){
+    //     super(props, context);
+    //     this.state = {countries: [] };
+    // }
+
+    // render(){
+    //     const countryList = [];
+    //     console.log("hello")
+    //     for (innerDict in this.state.countries){
+    //         countryList.push(innerDict["Name"])
+    //     }
+    //     return(
+    //         {countryList}
+    //     )
+    // }
+}
+
+// export default Nations;
+
+
+
 
 const nations = ["Afghanistan",
     "Åland Islands",
