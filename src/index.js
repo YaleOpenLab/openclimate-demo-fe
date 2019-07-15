@@ -5,10 +5,10 @@ import './index.css'
 import * as serviceWorker from './serviceWorker';
 import { Route, NavLink, BrowserRouter as Router } from 'react-router-dom'
 import App from './App';
-import HomePage from './homepage';
-import Landing from './landing';
-import Tool from './tool';
-import ActorPage from './actorpage'
+import HomePage from './pages/homepage';
+import Landing from './pages/landing';
+import Tool from './pages/publicTool/tool';
+import ActorPage from './pages/actorpage'
 
 
 const routing = (

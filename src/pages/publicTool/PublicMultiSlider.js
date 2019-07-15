@@ -1,10 +1,8 @@
 import React from 'react'; 
 import { Component } from 'react';
-import './App.css';
+import '../../App.css';
 
-
-
-class PublicCountrySlide extends Component{
+class PublicMultiSlide extends Component{
 	render(){
 		var visibility = "hide";
 		// if (this.props.visibility) {visibility = "show"; }
@@ -12,12 +10,10 @@ class PublicCountrySlide extends Component{
    		if (this.props.visibility && !this.props.earth) { visibility = "showBig"; }
 		return(
 			<div id="multiSlider" className={visibility}>
-				<h3>{this.props.countryInfo["Name"]}</h3>
-				<p>Population: {this.props.countryInfo["Population"]}</p>
-				<p>GDP: {this.props.countryInfo["Revenue"]}</p>
+				Yes so much info abt multinational corps 
 			</div>
 		)
 	}
 } 
 
-export default PublicCountrySlide;
+export default PublicMultiSlide;

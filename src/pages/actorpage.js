@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
-import './App.css';
+import '../App.css';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import ListGroup from 'react-bootstrap/ListGroup';
-import globe from './globe.png';
+import globe from '../static/globe.png';
 
 import axios from "axios";
 
@@ -21,11 +21,11 @@ const pwhash = '9a768ace36ff3d1771d5c145a544de3d68343b2e76093cb7b2a8ea89ac7f1a20
 class ActorPage extends Component{	
 
 	componentDidMount() {
-    const url = `${API_URL}/us/states?username=${username}&pwhash=${pwhash}`;
-    axios.get(url).then(response => response.data)
-    .then((data) => {
-     	this.setState({ states: data.States })
-    })
+	    const url = `${API_URL}/us/states?username=${username}&pwhash=${pwhash}`;
+	    axios.get(url).then(response => response.data)
+	    .then((data) => {
+	     	this.setState({ states: data.States })
+	    })
 	}
 	constructor(props, context) {
 	  super(props, context);

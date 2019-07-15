@@ -1,14 +1,14 @@
 import React from 'react';
 import { Component } from 'react';
-import './App.css';
+import '../App.css';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import globe from './globe.png'
-import carbon_data from './carbon-data.png'
+import globe from '../static/globe.png'
+import carbon_data from '../static/carbon-data.png'
 import { NavLink, Switch, Route } from 'react-router-dom';
 
 
-
+//Landing page has 
 class Landing extends Component{
 	render(){
 		return (
