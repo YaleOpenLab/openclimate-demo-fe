@@ -10,7 +10,7 @@ class PublicNationSlide extends Component{
    		if (this.props.visibility && !this.props.earth) { visibility = "showBig"; }
 		return(
 			<div id="multiSlider" className={visibility}>
-				Put some hot NDCs data here 
+				NDC data goes here 
 			</div>
 		)
 	}

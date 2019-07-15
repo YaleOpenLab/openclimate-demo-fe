@@ -9,6 +9,7 @@ import axios from "axios";
 import PublicNationSlide from './PublicNationSlide';
 import PublicMultiSlide from './PublicMultiSlider';
 import PublicCountrySlide from './PublicCountrySlider';
+import PublicSubnatlSlide from './PublicSubnatlSlider';
 
 
 const API_URL = 'http://localhost:8001';
@@ -22,7 +23,6 @@ class Tool extends Component{
     const url = `${API_URL}/carbon/budget?username=${username}&pwhash=${pwhash}`;
     axios.get(url).then(response => response.data)
     .then((data) => {
-      // console.log(data);
       this.setState({fuel: data["2017"]["Fossil-Fuel-And-Industry"], landuse: data["2017"]["Land-Use-Change-Emissions"], 
         atmos: data["2017"]["Atmospheric-Growth"], ocean: data["2017"]["Ocean-Sink"], landsink: data["2017"]["Land-Sink"], 
         budget: data["2017"]["Budget-Imbalance"]}); 
@@ -32,24 +32,24 @@ class Tool extends Component{
     const countries = [];
     axios.get(url_country).then(response => response.data)
     .then((data) => {
-        for (var i = 0; i < data.length; i++){
-            countries.push(data[i]["Name"])
-        }
+        // for (var i = 0; i < data.length; i++){
+        //     countries.push(data[i]["Name"])
+        // }
         this.setState({countryList: data})
-        console.log(this.state.countryList)
     })
   }
 	constructor(props, context) {
 	  super(props, context);
 	  this.state = { 
-      visibleEarth: true, visibleNation: true, visibleNatlSlider: false, visibleMultiSlider: false, 
+      visibleEarth: true, visibleNation: true, visibleNatlSlider: false, visibleMultiSlider: false, visibleRegionSlider: false,
       visibleCountrySlider: false,
       fuel: 0, landuse: 0, atmos: 0, ocean: 0, landsink: 0, budget: 0,
-      text: "< View less", currentNation: "Afghanistan", countryList: [], countryInfo: {} };
+      text: "< View less", countryList: [], countryInfo: {}, regionInfo: {} };
 	  this.toggleEarth = this.toggleEarth.bind(this);
 	  this.toggleNatlSlider = this.toggleNatlSlider.bind(this);
       this.toggleMultiSlider = this.toggleMultiSlider.bind(this);
       this.toggleCountrySlider = this.toggleCountrySlider.bind(this);
+      this.toggleRegionSlider = this.toggleRegionSlider.bind(this);
 	}
 	toggleEarth() {
 	   this.setState({ visibleEarth: !this.state.visibleEarth });
@@ -66,9 +66,14 @@ class Tool extends Component{
         this.setState({ visibleNatlSlider: false, visibleCountrySlider:false });
     }
     toggleCountrySlider(countryInfo){
-        if (countryInfo["Name"] != this.state.currentNation && this.state.visibleCountrySlider == true) {this.setState({ visibleCountrySlider: true });} 
+        if (countryInfo["Name"] != this.state.countryInfo["Name"] && this.state.visibleCountrySlider == true) {this.setState({ visibleCountrySlider: true });} 
         else {this.setState({ visibleCountrySlider: !this.state.visibleCountrySlider });}
-        this.setState({ currentNation: countryInfo["Name"], countryInfo: countryInfo });
+        this.setState({ countryInfo: countryInfo });
+    }
+    toggleRegionSlider(regionInfo){
+        if (regionInfo["Name"] != this.state.regionInfo["Name"] && this.state.visibleRegionSlider == true) {this.setState({ visibleRegionSlider: true });} 
+        else {this.setState({ visibleRegionSlider: !this.state.visibleRegionSlider });}
+        this.setState({ regionInfo: regionInfo });
     }
 	render() {
 		return (
@@ -81,11 +86,13 @@ class Tool extends Component{
                     text={this.state.text} />
 				<NationMenu toggleNatlSlider={this.toggleNatlSlider} toggleMultiSlider={this.toggleMultiSlider} 
                     toggleCountrySlider={this.toggleCountrySlider} natlVisibility={this.state.visibleNation}
-                    countryList={this.state.countryList}/>
+                    countryList={this.state.countryList} countryInfo={this.state.countryInfo}/>
                 <PublicNationSlide visibility={this.state.visibleNatlSlider} earth={this.state.visibleEarth}/>
                 <PublicMultiSlide visibility={this.state.visibleMultiSlider} earth={this.state.visibleEarth}/>
                 <PublicCountrySlide visibility={this.state.visibleCountrySlider} countryInfo={this.state.countryInfo} earth={this.state.visibleEarth}/>
-			</div>
+			    <PublicSubnatlSlide visibility={this.state.visibleRegionSlider} regionInfo={this.state.regionInfo} earth={this.state.visibleEarth}/>
+
+            </div>
 		)
 	}	
 }
@@ -131,7 +138,7 @@ class NationMenu extends Component {
                             NATION STATES
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="0">            
-                            <NestedMenu toggleCountrySlider={this.props.toggleCountrySlider} countryList={this.props.countryList}/>
+                            <NestedMenu toggleCountrySlider={this.props.toggleCountrySlider} countryList={this.props.countryList} countryInfo={this.props.countryInfo}/>
                         </Accordion.Collapse>
                     </Card>
                     <Card>
@@ -153,6 +160,25 @@ class NationMenu extends Component {
 //I want it to go back to closed when the outer accordian open and closes  
 //Solution may be creating my own accordian instead of bootstrap 
 class NestedMenu extends Component{
+    componentDidMount(){
+        const url = `${API_URL}/region/all?username=${username}&pwhash=${pwhash}`;
+        const regions = [];
+        axios.get(url).then(response => response.data)
+        .then((data) => {
+            for (var i = 0; i < data.length; i++){
+                if(data[i]["Country"] == this.props.countryInfo["Name"]){
+                    regions.push(data[i])
+                }
+            }
+            this.setState({regionList: regions})
+        })
+    }
+    constructor(props, context) {
+      super(props, context);
+      this.state = {
+        regionList: []
+      };
+    }
     render(){
         return(
             <Accordion id="myAccordian2">
@@ -166,7 +192,19 @@ class NestedMenu extends Component{
                             <Accordion>
                                 <Accordion.Toggle as={Card.Header}eventKey="0" className="dropButton3">Subnational Regions</Accordion.Toggle>
                                 <Accordion.Collapse eventKey="0">
-                                    <Card.Body>wooh</Card.Body>
+                                    <Card.Body>
+                                    <Accordion>
+                                        {this.state.regionList.map((regionInfo, index) => 
+                                            <Card>
+                                            <Accordion.Toggle as={Card.Header} eventKey={index} style={{textAlign: 'left'}} className="dropButton4"
+                                            onClick={this.props.toggleRegionSlider.bind(this, regionInfo)}>
+                                                {regionInfo["Name"]}
+                                            </Accordion.Toggle>
+                                            <Accordion.Collapse eventKey={index}><Card.Body>wooh</Card.Body></Accordion.Collapse>
+                                            </Card>
+                                        )}   
+                                    </Accordion>
+                                    </Card.Body>
                                 </Accordion.Collapse>
                                 <Accordion.Toggle as={Card.Header} eventKey="1" className="dropButton3">Domestic Corporations</Accordion.Toggle>
                                 <Accordion.Collapse eventKey="1">

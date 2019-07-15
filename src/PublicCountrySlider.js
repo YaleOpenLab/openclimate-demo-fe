@@ -2,6 +2,8 @@ import React from 'react';
 import { Component } from 'react';
 import './App.css';
 
+
+
 class PublicCountrySlide extends Component{
 	render(){
 		var visibility = "hide";
