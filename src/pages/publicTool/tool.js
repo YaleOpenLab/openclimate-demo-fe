@@ -5,11 +5,15 @@ import { NavLink, Switch, Route } from 'react-router-dom';
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Form from 'react-bootstrap/Form';
+import FormControl from 'react-bootstrap/FormControl';
 import axios from "axios";
 import PublicNationSlide from './PublicNationSlide';
 import PublicMultiSlide from './PublicMultiSlider';
 import PublicCountrySlide from './PublicCountrySlider';
 import PublicSubnatlSlide from './PublicSubnatlSlider';
+import globe from '../../static/globe.png';
+import TopNav from './TopNav';
 
 
 const API_URL = 'http://localhost:8001';
@@ -32,24 +36,21 @@ class Tool extends Component{
     const countries = [];
     axios.get(url_country).then(response => response.data)
     .then((data) => {
-        // for (var i = 0; i < data.length; i++){
-        //     countries.push(data[i]["Name"])
-        // }
         this.setState({countryList: data})
     })
   }
 	constructor(props, context) {
-	  super(props, context);
-	  this.state = { 
-      visibleEarth: true, visibleNation: true, visibleNatlSlider: false, visibleMultiSlider: false, visibleRegionSlider: false,
-      visibleCountrySlider: false,
-      fuel: 0, landuse: 0, atmos: 0, ocean: 0, landsink: 0, budget: 0,
-      text: "< View less", countryList: [], countryInfo: {}, regionInfo: {} };
-	  this.toggleEarth = this.toggleEarth.bind(this);
-	  this.toggleNatlSlider = this.toggleNatlSlider.bind(this);
-      this.toggleMultiSlider = this.toggleMultiSlider.bind(this);
-      this.toggleCountrySlider = this.toggleCountrySlider.bind(this);
-      this.toggleRegionSlider = this.toggleRegionSlider.bind(this);
+        super(props, context);
+        this.state = { 
+            visibleEarth: true, visibleNation: true, visibleNatlSlider: false, visibleMultiSlider: false, visibleRegionSlider: false,
+            visibleCountrySlider: false,
+            fuel: 0, landuse: 0, atmos: 0, ocean: 0, landsink: 0, budget: 0,
+            text: "< View less", countryList: [], countryInfo: {}, regionInfo: {} };
+        this.toggleEarth = this.toggleEarth.bind(this);
+        this.toggleNatlSlider = this.toggleNatlSlider.bind(this);
+        this.toggleMultiSlider = this.toggleMultiSlider.bind(this);
+        this.toggleCountrySlider = this.toggleCountrySlider.bind(this);
+        this.toggleRegionSlider = this.toggleRegionSlider.bind(this);
 	}
 	toggleEarth() {
 	   this.setState({ visibleEarth: !this.state.visibleEarth });
@@ -78,8 +79,7 @@ class Tool extends Component{
 	render() {
 		return (
 			<div className = 'tool'>
-				<NavLink to="/actorpage#account"><button className="login">LOG IN</button></NavLink>
-                <h2>Fun title! wooh</h2>
+                <TopNav></TopNav>
 				<EarthMenu toggleEarth={this.toggleEarth} earthVisibility={this.state.visibleEarth} 
                     fuelData = {this.state.fuel} landuseData = {this.state.landuse} atmosData = {this.state.atmos} 
                     oceanData = {this.state.ocean} landsinkData = {this.state.landsink} budgetData = {this.state.budget}
@@ -91,7 +91,6 @@ class Tool extends Component{
                 <PublicMultiSlide visibility={this.state.visibleMultiSlider} earth={this.state.visibleEarth}/>
                 <PublicCountrySlide visibility={this.state.visibleCountrySlider} countryInfo={this.state.countryInfo} earth={this.state.visibleEarth}/>
 			    <PublicSubnatlSlide visibility={this.state.visibleRegionSlider} regionInfo={this.state.regionInfo} earth={this.state.visibleEarth}/>
-
             </div>
 		)
 	}	
@@ -217,7 +216,6 @@ class NestedMenu extends Component{
         )
     }
 }
-
 
 
 
