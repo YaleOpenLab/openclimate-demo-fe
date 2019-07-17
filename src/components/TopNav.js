@@ -1,11 +1,12 @@
 import React from 'react';
 import { Component } from 'react';
-import '../../App.css';
+import './TopNav.css'
+import '../App.css';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import axios from "axios";
-import globe from '../../static/globe.png'; 
+import globe from '../static/globe.png'; 
 
 class TopNav extends Component {
 	constructor(props, context) {
@@ -36,7 +37,6 @@ class TopNav extends Component {
 				<div className="lowerNav">
 					<NavLink to="/actorpage#account"><button className="login">LOG IN</button></NavLink>
 				</div>
-				<SideMenu></SideMenu>
 			</div>
     	)
     }
@@ -61,12 +61,3 @@ class SlideMenu extends Component {
   }
 }
 
-class SideMenu extends Component {
-    render(){
-        return (
-            <div className="sideMenu">
-                view toggler
-            </div>
-        )
-    }
-}

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
-import './index.css'
+// import './index.css'
 import * as serviceWorker from './serviceWorker';
 import { Route, NavLink, BrowserRouter as Router } from 'react-router-dom'
 import App from './App';

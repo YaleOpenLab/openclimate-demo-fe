@@ -13,7 +13,7 @@ import PublicMultiSlide from './PublicMultiSlider';
 import PublicCountrySlide from './PublicCountrySlider';
 import PublicSubnatlSlide from './PublicSubnatlSlider';
 import globe from '../../static/globe.png';
-import TopNav from './TopNav';
+import TopNav from '../../components/TopNav';
 
 
 const API_URL = 'http://localhost:8001';
@@ -37,6 +37,7 @@ class Tool extends Component{
     axios.get(url_country).then(response => response.data)
     .then((data) => {
         this.setState({countryList: data})
+        console.log(this.state.countryList)
     })
   }
 	constructor(props, context) {
@@ -80,13 +81,14 @@ class Tool extends Component{
 		return (
 			<div className = 'tool'>
                 <TopNav></TopNav>
+                <SideMenu></SideMenu>
 				<EarthMenu toggleEarth={this.toggleEarth} earthVisibility={this.state.visibleEarth} 
                     fuelData = {this.state.fuel} landuseData = {this.state.landuse} atmosData = {this.state.atmos} 
                     oceanData = {this.state.ocean} landsinkData = {this.state.landsink} budgetData = {this.state.budget}
                     text={this.state.text} />
 				<NationMenu toggleNatlSlider={this.toggleNatlSlider} toggleMultiSlider={this.toggleMultiSlider} 
-                    toggleCountrySlider={this.toggleCountrySlider} natlVisibility={this.state.visibleNation}
-                    countryList={this.state.countryList} countryInfo={this.state.countryInfo}/>
+                    toggleCountrySlider={this.toggleCountrySlider} toggleRegionSlider={this.toggleRegionSlider} 
+                    natlVisibility={this.state.visibleNation} countryList={this.state.countryList} countryInfo={this.state.countryInfo}/>
                 <PublicNationSlide visibility={this.state.visibleNatlSlider} earth={this.state.visibleEarth}/>
                 <PublicMultiSlide visibility={this.state.visibleMultiSlider} earth={this.state.visibleEarth}/>
                 <PublicCountrySlide visibility={this.state.visibleCountrySlider} countryInfo={this.state.countryInfo} earth={this.state.visibleEarth}/>
@@ -137,7 +139,7 @@ class NationMenu extends Component {
                             NATION STATES
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="0">            
-                            <NestedMenu toggleCountrySlider={this.props.toggleCountrySlider} countryList={this.props.countryList} countryInfo={this.props.countryInfo}/>
+                            <NestedMenu toggleCountrySlider={this.props.toggleCountrySlider} countryList={this.props.countryList} countryInfo={this.props.countryInfo} toggleRegionSlider={this.toggleRegionSlider}/>
                         </Accordion.Collapse>
                     </Card>
                     <Card>
@@ -159,6 +161,25 @@ class NationMenu extends Component {
 //I want it to go back to closed when the outer accordian open and closes  
 //Solution may be creating my own accordian instead of bootstrap 
 class NestedMenu extends Component{
+    render(){
+        return(
+            <Accordion id="myAccordian2">
+                {this.props.countryList.map((countryInfo, index) =>
+                    <Card className="card">
+                        <Accordion.Toggle as={Card.Header} eventKey={index} style={{textAlign: 'left'}} className="dropButton2" 
+                        onClick={this.props.toggleCountrySlider.bind(this, countryInfo)}>
+                            {countryInfo["Name"]}
+                        </Accordion.Toggle>
+                        <Accordion.Collapse eventKey={index}> 
+                            <DoubleNested countryInfo={countryInfo} toggleRegionSlider={this.props.toggleRegionSlider}></DoubleNested>
+                        </Accordion.Collapse>
+                    </Card>)}
+            </Accordion>
+        )
+    }
+}
+
+class DoubleNested extends Component{
     componentDidMount(){
         const url = `${API_URL}/region/all?username=${username}&pwhash=${pwhash}`;
         const regions = [];
@@ -170,54 +191,52 @@ class NestedMenu extends Component{
                 }
             }
             this.setState({regionList: regions})
+            // console.log(this.props.countryInfo["Name"])
         })
     }
     constructor(props, context) {
-      super(props, context);
-      this.state = {
-        regionList: []
-      };
+        super(props, context);
+        this.state = {
+            regionList: []
+        };
     }
     render(){
         return(
-            <Accordion id="myAccordian2">
-                {this.props.countryList.map((nationInfo, index) =>
-                    <Card className="card">
-                        <Accordion.Toggle as={Card.Header} eventKey={index} style={{textAlign: 'left'}} className="dropButton2" 
-                        onClick={this.props.toggleCountrySlider.bind(this, nationInfo)}>
-                            {nationInfo["Name"]}
-                        </Accordion.Toggle>
-                        <Accordion.Collapse eventKey={index}> 
-                            <Accordion>
-                                <Accordion.Toggle as={Card.Header}eventKey="0" className="dropButton3">Subnational Regions</Accordion.Toggle>
-                                <Accordion.Collapse eventKey="0">
-                                    <Card.Body>
-                                    <Accordion>
-                                        {this.state.regionList.map((regionInfo, index) => 
-                                            <Card>
-                                            <Accordion.Toggle as={Card.Header} eventKey={index} style={{textAlign: 'left'}} className="dropButton4"
-                                            onClick={this.props.toggleRegionSlider.bind(this, regionInfo)}>
-                                                {regionInfo["Name"]}
-                                            </Accordion.Toggle>
-                                            <Accordion.Collapse eventKey={index}><Card.Body>wooh</Card.Body></Accordion.Collapse>
-                                            </Card>
-                                        )}   
-                                    </Accordion>
-                                    </Card.Body>
-                                </Accordion.Collapse>
-                                <Accordion.Toggle as={Card.Header} eventKey="1" className="dropButton3">Domestic Corporations</Accordion.Toggle>
-                                <Accordion.Collapse eventKey="1">
-                                    <Card.Body>wooh</Card.Body>
-                                </Accordion.Collapse>
-                            </Accordion>
-                        </Accordion.Collapse>
-                    </Card>)}
+            <Accordion>
+                <Accordion.Toggle as={Card.Header}eventKey="0" className="dropButton3">Subnational Regions</Accordion.Toggle>
+                <Accordion.Collapse eventKey="0">
+                    <Card.Body>
+                    <Accordion>
+                        {this.state.regionList.map((regionInfo, index) => 
+                            <Card>
+                            <Accordion.Toggle as={Card.Header} eventKey={index} style={{textAlign: 'left'}} className="dropButton4"
+                            onClick={this.props.toggleRegionSlider}>
+                                {regionInfo["Name"]}
+                            </Accordion.Toggle>
+                            <Accordion.Collapse eventKey={index}><Card.Body>wooh</Card.Body></Accordion.Collapse>
+                            </Card>
+                        )}   
+                    </Accordion>
+                    </Card.Body>
+                </Accordion.Collapse>
+                <Accordion.Toggle as={Card.Header} eventKey="1" className="dropButton3">Domestic Corporations</Accordion.Toggle>
+                <Accordion.Collapse eventKey="1">
+                    <Card.Body>wooh</Card.Body>
+                </Accordion.Collapse>
             </Accordion>
-        )
+    )
     }
 }
 
-
+class SideMenu extends Component {
+    render(){
+        return (
+            <div className="sideMenu">
+                view toggler
+            </div>
+        )
+    }
+}
 
 
 
