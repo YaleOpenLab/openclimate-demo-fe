@@ -9,11 +9,13 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<h1 className="menuBrand">OpenClimate</h1>   
+ 
 				<Landing/>
 			</div>
 		);
 	}
 }
 
-export default App;
+export default App;				
+
+// <h1 className="menuBrand">OpenClimate</h1>  

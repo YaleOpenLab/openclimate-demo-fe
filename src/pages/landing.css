@@ -1,0 +1,100 @@
+/*-----------------------------------------------*/
+/*                 Landing Page                  */
+/*-----------------------------------------------*/
+
+.fullHeight{
+  height: 100vh;
+  border-bottom: 1px solid #E2E2E2;
+  text-align: center;
+}
+
+/*-------------------------*/
+/*      Landing Page       */
+/*     Scroll Page 1       */
+/*-------------------------*/
+
+.climateheader1{
+  padding-top: 10%;
+  color: #7F7F7F;
+  font-size: 20px;
+}
+.climateheader2{
+  color: #707070;
+  font-size: 49px;
+  padding-left: 10%;
+  padding-right: 10%;
+
+}
+.climateheader3{
+  color: #7F7F7F;
+  font-size: 20px;
+  padding-left: 20%;
+  padding-right: 20%;
+
+}
+
+.enterButton{
+  background-color: #2699FB;
+  color: white;
+  font-size: 12px;
+  border-radius: 8px;
+  width: 120px;
+  height: 40px; 
+  float: center;
+}
+
+/*-------------------------*/
+/*      Landing Page       */
+/*     Scroll Page 2       */
+/*-------------------------*/
+
+.textDiv{
+  text-align: left;
+  width: 40%;
+  height: 100%;
+  left:20%;
+  position: absolute;
+  padding-top: 8%;
+}
+.globaldataheader{
+  color: #707070;
+  font-size: 49px;
+}
+.globaltext{
+  color: #7F7F7F;
+  font-size: 17px;
+}
+
+.carbon_data{
+  width: 20%;
+  height: 80%;
+  top: 110%;
+  left: 65%;
+  position: absolute;
+}
+
+/*-------------------------*/
+/*      Landing Page       */
+/*     Scroll Page 3       */
+/*-------------------------*/
+
+.explorerDiv{
+  height: 100%;  
+  text-align: left;
+  padding-top: 8%;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+.globalemissionheader{
+  color: #707070;
+  font-size: 49px;
+}
+.globalemissiontext{
+  color: #7F7F7F;
+  font-size: 17px;
+}
+
+
+
+
+

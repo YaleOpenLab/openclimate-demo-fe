@@ -19,84 +19,11 @@ body{
   margin-left: 3%;
   margin-top: 2%;
   color: #7E7E7E;
-  /*position: absolute;*/
-}
-
-.mybutt{
-  background-color: #2699FB;
-  color: white;
-  font-size: 12px;
-  border-radius: 8px;
-  width: 120px;
-  height: 40px; 
-  margin-top: 4%;
 }
 
 
-/*-----------------------------------------------*/
-/*                 Landing Page                  */
-/*-----------------------------------------------*/
 
-.fullScroll{
-  height: 100vh !important;
-}
 
-/*-------------------------*/
-/*      Landing Page       */
-/*     Scroll Page 1       */
-/*-------------------------*/
-
-#climateheader1{
-  margin-top: 20%;
-  color: #7F7F7F;
-  font-size: 20px;
-}
-
-#climateheader2{
-  color: #707070;
-  font-size: 49px;
-}
-
-#climateheader3{
-  color: #7F7F7F;
-  font-size: 20px;
-  margin-top: 4%;
-}
-
-/*-------------------------*/
-/*      Landing Page       */
-/*     Scroll Page 2       */
-/*-------------------------*/
-
-#globaldataheader{
-  color: #707070;
-  font-size: 49px;
-  margin-top: 35%
-}
-#carbon_data{
-  width: 296px;
-  height: 609px;
-  margin-top: 20%;
-}
-#globaltext{
-  color: #7F7F7F;
-  font-size: 17px;
-  margin-top: 3%;
-}
-
-/*-------------------------*/
-/*      Landing Page       */
-/*     Scroll Page 3       */
-/*-------------------------*/
-#globalemissionheader{
-  color: #707070;
-  font-size: 49px;
-  margin-top: 10%
-}
-#globalemissiontext{
-  color: #7F7F7F;
-  font-size: 17px;
-}
 
 
 /*-------------------------*/
