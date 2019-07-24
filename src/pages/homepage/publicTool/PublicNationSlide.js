@@ -1,6 +1,6 @@
 import React from 'react'; 
 import { Component } from 'react';
-import '../../App.css';
+import '../../../App.css';
 
 class PublicNationSlide extends Component{
 	constructor(props, context) {

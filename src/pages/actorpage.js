@@ -9,6 +9,8 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import ListGroup from 'react-bootstrap/ListGroup';
 import globe from '../static/globe.png';
+import TopNav from '../components/TopNav';
+import Footer from '../components/Footer';
 
 import axios from "axios";
 
@@ -48,31 +50,11 @@ class ActorPage extends Component{
 	render() {
 		return (	
 			<div className = 'actorpage'>				
-			<SlideMenu onclick={this.toggleMenu} menuVisibility={this.state.visibleMenu}/>
-				<Navbar bg="light" expand="lg" className="myNav">
-					<div class="menuBars" onClick={this.toggleMenu}>
-					  <div class="bar1"></div>
-					  <div class="bar2"></div>
-					  <div class="bar3"></div>
-					</div>
-					<Form inline className='searchBar'>
-			      <FormControl type="text" placeholder="SEARCH" className="mySearch"></FormControl>
-			    </Form>
-			    <Nav className="ml-auto">
-				    <Nav.Link className="myPages" href="#explore">EXPLORE</Nav.Link>
-	      		<Nav.Link className="myPages" href="#account">ACCOUNT</Nav.Link>
-	      		<Nav.Link className="myPages" href="#trade">TRADE</Nav.Link>
-      		</Nav>
-				</Navbar>
-				<div className="tabContainer">
-					<NavLink to="#"><button className="myTabs">DASHBOARD</button></NavLink>
-					<NavLink to="/actorpage"><button className="myTabs">VIEW</button></NavLink>
-					<NavLink to="/review"><button className="myTabs">REVIEW</button></NavLink>
-					<NavLink to="#"><button className="myTabs">MANAGE</button></NavLink>
-				</div>
+				<TopNav page="account"/>
 				<div className="earthCol"><div className="colHeader">EARTH</div></div>
 				<div className="nationCol"><div className="colHeader">NATION STATE</div></div>
 				<div className="subnatCol">
+					<StateTab stateVisibility={this.state.visibleState} stateName={this.state.lastIndex} tester={this.state.states}/>
 					<div className="colHeader">SUBNATIONAL</div>
 					<div className="scroller">
 						 <ListGroup variant="flush">
@@ -84,8 +66,9 @@ class ActorPage extends Component{
 						</ListGroup>
 					</div>
 				</div>
-				<StateTab stateVisibility={this.state.visibleState} stateName={this.state.lastIndex} tester={this.state.states}/>
+				
 				<div className="assetsCol"><div className="colHeader">CLIMATE ACTION ASSETS</div></div>
+				<Footer/>
 			</div>
 		)
 	}
@@ -116,19 +99,19 @@ class StateTab extends Component {
   }
 }
 
-class SlideMenu extends Component {
-  render() {
-    var visibility = "hide";
-    if (this.props.menuVisibility) { visibility = "show"; }
-    return (
-      <div id="slideMenu"  className={visibility}>
-      	<div className="topMenu">
-      		<button className="closeButton" onClick={this.props.onclick}><i className="fa fa-times" aria-hidden="true"></i></button>
-      		<img id="globe" src={globe} alt="Globe" />
-      	</div>
-      	<div>
-      	</div>
-      </div>
-    );
-  }
-}
+// class SlideMenu extends Component {
+//   render() {
+//     var visibility = "hide";
+//     if (this.props.menuVisibility) { visibility = "show"; }
+//     return (
+//       <div id="slideMenu"  className={visibility}>
+//       	<div className="topMenu">
+//       		<button className="closeButton" onClick={this.props.onclick}><i className="fa fa-times" aria-hidden="true"></i></button>
+//       		<img id="globe" src={globe} alt="Globe" />
+//       	</div>
+//       	<div>
+//       	</div>
+//       </div>
+//     );
+//   }
+// }

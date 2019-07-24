@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
-import '../../App.css';
+import '../../../App.css';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
@@ -12,13 +12,14 @@ import PublicNationSlide from './PublicNationSlide';
 import PublicMultiSlide from './PublicMultiSlider';
 import PublicCountrySlide from './PublicCountrySlider';
 import PublicSubnatlSlide from './PublicSubnatlSlider';
-import globe from '../../static/globe.png';
-import TopNav from '../../components/TopNav';
+import globe from '../../../static/globe.png';
+import TopNav from '../../../components/TopNav';
 
 
 const API_URL = 'http://localhost:8001';
 const username = 'amanda';
 const pwhash = '9a768ace36ff3d1771d5c145a544de3d68343b2e76093cb7b2a8ea89ac7f1a20c852e6fc1d71275b43abffefac381c5b906f55c3bcff4225353d02f1d3498758';
+
 
 
 class Tool extends Component{	
@@ -80,8 +81,7 @@ class Tool extends Component{
 	render() {
 		return (
 			<div className = 'tool'>
-                <TopNav></TopNav>
-                <SideMenu></SideMenu>
+
 				<EarthMenu toggleEarth={this.toggleEarth} earthVisibility={this.state.visibleEarth} 
                     fuelData = {this.state.fuel} landuseData = {this.state.landuse} atmosData = {this.state.atmos} 
                     oceanData = {this.state.ocean} landsinkData = {this.state.landsink} budgetData = {this.state.budget}
@@ -98,6 +98,7 @@ class Tool extends Component{
 	}	
 }
 export default Tool;
+
 
 
 class EarthMenu extends Component {
@@ -228,15 +229,15 @@ class DoubleNested extends Component{
     }
 }
 
-class SideMenu extends Component {
-    render(){
-        return (
-            <div className="sideMenu">
-                view toggler
-            </div>
-        )
-    }
-}
+// class SideMenu extends Component {
+//     render(){
+//         return (
+//             <div className="sideMenu">
+//                 view toggler
+//             </div>
+//         )
+//     }
+// }
 
 
 

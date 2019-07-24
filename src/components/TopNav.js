@@ -1,18 +1,21 @@
 import React from 'react';
 import { Component } from 'react';
 import './TopNav.css'
-import '../App.css';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import axios from "axios";
 import globe from '../static/globe.png'; 
+import SlideMenu from './SlideMenu';
 
 class TopNav extends Component {
 	constructor(props, context) {
         super(props, context);
         this.state = { visibleMenu: false };
-        this.toggleMenu = this.toggleMenu.bind(this);
+        this.toggleMenu = this.toggleMenu.bind(this); 
+        if(this.props.page == "explore") (this.state = { explore: 'active' })
+       	if(this.props.page == "account") (this.state = { account: 'active' })
+       	if(this.props.page == "trade") (this.state = { trade: 'active' })
 	}
 	toggleMenu() {
         this.setState({ visibleMenu: !this.state.visibleMenu });
@@ -22,9 +25,9 @@ class TopNav extends Component {
     		<div>
 				<SlideMenu onclick={this.toggleMenu} menuVisibility={this.state.visibleMenu}/>
 				<div className="myNavbar">
-					<button className="myNavButton">TRADE</button>
-					<button className="myNavButton">ACCOUNT</button>
-					<button className="myNavButton active">EXPLORE</button>
+					<NavLink to='/trade'><button id="myNavButton" className={this.state.trade} >TRADE</button></NavLink>
+					<NavLink to='/actorpage'><button id="myNavButton" className={this.state.account} >ACCOUNT</button></NavLink>
+					<NavLink to='/homepage'><button id="myNavButton" className={this.state.explore} >EXPLORE</button></NavLink>
 					<Form inline className='searchBar'>
 						<FormControl type="text" placeholder="SEARCH" className="mySearch"></FormControl>
 					</Form>
@@ -35,29 +38,39 @@ class TopNav extends Component {
 					</div>
 				</div>
 				<div className="lowerNav">
-					<NavLink to="/actorpage#account"><button className="login">LOG IN</button></NavLink>
+					{this.state.trade &&
+						<div>
+							<button>DASHBOARD</button>
+							<button>VIEW</button>
+							<button>REVIEW</button>
+							<button>MANAGE</button>
+							<NavLink to="/actorpage#account"><button className="login">LOG IN</button></NavLink>
+						</div>}
+					{!this.state.trade && 						
+						<NavLink to="/actorpage#account"><button className="login">LOG IN</button></NavLink>}
 				</div>
 			</div>
     	)
     }
 }
 
+
 export default TopNav;
 
-class SlideMenu extends Component {
-  render() {
-    var visibility = "hide";
-    if (this.props.menuVisibility) { visibility = "show"; }
-    return (
-      <div id="slideMenu"  className={visibility}>
-        <div className="topMenu">
-            <button className="closeButton" onClick={this.props.onclick}><i className="fa fa-times" aria-hidden="true"></i></button>
-            <img id="globe" src={globe} alt="Globe" />
-        </div>
-        <div>
-        </div>
-      </div>
-    );
-  }
-}
+// class SlideMenu extends Component {
+//   render() {
+//     var visibility = "hide";
+//     if (this.props.menuVisibility) { visibility = "show"; }
+//     return (
+//       <div id="slideMenu"  className={visibility}>
+//         <div className="topMenu">
+//             <button className="closeButton" onClick={this.props.onclick}><i className="fa fa-times" aria-hidden="true"></i></button>
+//             <img id="globe" src={globe} alt="Globe" />
+//         </div>
+//         <div>
+//         </div>
+//       </div>
+//     );
+//   }
+// }
 

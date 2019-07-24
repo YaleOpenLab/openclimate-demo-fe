@@ -24,8 +24,6 @@ body{
 
 
 
-
-
 /*-------------------------*/
 /*      Slide Menu         */
 /*-------------------------*/
@@ -395,16 +393,14 @@ body{
 
 
 
-.myNav{
+/*.myNav{
   border-bottom: 1px solid #E2E2E2; 
   height: 80px !important;
-}
+}*/
 
 
 
-
-
-.myPages{
+/*.myPages{
   color: #639063 !important;
   padding-right: 20px !important;
   padding-left: 20px !important;
@@ -442,37 +438,41 @@ body{
   outline: none;
   border-bottom: 2px solid currentColor !important;
 }
-
+*/
 .colHeader{
-  height: 80px;
+  height: 15%;
   color: #2699FB ;
   font-weight: bold;
   border-bottom: 1px solid #E2E2E2;
   text-align: left;
-  padding-left: 30px;
+/*  padding-left: 30px;
   padding-bottom: 0px;
-  padding-top: 40px;
-  position: sticky;
+  padding-top: 40px;*/
+  position: relative;
+  top:0;
 }
 .scroller{
-  height: calc(100vh - 220px);
+  height: 85%;
   overflow: scroll;
+  z-index: 5;
 }
 
 .earthCol{
-  height: calc(100vh - 140px);
+  height: 88%; 
   width: 10%;
   border-right: 1px solid #E2E2E2;
-  position: fixed;
+  position: absolute;
+  bottom: 0;
   background-color: white;
   z-index: 10;
  }
 .nationCol{
-  height: calc(100vh - 140px);
+  height: 88%;
   width: 15%;
   margin-left: 10%;
   border-right: 1px solid #E2E2E2;
-  position: fixed;
+  position: absolute;
+  bottom: 0;
   background-color: white;
   z-index: 10;
  }
@@ -484,33 +484,32 @@ body{
   font-weight: bold !important;
 }
 .subnatCol{
-  height: calc(100vh - 140px);
+  height: 88%;
   width: 15%;
   margin-left: 25%;
   border-right: 1px solid #E2E2E2;
-  position: fixed;
-  z-index: 10;
+  position: absolute;
+  bottom: 0;
+  z-index: 5;
  }
 .assetsCol{
-  height: calc(100vh - 140px);
+  height: 88%;
   width: 20%;
   margin-left: 40%;
   border-right: 1px solid #E2E2E2;
-  position: fixed;
+  position: absolute;
+  bottom: 0;
  }
 
 #stateTab {
-  height: 100vh;
-  top: 220px;
-  width: 20%;
+  height: 85%;
+  top: 15%;
+  width: 133%;
   background-color: #F5F5F5;
-  position: fixed; 
-  /*top: 0;
-  /*overflow: scroll;*/
+  position: absolute; 
   z-index: 0;  
-  transform: translateX(0vw);  
-  border-right: 1px solid #D3D3D3;
-  /*min-width: 1000px;*/
+  transform: translateX(-30vw);  
+  /*border-right: 1px solid #D3D3D3;*/
 }
 
 #stateTab.hide {
@@ -522,7 +521,7 @@ body{
 }
 
 @keyframes slideR {
-  100% { transform: translateX(40vw); }
+  100% { transform: translateX(15vw); }
 /*  0% {width: 40vh;}
   100% {width: 100vh;}*/
   
@@ -530,136 +529,9 @@ body{
 @keyframes slideL {
   /*0% {width: 100vh;}
   100% {width: 40vh}*/
-  0% { transform: translateX(40vw); }
-  100% { transform: translateX(0vw); }
+  0% { transform: translateX(15vw); }
+  100% { transform: translateX(-30vw); }
 }
-
-
-/*-----------------------------------------------*/
-/*                 For Reference                 */
-/*-----------------------------------------------*/
-
-
-/*.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.customlogin {
-  font-size: 16px;
-  font-weight: bold;
-  font-family: Roboto;
-  color: #2699fb;
-}
-
-.navbar-brand{
-  font-size: 36px;
-  font-family: Roboto !important;
-  color: #7e7e7e !important;
-}
-
-
-#roundButton {
-  background-color: #96D9FF;
-  margin-bottom: 20px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: 10px solid #0065A6;
-  outline: none;
-  transition: all .2s cubic-bezier(0, 1.26, .8, 1.28);
-}
- 
-#roundButton:hover {
-  background-color: #96D9FF;
-  cursor: pointer;
-  border-color: #003557;
-  transform: scale(1.2, 1.2);
-}
- 
-#roundButton:active {
-  border-color: #003557;
-  background-color: #FFF;
-}
-
-#flyoutMenu {
-  width: 25vw;
-  height: 100vh;
-  background-color: #F7f4f4;
-  position: fixed;
-  top: 0;
-  left: 0;
-  transition: ease-in-out .5s;
-  transition: margin-left .5s;
-  transition: transform .3s cubic-bezier(0, .52, 0, 1);
-  overflow: scroll;
-  z-index: 1000;
-}
- 
-#flyoutMenu.hide {
-  transform: translate3d(-100vw, 0, 0);
-}
- 
-#flyoutMenu.show {
-  transform: translate3d(0vw, 0, 0);
-  transition: margin-left .5;
-  overflow: hidden;
-}
- 
-#flyoutMenu h2 a {
-  color: #333;
-  margin-left: 15px;
-  text-decoration: none;
-}
- 
-#flyoutMenu h2 a:hover {
-  text-decoration: underline;
-}
-
-
-
-
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-*/
-
-/*.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}*/
 
 
 

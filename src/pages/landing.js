@@ -1,20 +1,34 @@
 import React from 'react';
 import { Component } from 'react';
-// import '../App.css';
 import './landing.css';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import globe from '../static/globe.png'
 import carbon_data from '../static/carbon-data.png'
 import { NavLink, Switch, Route } from 'react-router-dom';
+import SlideMenu from '../components/SlideMenu';
 
 
 class Landing extends Component{
+    constructor(props, context) {
+        super(props, context);
+        this.state = { visibleMenu: false };
+        this.toggleMenu = this.toggleMenu.bind(this);
+    }
+    toggleMenu() {
+        this.setState({ visibleMenu: !this.state.visibleMenu });
+    }
 	render(){
 		return (
       		<div>
+                <SlideMenu onclick={this.toggleMenu} menuVisibility={this.state.visibleMenu}/>
+                <div class="menuBarsLand" onClick={this.toggleMenu}>
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
       			<div className="fullHeight">
-        			<Content/>
+                    <Content/>
         		</div>
         		<div className="fullHeight">
         			<GlobalData/>

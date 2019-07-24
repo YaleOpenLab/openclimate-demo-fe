@@ -1,0 +1,57 @@
+/*-------------------------*/
+/*     Slide-in menu       */
+/* triggered by burger bars*/
+/*-------------------------*/
+#slideMenu {
+  height: 100vh;
+  width: 15%;
+  background-color: #F5F5F5;
+  position: fixed; 
+  z-index: 20;  
+  transform: translateX(-40vw);  
+  border-right: 1px solid #D3D3D3;
+}
+#slideMenu.hide {
+  animation: slideSL .5s forwards;
+}
+#slideMenu.show {
+  animation: slideSR .5s forwards;
+}
+@keyframes slideSR {
+  100% { transform: translateX(0vw); }
+}
+@keyframes slideSL {
+  0% { transform: translateX(0vw); }
+  100% { transform: translateX(-40vw); }
+}
+/*-----------------*/
+/*X or close button*/
+/*-----------------*/
+.closeButton{
+  float: right;
+  background-color: white;
+  border: none;
+  margin-top: 8%; 
+  margin-right: 10%;
+  font-size: 20px;
+  color: #6F6D6D;
+}
+.closeButton:hover{
+  transform: scale(1.06, 1.06);
+}
+/*-------------------------*/
+/*formatting for slide menu*/
+/*-------------------------*/
+.topMenu{
+  height: 50vh;
+  width: 100%;
+  background-color: white;
+}
+/*---------------------*/
+/*globe image in slider*/
+/*---------------------*/
+#globe{
+  height: 100px;
+  width: 140px;
+  float: center;
+}

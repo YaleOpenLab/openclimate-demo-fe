@@ -5,10 +5,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 import * as serviceWorker from './serviceWorker';
 import { Route, NavLink, BrowserRouter as Router } from 'react-router-dom'
 import App from './App';
-import HomePage from './pages/homepage';
+import HomePage from './pages/homepage/homepage';
 import Landing from './pages/landing';
-import Tool from './pages/publicTool/tool';
-import ActorPage from './pages/actorpage'
+import Tool from './pages/homepage/publicTool/tool';
+import ActorPage from './pages/actorpage';
+import TradePage from './pages/Trade';
 
 
 const routing = (
@@ -18,6 +19,7 @@ const routing = (
       <Route path="/homepage" component={HomePage} />
       <Route path="/tool" component={Tool} />
       <Route path="/actorpage" component={ActorPage} />
+      <Route path="/trade" component={TradePage} />
     </div>
   </Router>
 )
