@@ -109,9 +109,22 @@
   margin-right: 2%;
   position: static;
 }
-/*.login:focus{
+.login:focus{
   outline: none;
-}*/
+}
 
+#loginMenu{
+  z-index: 11;
+  position: absolute;
+  display: none;
+  background-color: black;
+  width: 20%;
+  height: 900%;
+  top: 100%;
+  right: 2%;
+}
+#loginMenu.show{
+  display: block;
+}
 
 

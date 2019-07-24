@@ -11,14 +11,18 @@ import SlideMenu from './SlideMenu';
 class TopNav extends Component {
 	constructor(props, context) {
         super(props, context);
-        this.state = { visibleMenu: false };
+        this.state = { visibleMenu: false, visibleLogin: false };
         this.toggleMenu = this.toggleMenu.bind(this); 
+        this.toggleLogin = this.toggleLogin.bind(this); 
         if(this.props.page == "explore") (this.state = { explore: 'active' })
        	if(this.props.page == "account") (this.state = { account: 'active' })
        	if(this.props.page == "trade") (this.state = { trade: 'active' })
 	}
 	toggleMenu() {
         this.setState({ visibleMenu: !this.state.visibleMenu });
+    }
+    toggleLogin(){
+    	this.setState({ visibleLogin: !this.state.visibleLogin});
     }
     render() {
     	return (
@@ -38,7 +42,7 @@ class TopNav extends Component {
 					</div>
 				</div>
 				<div className="lowerNav">
-					{this.state.trade &&
+					{this.state.account &&
 						<div>
 							<button>DASHBOARD</button>
 							<button>VIEW</button>
@@ -46,8 +50,9 @@ class TopNav extends Component {
 							<button>MANAGE</button>
 							<NavLink to="/actorpage#account"><button className="login">LOG IN</button></NavLink>
 						</div>}
-					{!this.state.trade && 						
-						<NavLink to="/actorpage#account"><button className="login">LOG IN</button></NavLink>}
+					{!this.state.account && 						
+						<button className="login" onClick={this.toggleLogin}>LOG IN</button>}
+						<LogInMenu loginVisibility={this.state.visibleLogin}/>
 				</div>
 			</div>
     	)
@@ -57,20 +62,15 @@ class TopNav extends Component {
 
 export default TopNav;
 
-// class SlideMenu extends Component {
-//   render() {
-//     var visibility = "hide";
-//     if (this.props.menuVisibility) { visibility = "show"; }
-//     return (
-//       <div id="slideMenu"  className={visibility}>
-//         <div className="topMenu">
-//             <button className="closeButton" onClick={this.props.onclick}><i className="fa fa-times" aria-hidden="true"></i></button>
-//             <img id="globe" src={globe} alt="Globe" />
-//         </div>
-//         <div>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
+class LogInMenu extends Component {
+  render() {
+    var visibility = "";
+    if (this.props.loginVisibility) { visibility = "show"; }
+    return (
+      <div id="loginMenu"  className={visibility}>
+      	hello
+      </div>
+    );
+  }
+}
 
