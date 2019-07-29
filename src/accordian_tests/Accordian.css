@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,400');
+
+body {
+  font-family: 'Raleway', sans-serif;
+  font-size: 80%;
+  margin: 2em;
+}
+@media (min-width: 620px) {
+  body {
+    font-size: 100%;
+  }
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0;
+}
+h2 {
+  font-size: 1em;
+  margin-bottom: 2em;
+}
+
+button {
+  background-color: #4abdac;
+  color: white;
+  border-radius: 0.5em;
+  border: none;
+  padding: 1em;
+  margin-right: 0.5em;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #59C3B3;
+}
+button:focus {
+  outline:0;
+}
+
+p:first-child {
+  margin-top: 0;
+}
+p:last-child {
+  margin-bottom: 0;
+}
+
+img {
+  width: 30%;
+  float: left;
+  margin: 0 1em 0.5em 0;
+}
+
+pre {
+  margin-top: 4em;
+  background-color: #f9f9f9;
+  padding: 1em;
+  border: 1px solid #ddd;
+  border-radius: 0.5em;
+}
+
+
+
+/*** ACCORDION ***/
+
+/* Header */
+.accordion > div > div:first-of-type {
+  padding: 1em;
+  background-color: #4abdac;
+  color: white;
+  text-transform: uppercase;
+  user-select: none;
+  font-weight: 200;
+  cursor: pointer;
+  border-radius: 0.5em;
+  box-shadow: 0 -10px 30px 2px rgba(0, 0, 0, 0.1) inset;
+}
+.accordion > div > div:first-of-type:hover {
+  background-color: #59C3B3;
+}
+
+/* Content Section */
+.accordion > div > div:last-of-type {
+  background-color: #f9f9f9;
+  margin: 0 0.5em;
+  box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Inner */
+.accordion .accordion-item {
+  padding: 1em;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  overflow: auto;
+}
+.accordion > div:first-child .accordion-item {
+  max-height: 200px;
+}
+.accordion > div.open .accordion-item {
+  opacity: 1;
+  transition: opacity 700ms ease;
+}
+.accordion img.accordion-item {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
