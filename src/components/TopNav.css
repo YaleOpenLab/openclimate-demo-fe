@@ -89,10 +89,40 @@
 .lowerNav{
   height: 5%;
   width: 100%;
+  position: absolute;
   border: 1px solid #DADCE0;
   top: 7%;
-  position: absolute;
 }
+
+/*------------------*/
+/* Lower nav buttons*/
+/*------------------*/
+  
+.lowerButtonDiv{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  /*left: 30%;*/
+}
+
+#lowerNavButton{
+  position: relative;
+  height: 100%;
+  outline: none;
+  border: none;
+  background-color: white;
+  color: #6F6D6D;
+}
+#lowerNavButton:focus{
+  outline: none;
+}
+#lowerNavButton.active{
+  outline: none;
+  background-color: white;
+  border-bottom: 2px solid currentColor;
+  font-weight: bold;
+}
+
 
 /*------------------*/
 /*   Login button   */
@@ -109,6 +139,7 @@
   margin-right: 2%;
   position: static;
 }
+
 .login:focus{
   outline: none;
 }

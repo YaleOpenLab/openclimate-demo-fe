@@ -11,7 +11,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import globe from '../static/globe.png';
 import TopNav from '../components/TopNav';
 import Footer from '../components/Footer';
-
+import globeLarge from '../static/globeLarge.png';
 import axios from "axios";
 
 const API_URL = 'http://localhost:8001';
@@ -50,12 +50,36 @@ class ActorPage extends Component{
 	render() {
 		return (	
 			<div className = 'actorpage'>				
-				<TopNav page="account"/>
-				<div className="earthCol"><div className="colHeader">EARTH</div></div>
-				<div className="nationCol"><div className="colHeader">NATION STATE</div></div>
+				<TopNav page="account_view"/>
+				<div className="earthCol">
+					<div className="colHeader"><span className="headerText">EARTH</span></div>
+					<div className="colContent">
+						<img id="globeLarge" src={globeLarge} alt="Globe" />
+						<hr/>
+						<div className="infoBox">
+							<span className="large">0.98</span><br/>
+							<span className="small"><sup>o</sup>C warming relative to 1980</span>
+						</div>
+						<div className="infoBox">
+							<span className="large">411</span><br/>
+							<span className="small">CO<sub>2</sub> ppm</span>
+						</div>
+						<hr/>
+						<div className="carbonTitle">CARBON BUDGET</div>
+						<div className="infoBox">
+							<span className="large">550</span><br/>
+							<span className="small">Gt CO<sub>2</sub>e left based on a 1.5 target</span>
+						</div>
+						<div className="infoBox">
+							<span className="large">50</span><br/>
+							<span className="small">GtCO<sub>2</sub>e/year</span><br/>
+							<span className="yearRisk">15 YEAR RISK</span>
+						</div>
+					</div>
+				</div>
+				<div className="nationCol"><div className="colHeader"><span className="headerText">NATION STATE</span></div></div>
 				<div className="subnatCol">
-					<StateTab stateVisibility={this.state.visibleState} stateName={this.state.lastIndex} tester={this.state.states}/>
-					<div className="colHeader">SUBNATIONAL</div>
+			{/*		<StateTab stateVisibility={this.state.visibleState} stateName={this.state.lastIndex} tester={this.state.states}/>*/}					<div className="colHeader"><span className="headerText">SUBNATIONAL</span></div>
 					<div className="scroller">
 						 <ListGroup variant="flush">
 						 {this.state.states.map((state) =>
@@ -67,7 +91,7 @@ class ActorPage extends Component{
 					</div>
 				</div>
 				
-				<div className="assetsCol"><div className="colHeader">CLIMATE ACTION ASSETS</div></div>
+				<div className="assetsCol"><div className="colHeader"><span className="headerText">CLIMATE ACTION ASSETS</span></div></div>
 				<Footer/>
 			</div>
 		)
@@ -85,33 +109,8 @@ class StateTab extends Component {
     return (
 			<div id="stateTab" className={visibility}>
 				<h1>{this.props.stateName}</h1>	
-				{/*			
-				  <div className="tester">
-				  	{this.props.tester.map((state) => (
-						<div>
-							<h5>{state}</h5>
-						</div>
-					))}
-				</div>
-			*/}
 			</div>
     );
   }
 }
 
-// class SlideMenu extends Component {
-//   render() {
-//     var visibility = "hide";
-//     if (this.props.menuVisibility) { visibility = "show"; }
-//     return (
-//       <div id="slideMenu"  className={visibility}>
-//       	<div className="topMenu">
-//       		<button className="closeButton" onClick={this.props.onclick}><i className="fa fa-times" aria-hidden="true"></i></button>
-//       		<img id="globe" src={globe} alt="Globe" />
-//       	</div>
-//       	<div>
-//       	</div>
-//       </div>
-//     );
-//   }
-// }

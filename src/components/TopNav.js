@@ -15,9 +15,12 @@ class TopNav extends Component {
         this.toggleMenu = this.toggleMenu.bind(this); 
         this.toggleLogin = this.toggleLogin.bind(this); 
         if(this.props.page == "explore") (this.state = { explore: 'active' })
-       	if(this.props.page == "account") (this.state = { account: 'active' })
+		if(this.props.page == "account_dashboard") (this.state = { account: 'active', dashboard: 'active'} )
+       	if(this.props.page == "account_view") (this.state = { account: 'active', view: 'active'} )
+       	if(this.props.page == "account_review") (this.state = { account: 'active', review: 'active'} )
+      	if(this.props.page == "account_manage") (this.state = { account: 'active', manage: 'active'} )
        	if(this.props.page == "trade") (this.state = { trade: 'active' })
-	}
+    }
 	toggleMenu() {
         this.setState({ visibleMenu: !this.state.visibleMenu });
     }
@@ -25,6 +28,7 @@ class TopNav extends Component {
     	this.setState({ visibleLogin: !this.state.visibleLogin});
     }
     render() {
+    	console.log(this.state.view);
     	return (
     		<div>
 				<SlideMenu onclick={this.toggleMenu} menuVisibility={this.state.visibleMenu}/>
@@ -43,16 +47,16 @@ class TopNav extends Component {
 				</div>
 				<div className="lowerNav">
 					{this.state.account &&
-						<div>
-							<button>DASHBOARD</button>
-							<button>VIEW</button>
-							<button>REVIEW</button>
-							<button>MANAGE</button>
-							<NavLink to="/actorpage#account"><button className="login">LOG IN</button></NavLink>
+						<div className="lowerButtonDiv">
+							<NavLink to='/dashboard'><button id="lowerNavButton" className={this.state.dashboard}>DASHBOARD</button></NavLink>
+							<NavLink to='/actorpage'><button id="lowerNavButton" className={this.state.view}>VIEW</button></NavLink>
+							<NavLink to='/review'><button id="lowerNavButton" className={this.state.review}>REVIEW</button></NavLink>
+							<NavLink to='/manage'><button id="lowerNavButton" className={this.state.manage}>MANAGE</button></NavLink>
+							<button className="login" onClick={this.toggleLogin}>LOG IN</button>
 						</div>}
 					{!this.state.account && 						
 						<button className="login" onClick={this.toggleLogin}>LOG IN</button>}
-						<LogInMenu loginVisibility={this.state.visibleLogin}/>
+					<LogInMenu loginVisibility={this.state.visibleLogin}/>
 				</div>
 			</div>
     	)
