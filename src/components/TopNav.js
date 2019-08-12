@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import axios from "axios";
 import globe from '../static/globe.png'; 
+import companyIcon from '../static/companyIcon.png';
 import SlideMenu from './SlideMenu';
 
 class TopNav extends Component {
@@ -28,7 +29,6 @@ class TopNav extends Component {
     	this.setState({ visibleLogin: !this.state.visibleLogin});
     }
     render() {
-    	console.log(this.state.view);
     	return (
     		<div>
 				<SlideMenu onclick={this.toggleMenu} menuVisibility={this.state.visibleMenu}/>
@@ -46,16 +46,19 @@ class TopNav extends Component {
 					</div>
 				</div>
 				<div className="lowerNav">
-					{this.state.account &&
-						<div className="lowerButtonDiv">
-							<NavLink to='/dashboard'><button id="lowerNavButton" className={this.state.dashboard}>DASHBOARD</button></NavLink>
-							<NavLink to='/actorpage'><button id="lowerNavButton" className={this.state.view}>VIEW</button></NavLink>
-							<NavLink to='/review'><button id="lowerNavButton" className={this.state.review}>REVIEW</button></NavLink>
-							<NavLink to='/manage'><button id="lowerNavButton" className={this.state.manage}>MANAGE</button></NavLink>
-							<button className="login" onClick={this.toggleLogin}>LOG IN</button>
-						</div>}
 					{!this.state.account && 						
 						<button className="login" onClick={this.toggleLogin}>LOG IN</button>}
+					{this.state.account &&
+						<div>
+							<img id="companyIcon" src={companyIcon}/>
+							<button className="login" onClick={this.toggleLogin}>Avangrid</button>
+							<div className="lowerButtonDiv">
+								<NavLink to='/dashboard'><button id="lowerNavButton" className={this.state.dashboard}>DASHBOARD</button></NavLink>
+								<NavLink to='/actorpage'><button id="lowerNavButton" className={this.state.view}>VIEW</button></NavLink>
+								<NavLink to='/review'><button id="lowerNavButton" className={this.state.review}>REVIEW</button></NavLink>
+								<NavLink to='/manage'><button id="lowerNavButton" className={this.state.manage}>MANAGE</button></NavLink>
+							</div>
+						</div>}
 					<LogInMenu loginVisibility={this.state.visibleLogin}/>
 				</div>
 			</div>

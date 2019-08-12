@@ -11,7 +11,7 @@
   width: 100%;
   position: absolute;
   top:0;
-  background-color: #F7F4F4;
+  background-color: #037367;
 }
 
 /*----------------------------------------*/
@@ -21,8 +21,8 @@
   height: 100%;
   outline: none;
   border: none;
-  background-color: #F7F4F4;
-  color: #3FAA7D;
+  background-color: #037367;
+  color: #FFFFFF;
   float: right;
   padding-right: 2%;
   padding-left: 2%;
@@ -36,8 +36,9 @@
 }
 #myNavButton.active{
   outline: none;
-  background-color: white;
-  border-bottom: 2px solid currentColor;
+  background-color: #F2F8F7;
+  color: #011916;
+  /*border-bottom: 2px solid currentColor;*/
   font-weight: bold;
 }
 
@@ -56,7 +57,7 @@
 .bar1, .bar2, .bar3 {
   width: 25px;
   height: 3px;
-  background-color: #6F6D6D;
+  background-color: #FFFFFF;
   margin: 3px ;
   transition: 0.4s;
 }
@@ -90,7 +91,8 @@
   height: 5%;
   width: 100%;
   position: absolute;
-  border: 1px solid #DADCE0;
+  background-color: #F2F8F7;
+  border: 1px solid #F2F8F7;
   top: 7%;
 }
 
@@ -100,9 +102,10 @@
   
 .lowerButtonDiv{
   position: absolute;
+  display: inline-block;
   height: 100%;
   width: 100%;
-  /*left: 30%;*/
+  left: 30%;
 }
 
 #lowerNavButton{
@@ -110,15 +113,16 @@
   height: 100%;
   outline: none;
   border: none;
-  background-color: white;
-  color: #6F6D6D;
+  background-color: #F2F8F7;
+  color: #011916;
+  font-size: 14px;
 }
 #lowerNavButton:focus{
   outline: none;
 }
 #lowerNavButton.active{
   outline: none;
-  background-color: white;
+  /*background-color: white;*/
   border-bottom: 2px solid currentColor;
   font-weight: bold;
 }
@@ -130,16 +134,19 @@
 .login{
   outline: none;
   border: none;
-  background-color: white;
+  background-color: #F2F8F7;
   font-weight: bold;
   font-family: Roboto;
-  color: #2699fb;
-  float: right !important;
+  color: #011916;
+  /*float: right !important;*/
   height: 100%;
-  margin-right: 2%;
+  margin-right: 3%;
   position: static;
 }
-
+#companyIcon{
+  margin-left: 2%;
+  height: 15px;
+}
 .login:focus{
   outline: none;
 }

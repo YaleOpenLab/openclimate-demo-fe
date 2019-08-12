@@ -11,6 +11,9 @@
   transform: translateX(-40vw);  
   border-right: 1px solid #D3D3D3;
 }
+#slideMenu.hidden{
+  left: -40vw;
+}
 #slideMenu.hide {
   animation: slideSL .5s forwards;
 }

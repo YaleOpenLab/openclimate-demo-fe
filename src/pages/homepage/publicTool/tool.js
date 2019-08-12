@@ -17,21 +17,21 @@ import TopNav from '../../../components/TopNav';
 
 
 const API_URL = 'http://localhost:8001';
-const username = 'amanda';
-const pwhash = '9a768ace36ff3d1771d5c145a544de3d68343b2e76093cb7b2a8ea89ac7f1a20c852e6fc1d71275b43abffefac381c5b906f55c3bcff4225353d02f1d3498758';
+const username = 'brian';
+const pwhash = 'e9a75486736a550af4fea861e2378305c4a555a05094dee1dca2f68afea49cc3a50e8de6ea131ea521311f4d6fb054a146e8282f8e35ff2e6368c1a62e909716';
 
 
 
 class Tool extends Component{	
   componentDidMount() {
     //Get the Earth Carbon Budget Data
-    const url = `${API_URL}/carbon/budget?username=${username}&pwhash=${pwhash}`;
-    axios.get(url).then(response => response.data)
-    .then((data) => {
-      this.setState({fuel: data["2017"]["Fossil-Fuel-And-Industry"], landuse: data["2017"]["Land-Use-Change-Emissions"], 
-        atmos: data["2017"]["Atmospheric-Growth"], ocean: data["2017"]["Ocean-Sink"], landsink: data["2017"]["Land-Sink"], 
-        budget: data["2017"]["Budget-Imbalance"]}); 
-    });
+    // const url = `${API_URL}/carbon/budget?username=${username}&pwhash=${pwhash}`;
+    // axios.get(url).then(response => response.data)
+    // .then((data) => {
+    //   this.setState({fuel: data["2017"]["Fossil-Fuel-And-Industry"], landuse: data["2017"]["Land-Use-Change-Emissions"], 
+    //     atmos: data["2017"]["Atmospheric-Growth"], ocean: data["2017"]["Ocean-Sink"], landsink: data["2017"]["Land-Sink"], 
+    //     budget: data["2017"]["Budget-Imbalance"]}); 
+    // });
     //Get country by country data 
     const url_country = `${API_URL}/country/all?username=${username}&pwhash=${pwhash}`;
     const countries = [];
@@ -44,8 +44,8 @@ class Tool extends Component{
 	constructor(props, context) {
         super(props, context);
         this.state = { 
-            visibleEarth: true, visibleNation: true, visibleNatlSlider: false, visibleMultiSlider: false, visibleRegionSlider: false,
-            visibleCountrySlider: false,
+            visibleEarth: true, visibleNation: true, visibleNatlSlider: undefined, visibleMultiSlider: undefined, visibleRegionSlider: undefined,
+            visibleCountrySlider: undefined,
             fuel: 0, landuse: 0, atmos: 0, ocean: 0, landsink: 0, budget: 0,
             text: "< View less", countryList: [], countryInfo: {}, regionInfo: {} };
         this.toggleEarth = this.toggleEarth.bind(this);
@@ -62,12 +62,12 @@ class Tool extends Component{
     //    if (this.state.visibleEarth) {this.setState({ text: "View more >"})};
 	}
 	toggleNatlSlider() {
-	    this.setState({ visibleNatlSlider: !this.state.visibleNatlSlider });
-        // this.setState({ visibleMultiSlider: false, visibleCountrySlider: false });
+        this.setState({ visibleNatlSlider: !this.state.visibleNatlSlider });
+        if (this.state.visibleMultiSlider) (this.setState({ visibleMultiSlider: false}))
 	}
     toggleMultiSlider() {
         this.setState({ visibleMultiSlider: !this.state.visibleMultiSlider });
-        this.setState({ visibleNatlSlider: false });
+        if (this.state.visibleNatlSlider) (this.setState({ visibleNatlSlider: false }))
     }
     toggleCountrySlider(countryInfo){
         if (countryInfo["Name"] != this.state.countryInfo["Name"] && this.state.visibleCountrySlider == true) {this.setState({ visibleCountrySlider: true });} 

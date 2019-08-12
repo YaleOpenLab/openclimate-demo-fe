@@ -10,9 +10,7 @@ class PublicNationSlide extends Component{
 	render(){
 		var visibility = "hide";
    		if (this.props.visibility && this.props.earth) { visibility = "slideRightSmall"; }
-   		// if (this.props.visibility && !this.props.earth) { visibility = "slideRightBig"; }
-   		if (!this.props.visibility && this.props.earth) { visibility = "slideLeftSmall"; }
-   		// if (!this.props.visibility && !this.props.earth) { visibility = "slideLeftBig"; }
+   		if (this.props.visibility == false && this.props.earth) { visibility = "slideLeftSmall"; }
 		return(
 			<div id="multiSlider" className={visibility}>
 				NDC data goes here 

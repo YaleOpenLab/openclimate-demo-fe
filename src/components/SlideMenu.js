@@ -12,8 +12,9 @@ import globe from '../static/globe.png';
 
 class SlideMenu extends Component {
   render() {
-    var visibility = "hide";
+    var visibility = "hidden";
     if (this.props.menuVisibility) { visibility = "show"; }
+    if (this.props.menuVisibility == false) { visibility = "hide"; }
     return (
       <div id="slideMenu"  className={visibility}>
         <div className="topMenu">

@@ -172,9 +172,19 @@ body{
 }
 
 .listButton{
-  height: 6.5vh;
-  color: #6F6D6D;
-  font-weight: bold;
+  position: relative;
+  text-align: left;
+  height: calc(25% / 3);
+  width: 100%;
+  color: #011916;
+  font-weight: medium;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid #E2E2E2;
+  background-color: white;
+  outline: none;
+  margin: none;
+  padding: none;
 }
 .listButton:hover{
   background-color: #F9FAFC;
@@ -424,38 +434,43 @@ body{
   border-right: 1px solid #D3D3D3;
 }
 #multiSlider.hide {
-  animation: beLeft .5s forwards;
+  /*animation: beLeft .5s forwards;*/
+  left: -55vw;
 }
 #multiSlider.slideRightSmall {
   animation: slideRightSmall .5s forwards;
 }
-#multiSlider.slideRightBig {
+/*#multiSlider.slideRightBig {
   animation: slideRightBig .5s forwards;
-}
+}*/
 #multiSlider.slideLeftSmall {
   animation: slideLeftSmall .5s forwards;
 }
-#multiSlider.slideLeftBig {
+/*#multiSlider.slideLeftBig {
   animation: slideLeftBig .5s forwards;
 }
 #multiSlider.showBig {
   animation: slideBig .5s forwards;
-}
+}*/
 @keyframes slideRightSmall {
-  100% { transform: translateX(55vw); }  
+  0% { left: -55vw; }
+  100% { left:55vw; }
+  /*100% { transform: translateX(55vw); }  */
 }
-@keyframes slideRightBig {
+/*@keyframes slideRightBig {
   100% { transform: translateX(29vw); }
   100% { width: 71vw; }  
-}
+}*/
 @keyframes slideLeftSmall {
-  0% { transform: translateX(55vw); }
-  100% { transform: translateX(-55vw); }
+  0% { left: 55vw }
+  100% { left: -55vw }
+/*  0% { transform: translateX(55vw); }
+  100% { transform: translateX(-55vw); }*/
 }
-@keyframes beLeft {
+/*@keyframes beLeft {
   100% { transform: translateX(-55vw); }
-}
-@keyframes slideLeftBig {
+}*/
+/*@keyframes slideLeftBig {
   0% { transform: translateX(29vw); }
   100% { transform: translateX(-55vw); }
 }
@@ -463,7 +478,7 @@ body{
   0% { transform: translateX(55vw); }
   100% { transform: translateX(29vw); }
   100% { width: 71vw; }  
-}
+}*/
 
 /*#multiSlider.small {
   animation: shrink .5s forwards;
@@ -486,80 +501,24 @@ body{
 /*                  Actor Page                   */
 /*-----------------------------------------------*/
 
-
-
-
-/*.myNav{
-  border-bottom: 1px solid #E2E2E2; 
-  height: 80px !important;
-}*/
-
-
-
-/*.myPages{
-  color: #639063 !important;
-  padding-right: 20px !important;
-  padding-left: 20px !important;
-  font-size: 20px;
- }
- .myPages.active{
-  font-weight: bold;
-  border-bottom: 2px solid currentColor;
- }
-
-.tabContainer{
-  height: 60px;
-  border-bottom: 1px solid #E2E2E2; 
-  text-align: center;
-  padding: 9px;
+:root{
+  --header-height:7%;
 }
-
-.myTabs{
-  outline: none;
-  border: none;
-  background-color: white;
-  color: #639063;
-  font-size: 16px;
-  font-weight: bold;
-  font-family: Roboto;
-  margin-top: 10px;
-  margin-right: 10px;
-  padding-bottom: 14px;
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
-
-.myTabs:focus{
-  outline: none;
-  border-bottom: 2px solid currentColor !important;
-}
-*/
+/*General Column Components*/
 .colHeader{
-  height: 5%;
-  color: #2699FB ;
+  height: var(--header-height);
+  color: #011916;
   font-weight: bold;
   border-bottom: 1px solid #E2E2E2;
   text-align: left;
   position: relative;
-}
-.headerText{
-  position: relative;
-  /*top: 20%;*/
-  vertical-align: middle;
-  /*padding-top: 50%;*/
-  left: 10%;
-}
-#globeLarge{
-  position: relative;
-  height: 23%;
-}
-.scroller{
-  height: 85%;
-  overflow: scroll;
-  z-index: 5;
+  padding-top: 2vh;
+  padding-left: 2vw;
 }
 
+
+
+/*----Earh Column----*/
 .earthCol{
   height: 88%; 
   width: 10%;
@@ -569,46 +528,95 @@ body{
   background-color: white;
   z-index: 10;
  }
- .colContent{
-  height: 85%;
-  width: 100%;
-  position: relative;
-  background-color: #F9FAFC;
+ .earthCol .colHeader{
+  background-color: #8DC0BA;
  }
 
- #globeLarge{
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-  padding: 15%;
+ /*Earth Column Components*/
+ .colContent{
+  height: calc(100% - var(--header-height));
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  /*background-color: #F9FAFC;*/
  }
+
+ .box1{
+  position: relative;
+  height: 25%;
+  border-bottom: 1px solid #E2E2E2;
+  /*line-height: 1.2;*/
+  text-align: center;
+/*  padding-left: 10%;
+  padding-right: 10%;*/
+  overflow: scroll;
+  color: #011916;
+ }
+.box2{
+  position: relative;
+  height: 50%;
+  border-bottom: 1px solid #E2E2E2;
+ }
+ .innerText{
+  margin-left: 5%;
+  margin-right: 5%;
+  line-height: 1.2;
+ }
+ .helper{
+  height: 100%;
+  width: 100%;
+  display: table-cell;
+  text-align: middle;
+  vertical-align: middle;
+ }
+ #globeLarge{
+  width: 60%;
+  bottom: 15%;
+  left: 20%;
+  position: absolute;
+/*  position: relative;
+  padding-top: 30%;
+  margin: auto;*/
+/*  position: relative;
+  top: 50%;
+  transform: translateY(-50%);*/
+ }
+
+  /*divider line*/
  hr{
   margin-left: 20%;
   margin-right: 20%;
   border-color: #E2E2E2;
  }
-.infoBox{
-  width: 60%;
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 5%;
-  text-align: center;
-  color: #6F6D6D;
-}
-.large{
-  font-size: 35px;
+.large{ 
+  /*display: block;*/
+  /*margin-top: 5%;*/
+  font-size: 25px;
+  /*font-size: 150%;*/
 }
 .small{
-  font-size: 14px;
+  /*display: block;*/
+  font-size: 12px;
 }
 .carbonTitle{
-  color: #3FAA7D;
-  font-size:16px;
+  margin-top: 10%;
+  color: #011916;
+  font-size:14px;
   text-align: center;
+  width: 100%;
 }
 .yearRisk{
   color: #FF7B88;
+  font-size: 14px;
 }
+.infoBox{
+  margin-top: 5%;
+  margin-left:5%;
+  margin-right: 5%;
+  text-align: center;
+}
+
+/*----Nation Column----*/
 .nationCol{
   height: 88%;
   width: 15%;
@@ -619,6 +627,72 @@ body{
   background-color: white;
   z-index: 10;
  }
+ .nationCol .colHeader{
+  background-color: #A7CECA;
+ }
+
+ .stateTitle{
+  font-weight: bold;
+  font-size: 14px;
+  text-align: left;
+  margin-top: 5%;
+  margin-left: 5%;
+ }
+ #mapUSA{
+  width: 60%;
+  left: 20%;
+  bottom: 10%;
+  text-align: center;
+  position: absolute;
+ }
+ .pledge{
+  margin-top: 5%;
+  margin-left: 5%;
+  font-size: 14px;
+  text-align: left;
+ }
+ .pledgeInfo{
+  line-height: 1.2;
+  margin-top: 10%;
+ }
+ #arrow{
+  height: 25px;
+ }
+ .pledgeInfo .large{
+  margin-left: 3%;
+  display: inline-block;
+ }
+ .pledgeInfo .small{
+  margin-left: 5%;
+  text-align: left;
+  width: 50%;
+  display: inline-block;
+ }
+
+/*----Sub Nat'l Column----*/
+.subnatCol{
+  height: 88%;
+  width: 15%;
+  left: 25%;
+  border-right: 1px solid #E2E2E2;
+  position: absolute;
+  bottom: 0;
+  z-index: 5;
+  background-color: white;
+ }
+ .subnatCol{
+  background-color: #BFDCD9;
+ }
+
+.scroller{
+  position: relative;
+  height: calc(100% - var(--header-height));
+  width: 100%;
+  background-color: white;
+  overflow: scroll;
+  z-index: 5;
+  font-size: 0;
+}
 
 .myCaret{
   float: right;
@@ -626,15 +700,8 @@ body{
 .myCaret:hover{
   font-weight: bold !important;
 }
-.subnatCol{
-  height: 88%;
-  width: 15%;
-  margin-left: 25%;
-  border-right: 1px solid #E2E2E2;
-  position: absolute;
-  bottom: 0;
-  z-index: 5;
- }
+
+/*----Assets Column----*/
 .assetsCol{
   height: 88%;
   width: 20%;
@@ -643,8 +710,11 @@ body{
   position: absolute;
   bottom: 0;
  }
+ .assetsCol .colHeader{
+  background-color: #D9EAE8;
+ }
 
-  .colContent{
+/*  .colContent{
   height: 85%;
   width: 100%;
   position: relative;
@@ -659,38 +729,49 @@ body{
   50%  {background-color:blue; left:200px; top:200px;}
   75%  {background-color:green; left:0px; top:200px;}
   100% {background-color:red; left:0px; top:0px;}
- }
+ }*/
 
+/*----Sliding Region Tab----*/
 #stateTab {
-  height: 85%;
-  top: 15%;
-  width: 133%;
+  height: calc(100% - var(--header-height));
+  top: var(--header-height);
+  width: 134%;
   background-color: #F5F5F5;
   position: absolute; 
   z-index: 0;  
-  transform: translateX(-30vw);  
+  /*transform: translateX(-30vw);  */
   /*border-right: 1px solid #D3D3D3;*/
 }
-
+#stateTab.hidden{
+  left: -30vw;
+}
 #stateTab.hide {
-  animation: slideL .5s forwards;
+  animation-name: slideL;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
 }
 
 #stateTab.show {
-  animation: slideR .5s forwards;
+  animation-name: slideR;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
 }
 
 @keyframes slideR {
-  100% { transform: translateX(15vw); }
+  0%   {left:-30vw;}
+  100% {left:15vw;}
+  /*100% { transform: translateX(15vw); }*/
 /*  0% {width: 40vh;}
   100% {width: 100vh;}*/
   
 }
 @keyframes slideL {
+  0%   {left:15vw;}
+  100% {left:-30vw;}
   /*0% {width: 100vh;}
   100% {width: 40vh}*/
-  0% { transform: translateX(15vw); }
-  100% { transform: translateX(-30vw); }
+/*  0% { transform: translateX(15vw); }
+  100% { transform: translateX(-30vw); }*/
 }
 
 .dashboard{
