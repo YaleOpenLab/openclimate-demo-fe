@@ -40,10 +40,12 @@ class ActorPage extends Component{
 	}
 	constructor(props, context) {
 	  super(props, context);
-	  this.state = { visibleState: false };
+	  this.state = { visibleState: false, visibleAsset: false };
 	  this.state = { visibleMenu: false};
 	  this.state = { lastIndex: '' };
+	  this.state = { lastAsset: ''};
 	  this.toggleState = this.toggleState.bind(this);
+	  this.toggleAsset = this.toggleAsset.bind(this);
 	  this.toggleMenu = this.toggleMenu.bind(this);
 	  this.state = { states: [], assets: {} };
 	}
@@ -52,13 +54,18 @@ class ActorPage extends Component{
 		else {this.setState({ visibleState: !this.state.visibleState});}
 		this.setState({ lastIndex: index});
 	}
+	toggleAsset(asset) {
+		if (asset != this.state.lastAsset && this.state.visibleAsset == true) {this.setState({ visibleAsset: true});} 
+		else {this.setState({ visibleAsset: !this.state.visibleAsset});}
+		this.setState({ lastAsset: asset});
+	}
 	toggleMenu() {
 		this.setState({ visibleMenu: !this.state.visibleMenu });
 	}
 
 	render() {
 		return (	
-			<div className = 'actorpage'>				
+			<div className="actorpage">				
 				<TopNav page="account_view"/>
 				<div className="earthCol">
 					<div className="colHeader">EARTH</div>
@@ -106,20 +113,18 @@ class ActorPage extends Component{
 					</div>
 				</div>
 				<div className="subnatCol">
-					<StateTab assets={this.state.assets} stateVisibility={this.state.visibleState} stateName={this.state.lastIndex} tester={this.state.states}/>					
 					<div className="colHeader">SUBNATIONAL</div>
 					<div className="scroller">
-						
-						 {this.state.states.map((state) =>
-							  <button className="listButton" onClick={this.toggleState.bind(this, state["Name"])}>
-							  	<div style={{float: 'left'}}>{state["Name"]}</div>
+						{this.state.states.map((state) =>
+							<button className="listButton" onClick={this.toggleState.bind(this, state["Name"])}>
+								<div style={{float: 'left'}}>{state["Name"]}</div>
 							  	<div style={{float: 'right'}}><i className="fa fa-angle-down"></i></div>
-							  </button>)}
-						
+							</button>)}
 					</div>
-				</div>
-				
+				</div>					
+				<StateTab assets={this.state.assets} stateVisibility={this.state.visibleState} stateName={this.state.lastIndex} toggleAsset={this.toggleAsset}/>					
 				<div className="assetsCol"><div className="colHeader">CLIMATE ACTION ASSETS</div></div>
+				<AssetTab assets={this.state.assets} assetVisibility={this.state.visibleAsset} assetName={this.state.lastAsset}/>
 				<Footer/>
 			</div>
 		)
@@ -143,7 +148,23 @@ class StateTab extends Component {
 				<h1>{this.props.stateName}</h1>	
 				{(this.props.assets[this.props.stateName]) && 
 					(this.props.assets[this.props.stateName].map((asset, index) =>
-					<button>{asset["Name"]}</button>))}
+					<button onClick={this.props.toggleAsset.bind(this, asset["Name"])}>{asset["Name"]}</button>))}
+			</div>
+	    );
+	}
+}
+
+class AssetTab extends Component {
+	constructor(props, context) {
+		super(props, context);
+	}
+  	render() {
+	    var visibility = "hidden";
+	    if (this.props.assetVisibility) { visibility = "show"; }
+	    if (this.props.assetVisibility == false) { visibility = "hide"; }
+	    return (
+			<div id="assetTab" className={visibility}>
+				<h1>{this.props.assetName}</h1>
 			</div>
 	    );
 	}

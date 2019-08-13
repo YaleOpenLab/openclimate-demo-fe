@@ -504,6 +504,14 @@ body{
 :root{
   --header-height:7%;
 }
+
+.actorpage{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow-x: hidden;
+}
+
 /*General Column Components*/
 .colHeader{
   height: var(--header-height);
@@ -514,6 +522,7 @@ body{
   position: relative;
   padding-top: 2vh;
   padding-left: 2vw;
+  z-index: 5;
 }
 
 
@@ -714,33 +723,16 @@ body{
   background-color: #D9EAE8;
  }
 
-/*  .colContent{
-  height: 85%;
-  width: 100%;
-  position: relative;
-  background-color: #F9FAFC;
-  animation-name: example;
-  animation-duration: 4s;
-  animation-fill-mode: both;
- }
- @keyframes example {
-  0%   {background-color:red; left:0px; top:0px;}
-  25%  {background-color:yellow; left:200px; top:0px;}
-  50%  {background-color:blue; left:200px; top:200px;}
-  75%  {background-color:green; left:0px; top:200px;}
-  100% {background-color:red; left:0px; top:0px;}
- }*/
 
 /*----Sliding Region Tab----*/
 #stateTab {
-  height: calc(100% - var(--header-height));
-  top: var(--header-height);
-  width: 134%;
-  background-color: #F5F5F5;
+  height: calc(100% - var(--header-height) - 11%);
+  top: 18%;
+  width: 20%;
+  background-color: white;
+  border-right: 1px solid #E2E2E2;
   position: absolute; 
-  z-index: 0;  
-  /*transform: translateX(-30vw);  */
-  /*border-right: 1px solid #D3D3D3;*/
+  z-index: 1;  
 }
 #stateTab.hidden{
   left: -30vw;
@@ -759,19 +751,48 @@ body{
 
 @keyframes slideR {
   0%   {left:-30vw;}
-  100% {left:15vw;}
-  /*100% { transform: translateX(15vw); }*/
-/*  0% {width: 40vh;}
-  100% {width: 100vh;}*/
-  
+  100% {left:40vw;}
 }
 @keyframes slideL {
-  0%   {left:15vw;}
+  0%   {left:40vw;}
   100% {left:-30vw;}
-  /*0% {width: 100vh;}
-  100% {width: 40vh}*/
-/*  0% { transform: translateX(15vw); }
-  100% { transform: translateX(-30vw); }*/
+}
+
+
+#assetTab {
+  height: calc(100% - var(--header-height) - 9%);
+  /*top: var(--header-height);*/
+  top: 12%;
+  width: 38%;
+  margin: 1%;
+  border-radius: 15px;
+  background-color: white;
+  border: 1px solid #E2E2E2;
+  position: absolute; 
+  z-index: 0;  
+}
+#assetTab.hidden{
+  left: -30vw;
+}
+#assetTab.hide {
+  animation-name: assetSlideL;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+}
+
+#assetTab.show {
+  animation-name: assetSlideR;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes assetSlideR {
+  0%   {left:-30vw;}
+  100% {left:60vw;}
+}
+@keyframes assetSlideL {
+  0%   {left:60vw;}
+  100% {left:-30vw;}
 }
 
 .dashboard{
