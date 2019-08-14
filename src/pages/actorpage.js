@@ -43,6 +43,7 @@ class ActorPage extends Component{
 	  this.state = { visibleMenu: false};
 	  this.state = { lastIndex: '' };
 	  this.state = { lastAsset: ''};
+	  this.state = { assetInfo: {} };
 	  this.toggleState = this.toggleState.bind(this);
 	  this.toggleAsset = this.toggleAsset.bind(this);
 	  this.toggleMenu = this.toggleMenu.bind(this);
@@ -54,10 +55,11 @@ class ActorPage extends Component{
 		if (this.state.visibleAsset && this.state.visibleState){this.setState({ visibleAsset: false}); console.log("wtf")}
 		this.setState({ lastIndex: index});
 	}
-	toggleAsset(asset) {
+	toggleAsset(asset, assetInfo) {
 		if (asset != this.state.lastAsset && this.state.visibleAsset == true) {this.setState({ visibleAsset: true});} 
 		else {this.setState({ visibleAsset: !this.state.visibleAsset});}
 		this.setState({ lastAsset: asset});
+		this.setState({ assetInfo: assetInfo});
 	}
 	toggleMenu() {
 		this.setState({ visibleMenu: !this.state.visibleMenu });
@@ -124,7 +126,7 @@ class ActorPage extends Component{
 				</div>					
 				<StateTab assets={this.state.assets} stateVisibility={this.state.visibleState} stateName={this.state.lastIndex} toggleAsset={this.toggleAsset}/>					
 				<div className="assetsCol"><div className="colHeader">CLIMATE ACTION ASSETS</div></div>
-				<AssetTab assets={this.state.assets} assetVisibility={this.state.visibleAsset} assetName={this.state.lastAsset}/>
+				<AssetTab asset={this.state.assetInfo} assetVisibility={this.state.visibleAsset} assetName={this.state.lastAsset}/>
 				<Footer/>
 			</div>
 		)
@@ -147,7 +149,10 @@ class StateTab extends Component {
 				<h1>{this.props.stateName}</h1>	
 				{(this.props.assets[this.props.stateName]) && 
 					(this.props.assets[this.props.stateName].map((asset, index) =>
-					<button onClick={this.props.toggleAsset.bind(this, asset["Name"])}>{asset["Name"]}</button>))}
+					<button className="listButton" onClick={this.props.toggleAsset.bind(this, asset["Name"], asset)}>
+						{asset["Name"]}<br/>
+						{asset["Type"]}
+					</button>))}
 			</div>
 	    );
 	}
@@ -158,6 +163,7 @@ class AssetTab extends Component {
 		super(props, context);
 	}
   	render() {
+  		// console.log(this.props.asset)
 	    var visibility = "hidden";
 	    if (this.props.assetVisibility) { visibility = "show"; }
 	    if (this.props.assetVisibility == false) { visibility = "hide"; }
@@ -167,7 +173,7 @@ class AssetTab extends Component {
 				<div className="assetTitle">
 					{this.props.assetName}
 					<br/>
-					<p className="assetTitle2">Fuel Cell</p>
+					{this.props.asset && <p className="assetTitle2">{this.props.asset["Type"]}</p>}
 				</div>
 				<hr/>
 				<div className="assetInfo">Hello</div>
