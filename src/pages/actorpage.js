@@ -14,14 +14,13 @@ import Footer from '../components/Footer';
 import globeLarge from '../static/globeLarge.png';
 import mapUSA from '../static/mapUSA.png';
 import downArrow from '../static/downArrow.png';
+import assetImg from '../static/assetImg.png';
 import axios from "axios";
 
 const API_URL = 'http://localhost:8001';
 const username = 'brian';
 const pwhash = '9a768ace36ff3d1771d5c145a544de3d68343b2e76093cb7b2a8ea89ac7f1a20c852e6fc1d71275b43abffefac381c5b906f55c3bcff4225353d02f1d3498758';
 const country = 'USA';
-
-//const states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
 
 class ActorPage extends Component{	
 
@@ -30,7 +29,7 @@ class ActorPage extends Component{
 	    axios.get(url).then(response => response.data)
 	    .then((data) => {
 	    	console.log(data["USA"])	
-	     	this.setState({ states: data["USA"] })
+	     	this.setState({ states: data["states_by_country"]["USA"] })
 	    })
 	   	const url_two = `${API_URL}/view/assets?username=${username}&pwhash=${pwhash}`;
 	    axios.get(url_two).then(response => response.data)
@@ -52,6 +51,7 @@ class ActorPage extends Component{
 	toggleState(index) {
 		if (index != this.state.lastIndex && this.state.visibleState == true) {this.setState({ visibleState: true});} 
 		else {this.setState({ visibleState: !this.state.visibleState});}
+		if (this.state.visibleAsset && this.state.visibleState){this.setState({ visibleAsset: false}); console.log("wtf")}
 		this.setState({ lastIndex: index});
 	}
 	toggleAsset(asset) {
@@ -131,7 +131,6 @@ class ActorPage extends Component{
 	}
 }			
 
-
 export default ActorPage;
 
 
@@ -164,7 +163,14 @@ class AssetTab extends Component {
 	    if (this.props.assetVisibility == false) { visibility = "hide"; }
 	    return (
 			<div id="assetTab" className={visibility}>
-				<h1>{this.props.assetName}</h1>
+				<img id="assetImg" src={assetImg}/>
+				<div className="assetTitle">
+					{this.props.assetName}
+					<br/>
+					<p className="assetTitle2">Fuel Cell</p>
+				</div>
+				<hr/>
+				<div className="assetInfo">Hello</div>
 			</div>
 	    );
 	}
