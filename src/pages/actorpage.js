@@ -146,12 +146,20 @@ class StateTab extends Component {
 	    if (this.props.stateVisibility == false) { visibility = "hide"; }
 	    return (
 			<div id="stateTab" className={visibility}>
-				<h1>{this.props.stateName}</h1>	
+				<div className="aboveAssets">
+					<div>
+						{this.props.stateName}
+					</div>
+				</div>	
 				{(this.props.assets[this.props.stateName]) && 
 					(this.props.assets[this.props.stateName].map((asset, index) =>
 					<button className="listButton" onClick={this.props.toggleAsset.bind(this, asset["Name"], asset)}>
-						{asset["Name"]}<br/>
-						{asset["Type"]}
+						<img src={assetImg}/>
+						<div>
+							{asset["Name"]}<br/>
+							<p>{asset["Type"]}</p>
+						</div>
+						<div style={{float: 'right'}}><i className="fa fa-angle-right"></i></div>
 					</button>))}
 			</div>
 	    );
@@ -169,14 +177,46 @@ class AssetTab extends Component {
 	    if (this.props.assetVisibility == false) { visibility = "hide"; }
 	    return (
 			<div id="assetTab" className={visibility}>
-				<img id="assetImg" src={assetImg}/>
-				<div className="assetTitle">
-					{this.props.assetName}
-					<br/>
-					{this.props.asset && <p className="assetTitle2">{this.props.asset["Type"]}</p>}
-				</div>
-				<hr/>
-				<div className="assetInfo">Hello</div>
+				{this.props.asset &&
+				<div>
+					<img id="assetImg" src={assetImg}/>
+					<div className="assetTitle">
+						{this.props.assetName}
+						<br/>
+						<p className="assetTitle2">{this.props.asset["Type"]}</p>
+					</div>
+					<hr/>
+					<div className="assetInfo">
+						<div className="redTitle">CLIMATE ACTIONS SCOPES & METRICS:</div>	
+						{this.props.asset["ActionType"] &&				
+						<div>
+							{this.props.asset["ActionType"].map((type) => <div className="actionBubble">{type}</div> )}
+						</div>}
+						<div className="updateDate">
+							LAST UPDATED: August 2019 
+							<p style={{display: 'inline', float: 'right', color: '#037367'}}>&#9432;  No active issues</p>
+						</div>
+						<div className="boxes">
+							<div className="dataBox" id="1">
+								<span className="size1">{this.props.asset["Capacity"]}</span> <br/> 
+								<span className="size2"> MW </span><br/>
+								<span className="size3"> Capacity </span>
+							</div>
+							{this.props.asset["Reports"] && 
+							<>
+							<div className="dataBox" id="2">
+								<span className="size1"> {this.props.asset["Reports"][0]["MitigationOutcomes"]}</span> <br/>
+								<span className="size2"> {this.props.asset["Reports"][0]["Year"]}</span> <br/>
+								<span className="size3">Mitigation Outcomes</span>
+							</div>
+							<div className="dataBox" id="3">
+								<span className="size1"> {this.props.asset["Reports"][0]["GWh"]}</span> <br/> 
+								<span className="size2"> Gwh/year</span> 
+							</div>
+							</>}
+						</div>
+					</div>
+				</div>}
 			</div>
 	    );
 	}

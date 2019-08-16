@@ -111,7 +111,7 @@ class EarthMenu extends Component {
                     <button className="labelButton">EARTH</button>
                 </div>
                 <div className="earthContent">
-                    <button id="earthToggle" onClick={this.props.toggleEarth}>{this.props.text}</button>
+                    {/*<button id="earthToggle" onClick={this.props.toggleEarth}>{this.props.text}</button>*/}
                     <div className="earthHeader">
                         <img src={globeImage} id="globeImg"/>
                         <span className="earthTitle"><b className="earthTitle1">Earth</b> <br /> 
@@ -196,11 +196,6 @@ class NationMenu extends Component {
     }
 }
 
-//There is a bug that if you close the outer accordian while an inner one is open 
-//when you open the outer one again the inner one is still open 
-//I want it to go back to closed when the outer accordian open and closes  
-//Solution may be creating my own accordian instead of bootstrap 
-
 
 class NestedMenu extends Component{
     componentDidMount(){
@@ -219,9 +214,7 @@ class NestedMenu extends Component{
     }
     constructor(props, context) {
         super(props, context);
-        this.state = {
-            regionList: []
-        };
+        this.state = { regionList: [] };
     }
     render(){
         return(

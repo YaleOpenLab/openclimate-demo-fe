@@ -1,4 +1,7 @@
 
+/*---------------------------*/
+/*Text for InProgress Pages*/
+/*---------------------------*/
 .textBox{
 	height: 88%;
 	width: 100vw;
@@ -28,6 +31,22 @@
 	font-weight: bold;
 }
 
+
+/*----------------------------------*/
+/*Vertical container along left side*/
+/*Contains 4 toggle buttons*/
+/*----------------------------------*/
+
+.sideMenu {
+  height: 88%; 
+  width: 4%;
+  position: absolute;
+  top: 12%;
+  background-color: #F7F4F4;
+  border-right: 1px solid #D3D3D3;
+  z-index: 5;
+}
+/*div immediately around buttons*/
 .buttons{
 	margin-top: 25vh;
 }
@@ -46,7 +65,7 @@
 #buttonImg{
 	height: 60%;
 }
-
+/*--------------------------*/
 
 
 
