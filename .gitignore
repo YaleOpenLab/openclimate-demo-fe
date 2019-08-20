@@ -21,3 +21,4 @@ go1.12.6.darwin-amd64.tar.gz
 m-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.idea
