@@ -5,7 +5,7 @@ import '../../components/TopNav.css';
 import './homepage.css'
 import { NavLink, Switch, Route } from 'react-router-dom';
 import TopNav from '../../components/TopNav';
-import Footer from '../../components/Footer';
+import Footer from '../../components/Layout/Footer/Footer';
 import Tool from './publicTool/tool';
 import Globe from './Globe';
 import Insights from './Insights';

@@ -2,7 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import './homepage/homepage.css'
 import TopNav from '../components/TopNav';
-import Footer from '../components/Footer';
+import Footer from '../components/Layout/Footer/Footer';
 
 class Trade extends Component{
 	render(){

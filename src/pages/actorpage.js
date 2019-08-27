@@ -10,7 +10,7 @@ import FormControl from 'react-bootstrap/FormControl';
 import ListGroup from 'react-bootstrap/ListGroup';
 import globe from '../static/globe.png';
 import TopNav from '../components/TopNav';
-import Footer from '../components/Footer';
+import Footer from '../components/Layout/Footer/Footer';
 import globeLarge from '../static/globeLarge.png';
 import mapUSA from '../static/mapUSA.png';
 import downArrow from '../static/downArrow.png';

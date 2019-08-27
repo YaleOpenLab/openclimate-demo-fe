@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.css';
-// import './index.css'
+
 import * as serviceWorker from './serviceWorker';
-import { Route, NavLink, BrowserRouter as Router } from 'react-router-dom'
+import {BrowserRouter, Router} from 'react-router-dom'
 import App from './App';
+import "./index.scss";
 import HomePage from './pages/homepage/homepage';
 import Landing from './pages/landing';
 import Tool from './pages/homepage/publicTool/tool';
@@ -13,21 +13,15 @@ import TradePage from './pages/Trade';
 import Dashboard from './pages/homepage/Dashboard';
 import Review from './pages/homepage/Review';
 import Manage from './pages/homepage/Manage';
+import history from './helpers/history';
 
 const routing = (
-  <Router>
-    <div>
-      <Route exact path="/" component={App} />
-      <Route path="/homepage" component={HomePage} />
-      <Route path="/tool" component={Tool} />
-      <Route path="/actorpage" component={ActorPage} />
-      <Route path="/dashboard" component={Dashboard} />
-      <Route path="/review" component={Review} />
-      <Route path="/manage" component={Manage} />
-      <Route path="/trade" component={TradePage} />
-    </div>
-  </Router>
-)
+    <BrowserRouter forceRefresh={true}>
+        <Router history={history}>
+            <App/>
+        </Router>
+    </BrowserRouter>
+);
 
 ReactDOM.render(routing, document.getElementById('root'));
 
