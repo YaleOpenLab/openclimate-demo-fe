@@ -1,5 +1,4 @@
-import React from 'react';
-import { Component } from 'react';
+import React, { Component } from 'react';
 import './Footer.css';
 
 class Footer extends Component{
@@ -24,7 +23,6 @@ class Footer extends Component{
 					radically, arriving to net-zero by 2050 and negative values by the end of the century.</p>
 					</div>
 				</div>
-
 			</div>
 		)
 	}

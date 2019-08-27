@@ -11,14 +11,15 @@ import Dashboard from './pages/homepage/Dashboard';
 import Review from './pages/homepage/Review';
 import Manage from './pages/homepage/Manage';
 import PrivateRoute from "./routes/PrivateRouter";
+import ExplorePage from "./pages/Explore/ExploreContainer";
 
 
 class App extends Component {
     render() {
         return (
             <Switch>
-                <Route path="/" exact component={HomePage} />
-                <Route path="/homepage" component={HomePage} />
+                <Route path={Routes.HOME} exact component={ExplorePage} />
+                <Route path={Routes.EXPLORE} component={ExplorePage} />
                 <Route path="/tool" component={Tool} />
                 <Route path="/actorpage" component={ActorPage} />
                 <Route path="/dashboard" component={Dashboard} />

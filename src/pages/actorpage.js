@@ -1,6 +1,5 @@
 import React from 'react';
 import { Component } from 'react';
-import '../App.css';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';

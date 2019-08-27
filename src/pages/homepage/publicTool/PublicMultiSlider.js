@@ -1,6 +1,5 @@
 import React from 'react'; 
 import { Component } from 'react';
-import '../../../App.css';
 
 class PublicMultiSlide extends Component{
 	render(){

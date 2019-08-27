@@ -14,6 +14,7 @@ import viewImage from '../../static/viewImage.png';
 import globeImage from '../../static/globeImage.png';
 import insightsImage from '../../static/insightsImage.png';
 import learnImage from '../../static/learnImage.png';
+import Header from "../../components/Layout/Header/Header";
 
 class HomePage extends Component{	
 	constructor(props, context) {
@@ -39,6 +40,7 @@ class HomePage extends Component{
 	render() {
 		return (	
 			<div className = 'homepage'>
+                <Header/>
                 <TopNav page="explore"></TopNav>
                 <SideMenu toggleGlobe={this.toggleGlobe} toggleTool={this.toggleTool} 
                 		toggleInsights={this.toggleInsights} toggleLearn={this.toggleLearn} 

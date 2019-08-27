@@ -1,0 +1,37 @@
+@import "../../../../styles/variables";
+
+
+.main-navigation {
+  background-color: $primary;
+  min-height: 83px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 36px;
+
+  .navigation-left {
+    display: flex;
+    align-self: center;
+
+    .search-div {
+      margin-left: 46px;
+      .search-panel {
+        height: 29px;
+        width: 247px;
+        background: $white 0% 0% no-repeat padding-box;
+        border: 1px solid $white-like;
+        border-radius: 20px;
+        opacity: 1;
+      }
+    }
+  }
+
+  .navigation-right {
+    display: flex;
+    align-self: center;
+    height: 100%;
+    background-color: white;
+    .nav-item {
+      list-style: none;
+    }
+  }
+}

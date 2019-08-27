@@ -1,6 +1,5 @@
 import React from 'react'; 
 import { Component } from 'react';
-import '../../../App.css';
 import axios from "axios";
 
 const API_URL = 'http://localhost:8001';

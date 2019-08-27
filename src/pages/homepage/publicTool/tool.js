@@ -1,6 +1,5 @@
 import React from 'react';
 import { Component } from 'react';
-import '../../../App.css';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
