@@ -5,7 +5,7 @@ import { faBars, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 
 const SideBar = ({active, toggleSideBar}) => {
     return (
-        <nav id="sidebar" className={`SideBar ${active ? "active" : ''}`}>
+        <nav className={`SideBar ${active ? "active" : ''}`}>
             <div className="header">
                 <div style={{display: 'flex', alignItems: 'center', color: 'white'}} onClick={toggleSideBar}>
                     <FontAwesomeIcon icon={faBars} style={{height: '20px', width: '29px', cursor: 'pointer'}} />

@@ -8,7 +8,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 const MainNavigation = ({toggleSideBar}) => {
 
     return (
-        <div className="main-navigation" expand="md">
+        <div className="main-navigation sticky-top" expand="md">
             <div className="navigation-left">
                 <div style={{display: 'flex', alignItems: 'center', color: 'white'}} onClick={toggleSideBar}>
                     <FontAwesomeIcon icon={faBars} style={{height: '20px', width: '29px', cursor: 'pointer'}} />
