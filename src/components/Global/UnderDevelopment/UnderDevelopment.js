@@ -1,23 +1,13 @@
 import React, { Component } from "react";
-import LayoutWrapper from "../../../hoc/Layout/Layout";
-import Container from "../../../hoc/Container/Container";
-
-class UnderDevelopment extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <div className='under-development'>
-                <div className="content">
-                    <p className="welcome">Welcome to</p>
-                    <p className="title">Learn</p>
-                    <p className="condition">Work in progress</p>
-                </div>
-            </div>
-        );
-    }
-}
+import "./UnderDevelopment.scss";
+const UnderDevelopment = ({title}) => (
+    <div className='under-development'>
+        <div className="content">
+            <div className="welcome">Welcome to</div>
+            <div className="title">{title}</div>
+            <div className="notice">Work in progress</div>
+        </div>
+    </div>
+);
 
 export default UnderDevelopment;

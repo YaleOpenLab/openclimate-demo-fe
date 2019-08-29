@@ -14,7 +14,7 @@ import "./SubNavigation.scss";
 const SubNavigation = ({list}) => {
     const [open, setOpen] = useState(false);
     const items = list.map(item => {
-        return <NavigationItem link={item.link}>{item.name}</NavigationItem>;
+        return <NavigationItem key={item.name} link={item.link}>{item.name}</NavigationItem>;
     });
 
     return (

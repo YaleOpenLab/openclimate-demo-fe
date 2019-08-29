@@ -1,9 +1,33 @@
 @import "../../../styles/variables";
 
 .under-development {
-  .content {
-    .welcome{
+  justify-content: center;
+  text-align: center;
+  margin-top: 170px;
+  align-items: center;
+  display: flex;
 
+  .content {
+    width: 457px;
+
+    .welcome{
+      font-size: 34px;
+      color: $secondary;
+      font-weight: lighter;
+    }
+    .title {
+      font-size: 34px;
+      color: $secondary;
+      font-weight: bold;
+    }
+    .notice {
+      font-size: 20px;
+      font-weight: bold;
+      color: $primary;
+      padding: 12px 0;
+      margin-top: 61px;
+      border-top: 1px solid $gray;
+      border-bottom: 1px solid $gray;
     }
   }
 }
