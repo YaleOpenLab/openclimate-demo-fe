@@ -1,9 +1,8 @@
 import React from 'react';
 import {Component} from 'react';
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import Routes from "./routes/routes";
 import HomePage from './pages/homepage/homepage';
-import Landing from './pages/landing';
 import Tool from './pages/homepage/publicTool/tool';
 import ActorPage from './pages/actorpage';
 import TradePage from './pages/Trade';
@@ -12,14 +11,21 @@ import Review from './pages/homepage/Review';
 import Manage from './pages/homepage/Manage';
 import PrivateRoute from "./routes/PrivateRouter";
 import ExplorePage from "./pages/Explore/ExploreContainer";
+import AccountPage from "./pages/Account/AccountContainer";
 
 
 class App extends Component {
     render() {
         return (
             <Switch>
+                <Redirect
+                    from={Routes.HOME}
+                    exact
+                    to={Routes.EXPLORE}
+                />
                 <Route path={Routes.HOME} exact component={ExplorePage} />
                 <Route path={Routes.EXPLORE} component={ExplorePage} />
+                <Route path={Routes.ACCOUNT} component={AccountPage} />
                 <Route path="/home" component={HomePage} />
                 <Route path="/tool" component={Tool} />
                 <Route path="/actorpage" component={ActorPage} />

@@ -1,0 +1,35 @@
+@import "../../../../styles/variables";
+
+.sub-navigation {
+  border-bottom: 1px solid lightgray;
+  padding: 0 !important;
+
+  .main-nav-menu {
+    height: 100%;
+
+    .navbar-nav {
+      height: 100%;
+      margin: 0;
+      align-items: center;
+
+      .nav-item {
+        padding: 25px;
+      }
+      .nav-link {
+        text-transform: uppercase;
+        font-size: 18px;
+        color: $black;
+        padding: 0;
+        height: 100%;
+        align-items: center;
+        display: flex;
+
+        &.is-active {
+          font-weight: bold;
+          border-bottom: 2px solid $black;
+        }
+      }
+    }
+  }
+
+}

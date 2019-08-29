@@ -20,7 +20,7 @@ const MainNavigation = ({toggleSideBar}) => {
             <div className="navigation-right">
                 <NavigationItem link={Routes.EXPLORE}>Explore</NavigationItem>
                 <NavigationItem link={Routes.ACCOUNT}>Account</NavigationItem>
-                <NavigationItem link={Routes.HOME}>Trade</NavigationItem>
+                <NavigationItem link={Routes.TRADE}>Trade</NavigationItem>
             </div>
         </div>
     )
