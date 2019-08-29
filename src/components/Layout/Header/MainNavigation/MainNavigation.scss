@@ -28,10 +28,24 @@
   .navigation-right {
     display: flex;
     align-self: center;
-    height: 100%;
-    background-color: white;
+    height: 83px;
+    align-items: center;
+
     .nav-item {
       list-style: none;
     }
+    .nav-link {
+      padding: 0 40px;
+      height: 100%;
+      align-items: center;
+      display: flex;
+      color: $white;
+
+      &.is-active {
+        background-color: $white;
+        color: $black;
+      }
+    }
+
   }
 }
