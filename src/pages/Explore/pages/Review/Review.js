@@ -11,9 +11,7 @@ class Review extends Component {
           <div className="col-lg-4">
             <SideContentMenu />
           </div>
-          <div className="col-lg-8">
-            content
-          </div>
+          <div className="col-lg-8">content</div>
         </div>
       </div>
     );
