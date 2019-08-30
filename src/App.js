@@ -5,7 +5,7 @@ import Routes from "./routes/routes";
 import HomePage from './pages/homepage/homepage';
 import Tool from './pages/homepage/publicTool/tool';
 import ActorPage from './pages/actorpage';
-import TradePage from './pages/Trade';
+import TradePage from './pages/Trade/TradeContainer';
 import Dashboard from './pages/homepage/Dashboard';
 import Review from './pages/homepage/Review';
 import Manage from './pages/homepage/Manage';

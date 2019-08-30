@@ -1,0 +1,31 @@
+@import "../../../../styles/variables";
+
+
+.Insights {
+  .main-content {
+    .h2 {
+      font-size: 24px;
+      color: $primary;
+    }
+    p {
+      font-size: 16px;
+      font-weight: lighter;
+      color: rgba(0, 0, 0, 0.6);
+      margin: 5px 0;
+    }
+
+
+    .map-area {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .image-container{
+        max-width: 750px;
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
