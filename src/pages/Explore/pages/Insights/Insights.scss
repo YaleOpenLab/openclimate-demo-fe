@@ -3,14 +3,14 @@
 
 .Insights {
   .main-content {
-    .h2 {
+    h2 {
       font-size: 24px;
       color: $primary;
     }
     p {
       font-size: 16px;
       font-weight: lighter;
-      color: rgba(0, 0, 0, 0.6);
+      color: $opacity-black;
       margin: 5px 0;
     }
 
@@ -21,11 +21,15 @@
       align-items: center;
 
       .image-container{
-        max-width: 750px;
+        max-width: 700px;
         img {
           max-width: 100%;
         }
       }
     }
+  }
+
+  .secondary-content {
+    padding: 0;
   }
 }

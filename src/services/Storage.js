@@ -1,39 +1,39 @@
 class storageClass {
-    storage = sessionStorage;
+  storage = sessionStorage;
 
-    get session() {
-        return this.get("session");
+  get session() {
+    return this.get("session");
+  }
+
+  set session(value) {
+    return this.set("session", value);
+  }
+
+  constructor() {
+    if (!storageClass.instance) {
+      storageClass.instance = this;
     }
 
-    set session(value) {
-        return this.set("session", value);
-    }
+    return storageClass.instance;
+  }
 
-    constructor () {
-        if (!storageClass.instance) {
-            storageClass.instance = this
-        }
+  get(key) {
+    return JSON.parse(this.storage.getItem(key));
+  }
 
-        return storageClass.instance
-    }
+  set(key, value) {
+    return this.storage.setItem(key, JSON.stringify(value));
+  }
 
-    get(key) {
-        return JSON.parse(this.storage.getItem(key));
-    }
+  clear() {
+    return this.storage.clear();
+  }
 
-    set(key, value) {
-        return this.storage.setItem(key, JSON.stringify(value));
-    }
-
-    clear() {
-        return this.storage.clear();
-    }
-
-    remove(key) {
-        return this.storage.removeItem(key);
-    }
+  remove(key) {
+    return this.storage.removeItem(key);
+  }
 }
 const Storage = new storageClass();
 Object.freeze(Storage);
 
-export default Storage
+export default Storage;

@@ -1,6 +1,5 @@
-
-import * as axios from 'axios';
-import { from } from 'rxjs';
+import * as axios from "axios";
+import { from } from "rxjs";
 // import { map, mergeMap } from 'rxjs/operators';
 // import { sha3_512 } from 'js-sha3';
 
@@ -115,9 +114,10 @@ export class Http {
   // }
 
   static amandaValidate() {
-    return this.get('recipient/validate', {
-      username: 'amanda' ,//Storage.get('username'), // todo remove this
-      pwhash: '9a768ace36ff3d1771d5c145a544de3d68343b2e76093cb7b2a8ea89ac7f1a20c852e6fc1d71275b43abffefac381c5b906f55c3bcff4225353d02f1d3498758'
+    return this.get("recipient/validate", {
+      username: "amanda", //Storage.get('username'), // todo remove this
+      pwhash:
+        "9a768ace36ff3d1771d5c145a544de3d68343b2e76093cb7b2a8ea89ac7f1a20c852e6fc1d71275b43abffefac381c5b906f55c3bcff4225353d02f1d3498758"
     });
   }
 
@@ -128,11 +128,11 @@ export class Http {
   static get(path, data) {
     return from(
       axios({
-        method: 'GET',
+        method: "GET",
         url: `https://api.openx.solar/${path}`,
         params: data,
         headers: {
-          'Content-Type': 'application/x-www-form/urlencoded'
+          "Content-Type": "application/x-www-form/urlencoded"
         }
       })
     );
