@@ -1,0 +1,75 @@
+@import "../../../styles/variables";
+
+.side-content-panel {
+  display: flex;
+
+  .info {
+    flex: 1;
+    border-right: 1px solid $lightgray;
+    .header {
+      background: $primary-light;
+      height: 63px;
+      line-height: 63px;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .body {
+      .image-section {
+        padding: 50px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid $lightgray;
+        .image-container {
+          max-width: 121px;
+          img {
+            max-width: 100%;
+          }
+        }
+      }
+      .content {
+        color: $dark-text;
+        .section {
+          padding: 33px 15%;
+          text-align: center;
+          &.--first {
+            border-bottom: 1px solid $lightgray;
+          }
+          ol {
+            padding: 0;
+            li {
+              list-style: none;
+            }
+          }
+          h4 {
+            text-transform: uppercase;
+          }
+          .value {
+            font-size: 40px;
+          }
+          .title {
+            font-size: 14px;
+          }
+          .highlight {
+            font-size: 16px;
+            color: $tertiary;
+          }
+        }
+        .see-more {
+          margin-top: 40px;
+          margin-bottom: 20px;
+          text-align: center;
+          a {
+            color: $secondary;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+  .menu {
+    flex: 1;
+  }
+}

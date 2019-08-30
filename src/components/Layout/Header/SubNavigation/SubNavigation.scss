@@ -3,6 +3,10 @@
 .sub-navigation {
   border-bottom: 1px solid lightgray;
   padding: 0 !important;
+  position: sticky;
+  z-index: 1020;
+  background: white;
+  top: 83px;
 
   .main-nav-menu {
     height: 100%;

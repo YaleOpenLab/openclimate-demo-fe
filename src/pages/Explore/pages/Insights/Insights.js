@@ -21,8 +21,14 @@ class Insights extends Component {
           </div>
         </Container>
         <Container className="secondary-content">
-          <ContentBox title='Data Visualisation Title' details='Data Visualisation Details'/>
-          <ContentBox title='Data Visualisation Title' details='Data Visualisation Details'/>
+          <ContentBox
+            title="Data Visualisation Title"
+            details="Data Visualisation Details"
+          />
+          <ContentBox
+            title="Data Visualisation Title"
+            details="Data Visualisation Details"
+          />
         </Container>
       </div>
     );
