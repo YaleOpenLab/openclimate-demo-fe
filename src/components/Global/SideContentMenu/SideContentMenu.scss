@@ -7,7 +7,7 @@
     flex: 1;
     border-right: 1px solid $lightgray;
     .header {
-      background: $primary-light;
+      background: rgba($primary, 0.45);
       height: 63px;
       line-height: 63px;
       text-align: center;
@@ -71,5 +71,6 @@
   }
   .menu {
     flex: 1;
+    border-right: 1px solid $lightgray;
   }
 }

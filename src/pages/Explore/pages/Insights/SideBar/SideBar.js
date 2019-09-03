@@ -24,7 +24,7 @@ const SideBar = ({}) => (
       />
     </div>
     <div className="footer">
-      <a href="#">learn more ></a>
+      <a href={void(0)}>learn more ></a>
       <p>Review data sources & models</p>
     </div>
   </div>

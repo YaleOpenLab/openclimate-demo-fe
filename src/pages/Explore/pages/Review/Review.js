@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Container from "../../../../hoc/Container/Container";
-import UnderDevelopment from "../../../../components/Global/UnderDevelopment/UnderDevelopment";
 import SideContentMenu from "../../../../components/Global/SideContentMenu/SideContentMenu";
 
 class Review extends Component {
@@ -11,7 +9,9 @@ class Review extends Component {
           <div className="col-lg-4">
             <SideContentMenu />
           </div>
-          <div className="col-lg-8">content</div>
+          <div className="col-md-8 col-lg-6">
+
+          </div>
         </div>
       </div>
     );
