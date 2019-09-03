@@ -9,6 +9,7 @@ const Accordion = ({data}) => {
     content = data.map(item => {
         return (
             <Card
+                key={item.index}
                 title={item.title}
                 open={openIndex === item.index}
                 handleOpen={() => setOpen(item.index)}
