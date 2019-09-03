@@ -23,7 +23,7 @@ const SubCardItem = ({title, list, open, handleOpen, handleClose}) => {
                 height={ open ? 'auto' : 0 }
             >
                 <div className={`oc-sub-card-body ${open ? '--show' : ''}`}>
-                    {list.map(item => <List title={item} />)}
+                    {list.map((item, i) => <List key={i} title={item} />)}
                 </div>
             </AnimateHeight>
         </div>

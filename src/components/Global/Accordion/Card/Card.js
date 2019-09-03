@@ -11,11 +11,12 @@ const Card = ({title, list, subCards, open, handleOpen, handleClose}) => {
     let content;
 
     if (list) {
-        content = list.map(item => <List title={item}/>);
+        content = list.map((item, i) => <List key={i} title={item}/>);
     } else if (subCards) {
         content = subCards.map((item, index) => {
             return (
                 <SubCardItem
+                    key={index}
                     title={item.title}
                     list={item.list}
                     handleOpen={() => setOpen(index)}

@@ -1,32 +1,66 @@
 import {
-    LOGIN,
-    LOGIN_SUCCESS,
-    LOGIN_FAILURE
+    USER_ACCOUNT,
+    USER_ACCOUNT_SUCCESS,
+    USER_ACCOUNT_FAILURE,
+    USER_ACCOUNT_UPDATE,
+    USER_ACCOUNT_UPDATE_SUCCESS,
+    USER_ACCOUNT_UPDATE_FAILURE,
+    USER_ACCOUNT_LOGOUT
 } from "./actions";
 
 const initialState = {
-    info: [],
+    items: {},
     isLoading: false,
-    authorized: false,
-    error: null
+    error: null,
+    authorized: false
 };
 
-const loginReducer = (state = initialState, action) => {
+const userAccountReducer = (state = initialState, action) => {
     switch (action.type) {
-        case LOGIN:
+        case USER_ACCOUNT:
             return {
                 ...state,
                 isLoading: true,
                 error: null
             };
-        case LOGIN_SUCCESS:
+        case USER_ACCOUNT_SUCCESS:
             return {
-                info: action.payload.Entity.U,
+                items: action.payload.Entity.U,
                 isLoading: false,
-                authorized: true,
+                error: null,
+                authorized: true
+            };
+        case USER_ACCOUNT_FAILURE:
+            return {
+                ...state,
+                isLoading: false,
+                error: action.payload,
+                authorized: false
+            };
+        case USER_ACCOUNT_LOGOUT:
+            return {
+                items: [],
+                isLoading: false,
+                error: null,
+                authorized: false
+            };
+        case USER_ACCOUNT_UPDATE:
+            return {
+                ...state,
+                isLoading: true,
                 error: null
             };
-        case LOGIN_FAILURE:
+        case USER_ACCOUNT_UPDATE_SUCCESS:
+            let newData = action.payload.newData;
+            let items = { ...state.items };
+
+            return {
+                items: items,
+                updateStatus: action.payload.response,
+                isLoading: false,
+                error: null
+            };
+        case USER_ACCOUNT_UPDATE_FAILURE:
             return {
                 ...state,
                 isLoading: false,
@@ -37,4 +71,4 @@ const loginReducer = (state = initialState, action) => {
     }
 };
 
-export default loginReducer;
+export default userAccountReducer;

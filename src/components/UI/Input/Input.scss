@@ -1,0 +1,12 @@
+@import "../../../styles/variables";
+
+
+.oc-input {
+  height: 50px;
+  border-radius: 0;
+
+  &::placeholder {
+    color: $secondary-light;
+    font-size: 14px;
+  }
+}

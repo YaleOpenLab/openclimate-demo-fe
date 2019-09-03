@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import {
   MDBNavbar,
-  MDBNavbarBrand,
   MDBNavbarNav,
   MDBNavbarToggler,
   MDBCollapse,
   MDBNavItem,
-  MDBNavLink
 } from "mdbreact";
 import NavigationItem from "../MainNavigation/NavigationItem/NavigationItem";
 import "./SubNavigation.scss";
@@ -14,7 +12,7 @@ import LoginModal from "../../../Auth/Login/Login";
 
 const SubNavigation = ({ list }) => {
   const [open, setOpen] = useState(false);
-  const [modalOpen, setOpenModal] = useState(true);
+  const [modalOpen, setOpenModal] = useState(false);
 
   const handleClose = () => setOpenModal(false);
   const handleShow = () => setOpenModal(true);
