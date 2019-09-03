@@ -10,9 +10,15 @@ import {
 } from "mdbreact";
 import NavigationItem from "../MainNavigation/NavigationItem/NavigationItem";
 import "./SubNavigation.scss";
+import LoginModal from "../../../Auth/Login/Login";
 
 const SubNavigation = ({ list }) => {
   const [open, setOpen] = useState(false);
+  const [modalOpen, setOpenModal] = useState(true);
+
+  const handleClose = () => setOpenModal(false);
+  const handleShow = () => setOpenModal(true);
+
   const items = list.map(item => {
     return (
       <NavigationItem key={item.name} link={item.link}>
@@ -23,6 +29,7 @@ const SubNavigation = ({ list }) => {
 
   return (
     <MDBNavbar color="dark" className="sub-navigation" expand="md">
+      <LoginModal open={modalOpen} handleClose={() => handleClose()}/>
       <MDBNavbarToggler onClick={() => setOpen(prevState => !prevState)} />
       <MDBCollapse
         id="navbarCollapse3"
@@ -32,7 +39,7 @@ const SubNavigation = ({ list }) => {
       >
         <MDBNavbarNav left style={{ flex: 1 }}>
           <MDBNavItem active>
-            <MDBNavLink to="#">Log In</MDBNavLink>
+            <div onClick={handleShow}>Log In</div>
           </MDBNavItem>
         </MDBNavbarNav>
 

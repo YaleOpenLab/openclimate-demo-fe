@@ -1,0 +1,12 @@
+@import "../../../styles/variables";
+
+.modal-backdrop {
+  opacity:0.5 !important;
+}
+
+.login-modal {
+  display: block;
+  max-width: 279px;
+  top: 128px;
+  left: 25px;
+}
