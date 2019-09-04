@@ -8,7 +8,8 @@ const Container = ({
   rightBar,
   sideBarSize,
   className,
-  children
+  children,
+  style
 }) => {
   const complex = !!(leftBar || rightBar);
   return (
@@ -16,6 +17,7 @@ const Container = ({
       className={`${placeholder ? "custom-container" : ""} ${
         className ? className : ""
       } ${complex || fluid ? "container-fluid" : "container"}`}
+      style={style ? style : null}
     >
       {complex ? (
         <div className="row py-3">

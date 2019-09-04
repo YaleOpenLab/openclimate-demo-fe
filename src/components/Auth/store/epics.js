@@ -1,8 +1,7 @@
 import { Http } from "../../../services/Http";
 import { catchError, switchMap, map } from "rxjs/operators";
 import { ofType } from "redux-observable";
-import { Observable } from "rxjs";
-import "rxjs/add/observable/of";
+import { Observable, of } from "rxjs";
 import {
     USER_ACCOUNT,
     fetchUserAccountSuccess,
@@ -19,14 +18,10 @@ export const fetchUserAccountEpic = action$ =>
             const { username, password } = action.payload;
             return Http.userValidate(username, password).pipe(
                 map(user => {
-                    if (user.data.Code) {
-                        return fetchUserAccountFailure(user.data.Status);
-                    } else {
-                        return fetchUserAccountSuccess(user.data);
-                    }
+                    return fetchUserAccountSuccess(user.data);
                 }),
                 catchError(error => {
-                    return Observable.of(fetchUserAccountFailure(error.message));
+                    return of(fetchUserAccountFailure(error.message));
                 })
             );
         })

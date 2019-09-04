@@ -12,6 +12,7 @@ import Manage from "./pages/homepage/Manage";
 import PrivateRoute from "./routes/PrivateRouter";
 import ExplorePage from "./pages/Explore/ExploreContainer";
 import AccountPage from "./pages/Account/AccountContainer";
+import Unauthorized from "./pages/Account/pages/Unauthorized/Unauthorized";
 
 class App extends Component {
   render() {
@@ -28,6 +29,7 @@ class App extends Component {
         <Route path="/review" component={Review} />
         <Route path="/manage" component={Manage} />
         <Route path="/trade" component={TradePage} />
+        <Route path={Routes.UNAUTHORIZED} component={Unauthorized} />
       </Switch>
     );
   }

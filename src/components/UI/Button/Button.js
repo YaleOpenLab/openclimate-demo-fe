@@ -1,11 +1,11 @@
 import React from 'react';
-import "./Button.scss";
 
-const Button = ({title, children, style, variant = 'primary'}) => {
+const Button = ({title, children, style, variant = 'primary', disabled = false}) => {
     return (
         <button
             style={style}
             className={`form-control oc-button ${variant}`}
+            disabled={disabled}
         >
             {title || children}
         </button>

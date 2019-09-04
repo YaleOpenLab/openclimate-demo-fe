@@ -25,7 +25,7 @@ const userAccountReducer = (state = initialState, action) => {
             };
         case USER_ACCOUNT_SUCCESS:
             return {
-                items: action.payload.Entity.U,
+                items: action.payload,
                 isLoading: false,
                 error: null,
                 authorized: true

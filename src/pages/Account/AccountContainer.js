@@ -7,6 +7,9 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import Manage from "./pages/Manage/Manage";
 import View from "./pages/View/View";
 import Review from "./pages/Review/Review";
+import PrivateRoute from "../../routes/PrivateRouter";
+import Unauthorized from "./pages/Unauthorized/Unauthorized";
+import isAuthorized from "../../helpers/functions/is-authorized";
 
 const menu = [
   { name: "dashboard", link: ROUTES.ACCOUNT_PAGES.DASHBOARD },
@@ -23,17 +26,18 @@ class AccountPage extends Component {
   render() {
     return (
       <LayoutWrapper>
-        <SubNavigation list={menu} />
+        <SubNavigation list={isAuthorized() ? menu : []} />
         <Switch>
           <Redirect
             from={ROUTES.ACCOUNT}
             exact
             to={ROUTES.ACCOUNT_PAGES.DASHBOARD}
           />
-          <Route path={ROUTES.ACCOUNT_PAGES.DASHBOARD} component={Dashboard} />
-          <Route path={ROUTES.ACCOUNT_PAGES.VIEW} component={View} />
-          <Route path={ROUTES.ACCOUNT_PAGES.REVIEW} component={Review} />
-          <Route path={ROUTES.ACCOUNT_PAGES.MANAGE} component={Manage} />
+          <PrivateRoute path={ROUTES.ACCOUNT_PAGES.DASHBOARD} component={Dashboard} />
+          <PrivateRoute path={ROUTES.ACCOUNT_PAGES.VIEW} component={View} />
+          <PrivateRoute path={ROUTES.ACCOUNT_PAGES.REVIEW} component={Review} />
+          <PrivateRoute path={ROUTES.ACCOUNT_PAGES.MANAGE} component={Manage} />
+          <Route path={ROUTES.ACCOUNT_PAGES.UNAUTHORIZED} component={Unauthorized} />
         </Switch>
       </LayoutWrapper>
     );

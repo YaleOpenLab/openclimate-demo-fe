@@ -1,1 +1,52 @@
 @import "./variables";
+
+
+.oc-input {
+  height: 50px;
+  border-radius: 0;
+
+  &::placeholder {
+    color: $secondary-light;
+    font-size: 14px;
+  }
+}
+
+.oc-button {
+  height: 50px;
+  text-transform: uppercase;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+
+  &.primary {
+    background: $secondary;
+    color: $white;
+    &:active{
+      background-color: rgba($secondary, 0.7);
+    }
+  }
+
+  &.secondary {
+    background: $white;
+    color: $secondary;
+
+    &:active{
+      background-color: rgba($lightgray, 0.3);
+    }
+  }
+
+  &:disabled {
+    background: $lightgray;
+  }
+}
+
+.oc-form-error-text {
+  color: $warning;
+  padding: 3px;
+  font-size: 11px;
+}
+
+.oc-form-input-error {
+  border: 1px solid $warning !important;
+  box-shadow: 0 0 0 0.2rem #dc354538 !important;
+}

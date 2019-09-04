@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import "./UnderDevelopment.scss";
+
 const UnderDevelopment = ({ title }) => (
   <div className="under-development">
     <div className="content">

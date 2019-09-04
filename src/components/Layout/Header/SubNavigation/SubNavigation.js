@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import {
   MDBNavbar,
+  MDBNavbarBrand,
   MDBNavbarNav,
   MDBNavbarToggler,
   MDBCollapse,
-  MDBNavItem,
 } from "mdbreact";
 import NavigationItem from "../MainNavigation/NavigationItem/NavigationItem";
 import "./SubNavigation.scss";
 import LoginModal from "../../../Auth/Login/Login";
+import {Button} from "../../../UI";
 
-const SubNavigation = ({ list }) => {
+const SubNavigation = ({ list=[] }) => {
   const [open, setOpen] = useState(false);
   const [modalOpen, setOpenModal] = useState(false);
 
@@ -36,9 +37,9 @@ const SubNavigation = ({ list }) => {
         navbar
       >
         <MDBNavbarNav left style={{ flex: 1 }}>
-          <MDBNavItem active>
-            <div onClick={handleShow}>Log In</div>
-          </MDBNavItem>
+          <div className='login-panel' onClick={handleShow}>
+            <Button variant='secondary'>Log In</Button>
+          </div>
         </MDBNavbarNav>
 
         <MDBNavbarNav left style={{ flex: 3 }}>

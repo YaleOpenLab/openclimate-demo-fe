@@ -1,5 +1,7 @@
+import Storage from "../../services/Storage";
+
 const isAuthorized = () => {
-  return true; // TODO: handle authorization check
+  return Storage.get("token");
 };
 
 export default isAuthorized;

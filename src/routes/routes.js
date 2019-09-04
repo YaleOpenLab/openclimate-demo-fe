@@ -11,7 +11,8 @@ const ROUTES = {
     DASHBOARD: "/account/dashboard",
     VIEW: "/account/view",
     REVIEW: "/account/review",
-    MANAGE: "/account/manage"
+    MANAGE: "/account/manage",
+    UNAUTHORIZED: "/account/unauthorized",
   },
   TRADE: "/trade",
   ABOUT: "/about",
