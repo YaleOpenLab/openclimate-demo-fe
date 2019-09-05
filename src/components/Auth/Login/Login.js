@@ -1,13 +1,16 @@
 import React, {useRef, useEffect} from "react";
 import {Modal} from "react-bootstrap";
 import "./Login.scss";
-import {Button, Input} from "../../UI";
+import {Button} from "../../UI";
 import * as Yup from "yup";
 import {fetchUserAccount} from "../store/actions";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {Formik, Form, Field} from "formik";
 import {useSnackbar} from "notistack";
+import {withRouter} from 'react-router-dom';
+import history from "../../../helpers/history";
+
 
 const LoginSchema = Yup.object().shape({
     username: Yup.string()
@@ -19,7 +22,7 @@ const LoginSchema = Yup.object().shape({
 });
 
 
-const LoginModal = ({open, handleClose, fetchUserAccount, error, loading, authorized}) => {
+const LoginModal = ({open, handleClose, fetchUserAccount, error, loading, authorized, location}) => {
     const {enqueueSnackbar, closeSnackbar} = useSnackbar();
     let prevAmount;
     const usePrevious = (value) => {
@@ -39,6 +42,7 @@ const LoginModal = ({open, handleClose, fetchUserAccount, error, loading, author
                 autoHideDuration: 1000,
             });
             handleClose();
+            history.push(location.pathname)
         }
     }, [authorized]);
 
@@ -138,4 +142,4 @@ const mapDispatchToProps = dispatch =>
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(LoginModal);
+)(withRouter(LoginModal));

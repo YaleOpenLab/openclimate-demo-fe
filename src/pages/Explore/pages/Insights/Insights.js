@@ -15,7 +15,7 @@ class Insights extends Component {
             <p>Aggregate planetary state</p>
             <div className="map-area">
               <div className="image-container">
-                <img src={EarthView} />
+                <img src={EarthView} alt="globe"/>
               </div>
             </div>
           </div>

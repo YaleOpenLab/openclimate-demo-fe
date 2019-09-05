@@ -7,12 +7,15 @@ import {
     USER_ACCOUNT_UPDATE_FAILURE,
     USER_ACCOUNT_LOGOUT
 } from "./actions";
+import Storage from "../../../services/Storage";
 
 const initialState = {
-    items: {},
+    items: {
+        Token: Storage.get("token")
+    },
     isLoading: false,
     error: null,
-    authorized: false
+    authorized: !!Storage.get("token")
 };
 
 const userAccountReducer = (state = initialState, action) => {
@@ -33,6 +36,7 @@ const userAccountReducer = (state = initialState, action) => {
         case USER_ACCOUNT_FAILURE:
             return {
                 ...state,
+                items: {Token: null},
                 isLoading: false,
                 error: action.payload,
                 authorized: false

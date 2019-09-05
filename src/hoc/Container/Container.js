@@ -9,7 +9,7 @@ const Container = ({
   sideBarSize,
   className,
   children,
-  style
+  style,
 }) => {
   const complex = !!(leftBar || rightBar);
   return (

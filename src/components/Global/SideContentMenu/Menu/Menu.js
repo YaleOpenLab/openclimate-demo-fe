@@ -13,7 +13,7 @@ const tempData = [
     },
 ];
 
-const Menu = ({}) => {
+const Menu = () => {
     return (
         <div className="menu">
             <div className="list">

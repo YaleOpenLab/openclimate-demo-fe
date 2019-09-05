@@ -21,9 +21,8 @@ export const fetchUserAccountFailure = message => ({
     payload: message
 });
 
-export const logoutUserAccount = payload => ({
+export const logoutUserAccount = () => ({
     type: USER_ACCOUNT_LOGOUT,
-    payload
 });
 
 export const updateUserAccount = payload => ({
