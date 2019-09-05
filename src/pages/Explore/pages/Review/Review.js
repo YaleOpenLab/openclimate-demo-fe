@@ -9,9 +9,7 @@ class Review extends Component {
           <div className="col-lg-4">
             <SideContentMenu />
           </div>
-          <div className="col-md-8 col-lg-6">
-
-          </div>
+          <div className="col-md-8 col-lg-6"></div>
         </div>
       </div>
     );

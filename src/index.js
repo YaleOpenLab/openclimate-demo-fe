@@ -2,34 +2,34 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
 import * as serviceWorker from "./serviceWorker";
-import {BrowserRouter, Router} from "react-router-dom";
+import { BrowserRouter, Router } from "react-router-dom";
 import App from "./App";
-import {createStore, applyMiddleware} from "redux";
-import {composeWithDevTools} from "redux-devtools-extension";
-import {createEpicMiddleware} from "redux-observable";
-import {Provider} from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import { createEpicMiddleware } from "redux-observable";
+import { Provider } from "react-redux";
 import rootReducer from "./store/reducers";
-import {rootEpic} from "./store/epics";
+import { rootEpic } from "./store/epics";
 import history from "./helpers/history";
-import {SnackbarProvider} from "notistack";
+import { SnackbarProvider } from "notistack";
 
 const epicMiddleware = createEpicMiddleware();
 const store = createStore(
-    rootReducer,
-    composeWithDevTools(applyMiddleware(epicMiddleware))
+  rootReducer,
+  composeWithDevTools(applyMiddleware(epicMiddleware))
 );
 epicMiddleware.run(rootEpic);
 
 const routing = (
-    <Provider store={store}>
-        <SnackbarProvider maxSnack={1}>
-            <BrowserRouter forceRefresh={true}>
-                <Router history={history}>
-                    <App/>
-                </Router>
-            </BrowserRouter>
-        </SnackbarProvider>
-    </Provider>
+  <Provider store={store}>
+    <SnackbarProvider maxSnack={1}>
+      <BrowserRouter forceRefresh={true}>
+        <Router history={history}>
+          <App />
+        </Router>
+      </BrowserRouter>
+    </SnackbarProvider>
+  </Provider>
 );
 
 ReactDOM.render(routing, document.getElementById("root"));

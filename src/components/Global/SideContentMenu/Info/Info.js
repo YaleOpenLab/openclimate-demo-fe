@@ -36,7 +36,7 @@ const Info = ({}) => {
             </ol>
           </div>
           <div className="see-more">
-            <a href={void(0)}>See Earth Status ></a>
+            <a href={void 0}>See Earth Status ></a>
           </div>
         </div>
       </div>

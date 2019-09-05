@@ -12,7 +12,7 @@ const ROUTES = {
     VIEW: "/account/view",
     REVIEW: "/account/review",
     MANAGE: "/account/manage",
-    UNAUTHORIZED: "/account/unauthorized",
+    UNAUTHORIZED: "/account/unauthorized"
   },
   TRADE: "/trade",
   ABOUT: "/about",

@@ -14,7 +14,6 @@ const menu = [
 ];
 
 class ExplorePage extends Component {
-
   render() {
     return (
       <LayoutWrapper>

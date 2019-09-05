@@ -7,24 +7,24 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 class LogoutPage extends Component {
-    componentDidMount = () => {
-        this.props.logoutUserAccount();
-    };
+  componentDidMount = () => {
+    this.props.logoutUserAccount();
+  };
 
-    componentWillMount() {
-        Storage.remove("token");
-        history.push(ROUTES.EXPLORE);
-    }
+  componentWillMount() {
+    Storage.remove("token");
+    history.push(ROUTES.EXPLORE);
+  }
 
-    render() {
-        return null;
-    }
+  render() {
+    return null;
+  }
 }
 
 const mapDispatchToProps = dispatch =>
-    bindActionCreators({ logoutUserAccount }, dispatch);
+  bindActionCreators({ logoutUserAccount }, dispatch);
 
 export default connect(
-    null,
-    mapDispatchToProps
+  null,
+  mapDispatchToProps
 )(LogoutPage);

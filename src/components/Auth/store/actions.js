@@ -7,35 +7,35 @@ export const USER_ACCOUNT_UPDATE_FAILURE = "USER_ACCOUNT_UPDATE_FAILURE";
 export const USER_ACCOUNT_LOGOUT = "USER_ACCOUNT_LOGOUT";
 
 export const fetchUserAccount = payload => ({
-    type: USER_ACCOUNT,
-    payload
+  type: USER_ACCOUNT,
+  payload
 });
 
 export const fetchUserAccountSuccess = account => ({
-    type: USER_ACCOUNT_SUCCESS,
-    payload: account
+  type: USER_ACCOUNT_SUCCESS,
+  payload: account
 });
 
 export const fetchUserAccountFailure = message => ({
-    type: USER_ACCOUNT_FAILURE,
-    payload: message
+  type: USER_ACCOUNT_FAILURE,
+  payload: message
 });
 
 export const logoutUserAccount = () => ({
-    type: USER_ACCOUNT_LOGOUT,
+  type: USER_ACCOUNT_LOGOUT
 });
 
 export const updateUserAccount = payload => ({
-    type: USER_ACCOUNT_UPDATE,
-    payload
+  type: USER_ACCOUNT_UPDATE,
+  payload
 });
 
 export const updateUserAccountSuccess = (response, newData) => ({
-    type: USER_ACCOUNT_UPDATE_SUCCESS,
-    payload: { response, newData }
+  type: USER_ACCOUNT_UPDATE_SUCCESS,
+  payload: { response, newData }
 });
 
 export const updateUserAccountFailure = message => ({
-    type: USER_ACCOUNT_UPDATE_FAILURE,
-    payload: message
+  type: USER_ACCOUNT_UPDATE_FAILURE,
+  payload: message
 });

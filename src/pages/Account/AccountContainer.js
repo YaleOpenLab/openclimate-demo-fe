@@ -33,11 +33,17 @@ class AccountPage extends Component {
             exact
             to={ROUTES.ACCOUNT_PAGES.DASHBOARD}
           />
-          <PrivateRoute path={ROUTES.ACCOUNT_PAGES.DASHBOARD} component={Dashboard} />
+          <PrivateRoute
+            path={ROUTES.ACCOUNT_PAGES.DASHBOARD}
+            component={Dashboard}
+          />
           <PrivateRoute path={ROUTES.ACCOUNT_PAGES.VIEW} component={View} />
           <PrivateRoute path={ROUTES.ACCOUNT_PAGES.REVIEW} component={Review} />
           <PrivateRoute path={ROUTES.ACCOUNT_PAGES.MANAGE} component={Manage} />
-          <Route path={ROUTES.ACCOUNT_PAGES.UNAUTHORIZED} component={Unauthorized} />
+          <Route
+            path={ROUTES.ACCOUNT_PAGES.UNAUTHORIZED}
+            component={Unauthorized}
+          />
         </Switch>
       </LayoutWrapper>
     );

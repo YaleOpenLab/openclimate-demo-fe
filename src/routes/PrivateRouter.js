@@ -12,7 +12,10 @@ export default function PrivateRoute({ component: Component, ...rest }) {
           <Component {...props} {...rest} />
         ) : (
           <Redirect
-            to={{ pathname: ROUTES.ACCOUNT_PAGES.UNAUTHORIZED, state: { from: props.location } }}
+            to={{
+              pathname: ROUTES.ACCOUNT_PAGES.UNAUTHORIZED,
+              state: { from: props.location }
+            }}
           />
         )
       }
