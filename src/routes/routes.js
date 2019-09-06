@@ -12,6 +12,10 @@ const ROUTES = {
     VIEW: "/account/view",
     REVIEW: "/account/review",
     MANAGE: "/account/manage",
+    MANAGE_PAGES: {
+      ADD: "/account/manage/add",
+      INTEGRATE: "/account/manage/integrate",
+    },
     UNAUTHORIZED: "/account/unauthorized"
   },
   TRADE: "/trade",

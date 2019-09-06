@@ -4,7 +4,7 @@ import SideContentMenu from "../../../../components/Global/SideContentMenu/SideC
 class Review extends Component {
   render() {
     return (
-      <div className="Review">
+      <div className="explore-review">
         <div className="row">
           <div className="col-lg-4">
             <SideContentMenu />

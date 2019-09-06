@@ -98,13 +98,13 @@ class Dashboard extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-4 info-cont">
                         <Climate />
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-4 info-cont">
                         <Pledges />
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-4 info-cont">
                         <ReportingProfile />
                     </div>
                 </div>

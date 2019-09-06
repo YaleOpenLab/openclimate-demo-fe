@@ -1,9 +1,18 @@
 import React, { Component } from "react";
-import Container from "../../../../hoc/Container/Container";
+import SideContentMenu from "../../../../components/Global/SideContentMenu/SideContentMenu";
 
 class View extends Component {
   render() {
-    return <Container placeholder>View</Container>;
+    return (
+        <div className="account-view">
+          <div className="row">
+            <div className="col-lg-4">
+              <SideContentMenu complex />
+            </div>
+            <div className="col-md-8 col-lg-6"></div>
+          </div>
+        </div>
+    );
   }
 }
 

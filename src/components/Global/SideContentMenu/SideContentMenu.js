@@ -2,16 +2,16 @@ import React, { Component } from "react";
 import "./SideContentMenu.scss";
 import Info from "./Info/Info";
 import Menu from "./Menu/Menu";
+import ComplexMenu from "./ComplexMenu/ComplexMenu";
 
-class SideContentMenu extends Component {
-  render() {
+const SideContentMenu = ({complex}) => {
     return (
       <div className="side-content-panel">
         <Info />
-        <Menu />
+        {complex ? <ComplexMenu /> :<Menu />}
       </div>
     );
-  }
-}
+
+};
 
 export default SideContentMenu;
