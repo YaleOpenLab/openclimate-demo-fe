@@ -21,6 +21,22 @@ export class Http {
     );
   }
 
+  static getNationStates() {
+    return this.post("nation-states", ).pipe(
+      map(value => {
+        return value;
+      })
+    );
+  }
+
+  static getMultinationals() {
+    return this.post("multinationals", ).pipe(
+      map(value => {
+        return value;
+      })
+    );
+  }
+
   static get(path, data) {
     return from(
       axios({

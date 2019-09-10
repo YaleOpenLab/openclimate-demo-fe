@@ -1,0 +1,39 @@
+@import "../../../../../styles/variables";
+
+.review-navigation {
+  background: $primary-lightest;
+  display: flex;
+  border-bottom: 1px solid silver;
+  h3 {
+    margin-top: 33px;
+    margin-bottom: 21px;
+  }
+
+  .navigation-section {
+    display: flex;
+    .navigation-link {
+      color: $dark-text;
+      font-size: 16px;
+      width: 107px;
+      text-align: center;
+      .active-overlay {
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 5px;
+        background: $warning;
+        left: 0;
+      }
+      &.is-active {
+        border-top: 1px solid $lightgray;
+        border-left: 1px solid $lightgray;
+        border-right: 1px solid $lightgray;
+        background: $white;
+        position: relative;
+        .active-overlay {
+          display: block;
+        }
+      }
+    }
+  }
+}
