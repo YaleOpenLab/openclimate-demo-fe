@@ -1,5 +1,53 @@
 @import "../../../../styles/variables";
 
 .account-review {
+  .content {
+    margin-top: 57px;
+    margin-bottom: 52px;
 
+    .filter {
+      font-size: 13px;
+      select {
+        max-width: 275px;
+        margin-top: 6px;
+      }
+    }
+    .table-container {
+      margin-top: 15px;
+      .table {
+        border-collapse: collapse;
+        border: 1px solid $lightgray;
+
+        thead {
+          tr {
+            height: 50px;
+          }
+          th {
+            border: none;
+            background: $primary-lightest;
+            text-align: left;
+            font-weight: normal;
+            color: $dark-text;
+            vertical-align: middle;
+            &.--bold {
+              font-size: 18px;
+              font-weight: bold;
+            }
+            &.--icon {
+              text-align: center;
+            }
+          }
+        }
+        tbody {
+          th, td {
+            font-size: 14px;
+            p {
+              margin: 5px 0;
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
