@@ -1,5 +1,6 @@
 import React from "react";
 import "./SideBar.scss";
+import EarthImage from "../../../assets/images/earth-preview-sm.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
@@ -26,6 +27,11 @@ const SideBar = ({ active, toggleSideBar }) => {
           />
         </div>
       </div>
+			<div className="sidebar-body">
+					<div className="image-area">
+						<img src={EarthImage} alt=""/>
+					</div>
+			</div>
     </nav>
   );
 };

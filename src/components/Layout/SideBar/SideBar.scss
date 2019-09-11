@@ -25,4 +25,26 @@
     padding: 0 36px;
     justify-content: space-between;
   }
+  .sidebar-body {
+    .image-area {
+      height: 197px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid $lightgray;
+      img {
+        width: 150px;
+        height: 150px;
+      }
+    }
+    .info-area {
+
+    }
+    .menu-area {
+
+    }
+    .footer {
+
+    }
+  }
 }
