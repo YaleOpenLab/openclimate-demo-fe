@@ -1,0 +1,62 @@
+@import "../../../../../styles/variables";
+
+.carbon-balance {
+  display: flex;
+  flex-wrap: wrap;
+
+  .cb-left {
+    flex: 1;
+    .chart {
+      display: flex;
+
+      .chart-text {
+        color: $dark-text;
+        white-space: nowrap;
+
+        h1 {
+          color: $dark-text;
+          font-size: 45px;
+          font-weight: normal;
+        }
+        p {
+          font-size: 15px;
+          margin: 5px 0 0 0;
+        }
+      }
+      .chart-image {
+        min-width: 100px;
+        img {
+          width: 100%;
+        }
+      }
+    }
+    .table-responsive {
+      margin-top: 10px;
+    }
+    .last-updated {
+      font-size: 14px;
+      color: $dark-text;
+    }
+    .oc-link {
+      margin-top: 10px;
+    }
+  }
+  .cb-right {
+    flex: 1;
+
+    .table-responsive {
+      td {
+        padding: 9px;
+
+        &.--highlight {
+          color: $secondary;
+        }
+      }
+      .tb-title {
+        border: none;
+        font-size: 16px;
+        font-weight: normal;
+      }
+    }
+  }
+}

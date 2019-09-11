@@ -1,0 +1,19 @@
+@import "../../../../styles/variables";
+
+.unauthorized {
+  justify-content: center;
+  text-align: center;
+  margin-top: 170px;
+  align-items: center;
+  display: flex;
+
+  .content {
+    width: 457px;
+
+    .welcome{
+      font-size: 34px;
+      color: $secondary;
+      font-weight: lighter;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+@import "../../../../../../../styles/variables";
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid $lightgray;
+
+  .image {
+    height: 40px;
+    width: 40px;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .content {
+    flex: 1;
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .text {
+      .title {
+        font-size: 16px;
+        color: rgba($black, 0.87);
+        margin: 0;
+      }
+      .description {
+        font-size: 14px;
+        color: $text-gray;
+        margin: 6px 0 0 0;
+      }
+    }
+    .icon-div {
+      .icon {
+        color: $gray;
+      }
+    }
+  }
+}

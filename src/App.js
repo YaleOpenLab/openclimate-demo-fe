@@ -1,20 +1,37 @@
-import React from 'react';
-import { Component } from 'react';
-import './App.css';
-import Landing from './pages/landing';
-
-
+import React from "react";
+import { Component } from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
+import Routes from "./routes/routes";
+import HomePage from "./pages/homepage/homepage";
+import Tool from "./pages/homepage/publicTool/tool";
+import ActorPage from "./pages/actorpage";
+import TradePage from "./pages/Trade/TradeContainer";
+import Dashboard from "./pages/homepage/Dashboard";
+import Review from "./pages/homepage/Review";
+import Manage from "./pages/homepage/Manage";
+import ExplorePage from "./pages/Explore/ExploreContainer";
+import AccountPage from "./pages/Account/AccountContainer";
+import LogoutPage from "./components/Auth/Logout/Logout";
 
 class App extends Component {
-	render() {
-		return (
-			<div className="App">
-				<Landing/>
-			</div>
-		);
-	}
+  render() {
+    return (
+      <Switch>
+        <Redirect from={Routes.HOME} exact to={Routes.EXPLORE} />
+        <Route path={Routes.HOME} exact component={ExplorePage} />
+        <Route path={Routes.EXPLORE} component={ExplorePage} />
+        <Route path={Routes.ACCOUNT} component={AccountPage} />
+        <Route path={Routes.LOGOUT} component={LogoutPage} />
+        <Route path="/home" component={HomePage} />
+        <Route path="/tool" component={Tool} />
+        <Route path="/actorpage" component={ActorPage} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/review" component={Review} />
+        <Route path="/manage" component={Manage} />
+        <Route path="/trade" component={TradePage} />
+      </Switch>
+    );
+  }
 }
 
-export default App;				
-
-// <h1 className="menuBrand">OpenClimate</h1>  
+export default App;

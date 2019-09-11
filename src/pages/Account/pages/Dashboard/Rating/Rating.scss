@@ -1,0 +1,21 @@
+@import "../../../../../styles/variables";
+
+.Ratings {
+  display: flex;
+  .star {
+    margin-right: 5px;
+    .icon {
+      height: 20px;
+      width: 20px;
+      cursor: pointer;
+      color: $golden-light;
+      &.rated {
+        color: $golden;
+      }
+
+      &:active {
+        opacity: 0.7;
+      }
+    }
+  }
+}

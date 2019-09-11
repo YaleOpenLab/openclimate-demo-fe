@@ -1,0 +1,86 @@
+@import "../../../../../styles/variables";
+
+.info-panel {
+  border-radius: 15px;
+  border: 1px solid $lightgray;
+  height: 100%;
+
+  .header {
+    padding: 18px 35px;
+    border-bottom: 1px solid $lightgray;
+
+    h3 {
+      font-size: 18px;
+      color: $dark-text;
+      text-transform: uppercase;
+    }
+  }
+  .content {
+    .ip-section {
+      padding: 22px 35px;
+      &.ip-separator {
+        border-bottom: 1px solid silver;
+      }
+    }
+
+    .see-more {
+      margin-top: 10px;
+    }
+    .actions {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      a {
+        margin: 0 5px;
+      }
+      span {
+        color: $secondary;
+      }
+    }
+
+    .climate-accountability {
+      h4 {
+        color: $light-text;
+        text-transform: uppercase;
+        font-size: 18px;
+      }
+      .image {
+        width: 100%;
+        height: 115px;
+        display: flex;
+        justify-content: center;
+        img {
+          max-height: 100%;
+          max-width: 100%;
+          object-fit: contain;
+        }
+      }
+      .description {
+        color: rgba(black, 0.6);
+        font-size: 15px;
+        margin-top: 10px;
+      }
+    }
+    .pledges {
+      .select-container {
+        display: flex;
+        justify-content: center;
+        select {
+          margin: 0 10px;
+          height: 20px;
+          border: none;
+          font-size: 15px;
+        }
+      }
+      .footer {
+        padding: 10px 35px;
+        .see-more {
+          .footer-link {
+            color: $dark-text;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}

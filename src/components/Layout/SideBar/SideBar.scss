@@ -1,0 +1,28 @@
+@import '../../../styles/variables';
+
+.SideBar {
+  width: 367px;
+  max-width: 100%;
+  position: fixed;
+  top: 0;
+  left: -367px;
+  height: 100vh;
+  z-index: 1500;
+  color: #fff;
+  transition: all 0.3s;
+  background-color: $white;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+
+  &.active {
+    left: 0;
+  }
+
+  .header {
+    height: 83px;
+    background-color: $primary;
+    align-items: center;
+    display: flex;
+    padding: 0 36px;
+    justify-content: space-between;
+  }
+}

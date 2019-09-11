@@ -1,0 +1,26 @@
+@import '../../../styles/variables';
+
+.footer{
+	width: 100%;
+}
+.footer-menu{
+	position: relative;
+	background-color: $primary;
+	height: 41px;
+}
+.footer-disclaimer{
+	position: relative;
+	min-height: 122px;
+	background-color: $light-background;
+	color: $dark-text;
+	display: flex;
+	font-size: 12px;
+	justify-content: center;
+	align-items: center;
+
+	.disclaimer {
+		text-align: center;
+		margin: 0 auto;
+		width: 80%;
+	}
+}
