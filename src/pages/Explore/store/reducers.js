@@ -5,19 +5,9 @@ import {
 } from "./actions";
 
 const initialState = {
-	insight: {
-
-	},
-	learn: {
-
-	},
 	review: {
-		nation_states: {
-
-		},
-		multinationals: {
-
-		},
+		nation_states: [],
+		multinationals: [],
 		isLoading: false,
 		error: null,
 	}
@@ -28,18 +18,28 @@ const exploreReducer = (state = initialState, action) => {
 		case EXPLORE_REVIEW:
 			return {
 				...state,
-				isLoading: true,
-				error: null
+				review: {
+					...state.review,
+					isLoading: true,
+					error: null
+				}
 			};
 		case EXPLORE_REVIEW_SUCCESS:
-			console.log(action);
+			let newData = {...state.review};
+			newData[action.name] = action.data.data;
+			newData.isLoading = false;
 			return {
 				...state,
-				review: {nation_states: 'test'},
+				review: newData
 			};
 		case EXPLORE_REVIEW_FAILURE:
 			return {
 				...state,
+				review: {
+					...state.review,
+					error: action.payload,
+					isLoading: false,
+				}
 			};
 		default:
 			return state;

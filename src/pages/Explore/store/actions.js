@@ -8,9 +8,9 @@ export const fetchExploreReview = payload => ({
 	payload
 });
 
-export const fetchExploreReviewSuccess = (type, data) => ({
+export const fetchExploreReviewSuccess = (name, data) => ({
 	type: EXPLORE_REVIEW_SUCCESS,
-	payload: type, data
+	name, data
 });
 
 export const fetchExploreReviewFailure = message => ({

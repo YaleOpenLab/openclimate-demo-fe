@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Accordion.scss";
 import Card from "./Card/Card";
 
-const Accordion = ({ data }) => {
+const Accordion = ({ data = [] }) => {
   const [openIndex, setOpen] = useState(null);
 
   let content;

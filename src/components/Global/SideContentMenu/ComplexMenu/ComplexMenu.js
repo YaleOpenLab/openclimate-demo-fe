@@ -9,7 +9,7 @@ const tempData = [
   },
 ];
 
-const ComplexMenu = () => {
+const ComplexMenu = ({data}) => {
   return (
     <div className="menu">
       <div className="list">
