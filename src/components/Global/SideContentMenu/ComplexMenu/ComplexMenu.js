@@ -6,10 +6,10 @@ const tempData = [
     index: 0,
     title: "Nation State",
     list: ["United States"]
-  },
+  }
 ];
 
-const ComplexMenu = ({data}) => {
+const ComplexMenu = ({ data }) => {
   return (
     <div className="menu">
       <div className="list">

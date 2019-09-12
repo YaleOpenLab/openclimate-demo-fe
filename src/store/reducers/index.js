@@ -4,9 +4,9 @@ import exploreReducer from "../../pages/Explore/store/reducers";
 
 const rootReducer = combineReducers({
   profile: combineReducers({
-    account: userAccountReducer,
+    account: userAccountReducer
   }),
-	explore: exploreReducer,
+  explore: exploreReducer
 });
 
 export default rootReducer;

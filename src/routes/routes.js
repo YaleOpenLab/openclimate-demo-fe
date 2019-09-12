@@ -18,12 +18,12 @@ const ROUTES = {
       API: "/account/review/api",
       ORACLE: "/account/review/oracle",
       CONSENSUS: "/account/review/consensus",
-      DISPUTES: "/account/review/disputes",
+      DISPUTES: "/account/review/disputes"
     },
     MANAGE: "/account/manage",
     MANAGE_PAGES: {
       ADD: "/account/manage/add",
-      INTEGRATE: "/account/manage/integrate",
+      INTEGRATE: "/account/manage/integrate"
     },
     UNAUTHORIZED: "/account/unauthorized"
   },
