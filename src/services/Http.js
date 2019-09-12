@@ -22,7 +22,7 @@ export class Http {
   }
 
   static getNationStates() {
-    return this.post("nation-states", ).pipe(
+    return this.get("nation-states", ).pipe(
       map(value => {
         return value;
       })
@@ -30,7 +30,7 @@ export class Http {
   }
 
   static getMultinationals() {
-    return this.post("multinationals", ).pipe(
+    return this.get("multinationals", ).pipe(
       map(value => {
         return value;
       })

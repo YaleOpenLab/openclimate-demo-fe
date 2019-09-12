@@ -8,7 +8,7 @@ import {
 
 export const fetchDashboardEpic = action$ =>
     action$.pipe(
-        ofType(USER_ACCOUNT),
+        ofType(ACCOUNT_DASHBOARD),
         switchMap(action => {
             const { username, password } = action.payload;
             return Http.userValidate(username, password).pipe(

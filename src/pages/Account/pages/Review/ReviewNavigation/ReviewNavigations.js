@@ -7,6 +7,7 @@ const ReviewNavigation = ({list = []}) => {
     list.map(item => {
         items.push(
             <MDBNavLink
+								key={item.url}
                 activeClassName="is-active"
                 className={`navigation-link `}
                 to={item.url}
