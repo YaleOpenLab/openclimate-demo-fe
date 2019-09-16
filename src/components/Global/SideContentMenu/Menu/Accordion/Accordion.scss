@@ -19,6 +19,9 @@
         font-size: 20px;
         padding: 0 35px;
         font-weight: bold;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
       }
       .oc-card-icon {
         width: 60px;

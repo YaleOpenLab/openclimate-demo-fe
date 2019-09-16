@@ -6,6 +6,8 @@
   .info {
     flex: 1;
     border-right: 1px solid $lightgray;
+    width: 50%;
+
     .header {
       background: rgba($primary, 0.45);
       height: 63px;
@@ -72,5 +74,6 @@
   .menu {
     flex: 1;
     border-right: 1px solid $lightgray;
+    width: 50%;
   }
 }

@@ -1,0 +1,11 @@
+@import "../../../../../styles/variables";
+
+.review-content {
+  margin: 20px;
+  border: 1px solid $lightgray;
+  border-radius: 25px;
+  .review-header {
+    padding: 23px;
+    border-bottom: 1px solid $lightgray;
+  }
+}

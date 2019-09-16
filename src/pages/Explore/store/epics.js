@@ -5,7 +5,10 @@ import { of } from "rxjs";
 import {
   EXPLORE_REVIEW,
   fetchExploreReviewSuccess,
-  fetchExploreReviewFailure
+  fetchExploreReviewFailure,
+  EXPLORE_REVIEW_DATA,
+  fetchExploreReviewDataSuccess,
+  fetchExploreReviewDataFailure
 } from "./actions";
 
 export const fetchNationStatesEpic = action$ =>
@@ -30,7 +33,22 @@ export const fetchMultinationalsEpic = action$ =>
     )
   );
 
+
+export const fetchExploreReviewDataEpic = (action$) =>
+  action$.pipe(
+    ofType(EXPLORE_REVIEW_DATA),
+    mergeMap((action ) =>{
+      return (
+        Http.getExploreReviewData(action.path, action.id).pipe(
+          map(response => fetchExploreReviewDataSuccess(response)),
+          catchError(error => of(fetchExploreReviewDataFailure(error.message)))
+        ))
+      }
+    )
+  );
+
 export const fetchExploreReviewEpic = combineEpics(
   fetchNationStatesEpic,
-  fetchMultinationalsEpic
+  fetchMultinationalsEpic,
+  fetchExploreReviewDataEpic
 );

@@ -42,6 +42,14 @@ export class Http {
     );
   }
 
+  static getExploreReviewData(path, id) {
+    return this.get(`${path}/${id}`).pipe(
+      map(value => {
+        return value;
+      })
+    );
+  }
+
   static getMultinationals() {
     return this.get("multinationals").pipe(
       map(value => {

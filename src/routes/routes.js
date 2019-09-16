@@ -4,7 +4,8 @@ const ROUTES = {
   EXPLORE_PAGES: {
     INSIGHT: "/explore/insight",
     LEARN: "/explore/learn",
-    REVIEW: "/explore/review"
+    REVIEW_BASE: "/explore/review/",
+    REVIEW: "/explore/review/:category?/:id?"
   },
   ACCOUNT: "/account",
   ACCOUNT_PAGES: {

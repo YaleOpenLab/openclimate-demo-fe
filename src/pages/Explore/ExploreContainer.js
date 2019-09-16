@@ -10,7 +10,7 @@ import Review from "./pages/Review/Review";
 const menu = [
   { name: "insights", link: ROUTES.EXPLORE_PAGES.INSIGHT },
   { name: "learn", link: ROUTES.EXPLORE_PAGES.LEARN },
-  { name: "review", link: ROUTES.EXPLORE_PAGES.REVIEW }
+  { name: "review", link: ROUTES.EXPLORE_PAGES.REVIEW_BASE }
 ];
 
 class ExplorePage extends Component {
@@ -26,6 +26,7 @@ class ExplorePage extends Component {
           />
           <Route path={ROUTES.EXPLORE_PAGES.INSIGHT} component={Insights} />
           <Route path={ROUTES.EXPLORE_PAGES.LEARN} component={Learn} />
+          <Route path={ROUTES.EXPLORE_PAGES.REVIEW_BASE} exact component={Review} />
           <Route path={ROUTES.EXPLORE_PAGES.REVIEW} component={Review} />
         </Switch>
       </LayoutWrapper>
