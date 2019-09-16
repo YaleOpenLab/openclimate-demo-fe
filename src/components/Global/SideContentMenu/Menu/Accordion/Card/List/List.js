@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import history from "../../../../../../../helpers/history";
 import ROUTES from "../../../../../../../routes/routes";
 
@@ -14,7 +14,7 @@ const List = ({ title, index, parent, active }) => {
       <div className="oc-card-list-item-title">{title}</div>
       <div className="oc-card-list-item-icon">
         <FontAwesomeIcon
-          icon={faChevronDown}
+          icon={active? faChevronRight : faChevronDown}
           style={{ height: "8px", width: "8px", cursor: "pointer" }}
         />
       </div>

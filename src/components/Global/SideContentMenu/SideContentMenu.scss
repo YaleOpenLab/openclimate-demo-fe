@@ -6,6 +6,7 @@
   .info {
     flex: 1;
     border-right: 1px solid $lightgray;
+    border-bottom: 1px solid $lightgray;
     width: 50%;
 
     .header {
@@ -74,6 +75,11 @@
   .menu {
     flex: 1;
     border-right: 1px solid $lightgray;
+    border-bottom: 1px solid $lightgray;
     width: 50%;
+    overflow: auto;
+    .list {
+      display: flex;
+    }
   }
 }

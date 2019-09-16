@@ -86,7 +86,7 @@ class Review extends React.PureComponent {
           <div className="col-lg-4" style={{padding: 0}}>
             <SideContentMenu menu={data} current={current}/>
           </div>
-          <div className="col-lg-8">
+          <div className="col-lg-6">
             {
               current.id && <ReviewContent data={current}/>
             }
