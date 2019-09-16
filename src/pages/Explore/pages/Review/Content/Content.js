@@ -35,7 +35,8 @@ class ReviewContent extends Component {
   render() {
     if(this.props.error) {
       this.props.enqueueSnackbar(this.props.error, {
-        variant: 'error'
+        variant: 'error',
+        autoHideDuration: 1500,
       });
       return "";
     }
