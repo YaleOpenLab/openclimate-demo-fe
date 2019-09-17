@@ -26,7 +26,8 @@ const ROUTES = {
       ADD: "/account/manage/add",
       INTEGRATE: "/account/manage/integrate"
     },
-    UNAUTHORIZED: "/account/unauthorized"
+    UNAUTHORIZED: "/account/unauthorized",
+    REGISTER: "/account/register",
   },
   TRADE: "/trade",
   ABOUT: "/about",

@@ -4,6 +4,7 @@ import Container from "../../../../hoc/Container/Container";
 import { Redirect } from "react-router-dom";
 import ROUTES from "../../../../routes/routes";
 import { connect } from "react-redux";
+import { Linker } from "../../../../components/UI";
 
 const Unauthorized = ({ authorized }) => {
   const [redirect, setRedirect] = useState(authorized);
@@ -22,7 +23,7 @@ const Unauthorized = ({ authorized }) => {
     <Container style={{ minHeight: 550 }}>
       <div className="unauthorized">
         <div className="content">
-          <div className="welcome">Log In or Register</div>
+          <div className="welcome">Log In or <Linker url={ROUTES.ACCOUNT_PAGES.REGISTER}>Register</Linker></div>
           <div className="welcome">to access your account</div>
           <div className="welcome">and management tools</div>
         </div>

@@ -10,6 +10,7 @@ import Review from "./pages/Review/Review";
 import PrivateRoute from "../../routes/PrivateRouter";
 import Unauthorized from "./pages/Unauthorized/Unauthorized";
 import isAuthorized from "../../helpers/functions/is-authorized";
+import Register from "./pages/Register/Register";
 
 const menu = [
   { name: "dashboard", link: ROUTES.ACCOUNT_PAGES.DASHBOARD },
@@ -43,6 +44,10 @@ class AccountPage extends Component {
           <Route
             path={ROUTES.ACCOUNT_PAGES.UNAUTHORIZED}
             component={Unauthorized}
+          />
+          <Route
+            path={ROUTES.ACCOUNT_PAGES.REGISTER}
+            component={Register}
           />
         </Switch>
       </LayoutWrapper>

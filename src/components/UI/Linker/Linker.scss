@@ -1,0 +1,12 @@
+@import "../../../styles/variables";
+
+
+.oc-linker {
+  cursor: pointer;
+  &:hover {
+    opacity: 0.9;
+  }
+  &:active {
+    opacity: 0.7;
+  }
+}

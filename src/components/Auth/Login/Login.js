@@ -10,6 +10,7 @@ import { Formik, Form, Field } from "formik";
 import { useSnackbar } from "notistack";
 import { withRouter } from "react-router-dom";
 import history from "../../../helpers/history";
+import ROUTES from "../../../routes/routes";
 
 const LoginSchema = Yup.object().shape({
   username: Yup.string()
@@ -59,6 +60,11 @@ const LoginModal = ({
       });
     }
   }, [error]);
+
+  const handleRegister = () => {
+    handleClose();
+    history.push(ROUTES.ACCOUNT_PAGES.REGISTER);
+  };
 
   return (
     <Modal show={open} onHide={handleClose} className="login-modal">
@@ -129,7 +135,7 @@ const LoginModal = ({
           <Button
             variant="secondary"
             style={{ marginTop: 17, flex: 1 }}
-            onClick={handleClose}
+            onClick={handleRegister}
           >
             Register
           </Button>
