@@ -5,9 +5,14 @@ import {
   USER_ACCOUNT_UPDATE,
   USER_ACCOUNT_UPDATE_SUCCESS,
   USER_ACCOUNT_UPDATE_FAILURE,
-  USER_ACCOUNT_LOGOUT
+  USER_ACCOUNT_LOGOUT,
+  USER_ACCOUNT_REGISTER,
+  USER_ACCOUNT_REGISTER_SUCCESS,
+  USER_ACCOUNT_REGISTER_FAILURE,
+  USER_ACCOUNT_REGISTER_ADD_FIELDS
 } from "./actions";
 import Storage from "../../../services/Storage";
+import { combineReducers } from "redux";
 
 const initialState = {
   items: {
@@ -75,4 +80,53 @@ const userAccountReducer = (state = initialState, action) => {
   }
 };
 
-export default userAccountReducer;
+const initialRegisterState = {
+  fields: [],
+  isLoading: false,
+  error: null,
+};
+
+
+const userRegisterReducer = (state = initialRegisterState, action) => {
+  switch (action.type) {
+    case USER_ACCOUNT_REGISTER:
+      return {
+        ...state,
+        isLoading: true,
+        error: null
+      };
+    case USER_ACCOUNT_REGISTER_SUCCESS:
+      return {
+        items: action.payload,
+        isLoading: false,
+        error: null,
+        authorized: true
+      };
+    case USER_ACCOUNT_REGISTER_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload,
+        authorized: false
+      };
+    case USER_ACCOUNT_REGISTER_ADD_FIELDS:
+      const newField = {...state.fields, ...action.payload}
+      return {
+        fields: newField,
+        isLoading: false,
+        error: null,
+        authorized: false
+      };
+    default:
+      return state;
+  }
+};
+
+const profileReducers = combineReducers({
+  account: userAccountReducer,
+  register: userRegisterReducer,
+});
+
+
+
+export default profileReducers;

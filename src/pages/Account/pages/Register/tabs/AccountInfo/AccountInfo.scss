@@ -1,0 +1,60 @@
+@import "../../../../../../styles/variables";
+
+.account-info {
+  color: $dark-text;
+  .content {
+    .description {
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+    .account-name {
+      border-radius: 5px;
+    }
+
+    .account-info-section {
+      margin-bottom: 20px;
+      .label {
+        font-size: 14px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+      }
+      .account-types {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        .account-type-item {
+          width: 175px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 120px;
+          border: 2px solid $secondary;
+          margin: 5px 10px;
+          border-radius: 15px;
+          cursor: pointer;
+          &:active {
+            opacity: 0.7;
+          }
+          &.-selected {
+            border: 5px solid $secondary;
+            background-color: $secondary-light;
+          }
+        }
+        .account-type-title {
+          text-transform: uppercase;
+          text-align: center;
+        }
+      }
+    }
+    .action {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      button {
+        width: 270px;
+      }
+    }
+  }
+}

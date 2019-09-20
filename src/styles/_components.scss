@@ -1,9 +1,28 @@
 @import "./variables";
 
-
+.oc-form {
+  .oc-form-separator {
+    display: flex;
+    justify-content: space-between;
+    .oc-separator-left {
+      flex: 1;
+      margin-right: 15px;
+    }
+    .oc-separator-right {
+      flex: 1;
+      margin-left: 15px;
+    }
+    .oc-separator-full {
+      flex: 1;
+    }
+  }
+}
 .oc-input {
   height: 50px;
   border-radius: 0;
+  &.-radius {
+    border-radius: 5px;
+  }
 
   &::placeholder {
     color: $secondary-light;
@@ -26,6 +45,15 @@
     }
   }
 
+  &.reverse {
+    background: $white;
+    border: 2px solid $secondary;
+    color: $secondary;
+    &:active{
+      background-color: rgba($secondary, 0.7);
+    }
+  }
+
   &.secondary {
     background: $white;
     color: $secondary;
@@ -37,6 +65,16 @@
 
   &:disabled {
     background: $lightgray;
+  }
+}
+
+.oc-checkbox {
+  text-transform: uppercase;
+  font-size: 14px;
+  margin: 15px 0;
+  span {
+    padding-left: 15px;
+    margin: 0;
   }
 }
 

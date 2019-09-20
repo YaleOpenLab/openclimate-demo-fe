@@ -1,0 +1,24 @@
+@import "../../../../../../styles/variables";
+
+.review {
+  .description {
+    text-align: center;
+    color: $dark-text;
+    margin-bottom: 50px;
+  }
+  .info-box {
+    color: $dark-gray-text;
+    text-align: center;
+    h4 {
+      margin-top: 35px;
+    }
+  }
+  .actions {
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    button {
+      width: 270px;
+    }
+  }
+}

@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import Container from "../../../../hoc/Container/Container";
 import StepsForm from "../../../../components/Global/StepsForm/StepsForm";
-import { Button } from "../../../../components/UI";
+import "./Register.scss";
+import ClaimAccount from "./tabs/ClaimAccount/ClaimAccount";
+import UserInfo from "./tabs/UserInfo/UserInfo";
+import AccountInfo from "./tabs/AccountInfo/AccountInfo";
+import Verification from "./tabs/Verification/Verification";
+import Review from "./tabs/Review/Review";
+import { Http } from "../../../../services/Http";
 
 const PAGES = [
   { name: "claim an account", key: 1 },
@@ -39,16 +45,21 @@ class Register extends Component {
           tabs={PAGES}
           step={this.state.step}
         >
-          <div key={1}>
-          </div>
-          <div key={2}>
-          </div>
-          <div key={3}>
-          </div>
-          <div key={4}>
-          </div>
-          <div key={5}>
-          </div>
+          <section className='register-section' key={1}>
+            <ClaimAccount goNext={this.goNext}/>
+          </section>
+          <section className='register-section' key={2}>
+            <UserInfo goNext={this.goNext}/>
+          </section>
+          <section className='register-section' key={3}>
+            <AccountInfo goNext={this.goNext}/>
+          </section>
+          <section className='register-section' key={4}>
+            <Verification goNext={this.goNext}/>
+          </section>
+          <section className='register-section' key={5}>
+            <Review/>
+          </section>
         </StepsForm>
       </Container>
     )
