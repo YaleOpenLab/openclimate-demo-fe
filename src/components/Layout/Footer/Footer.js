@@ -9,7 +9,7 @@ class Footer extends Component {
         <div className="footer-disclaimer">
           <div className="disclaimer">
             <p>
-              Disclaimer: This Open Climate portal is an alpha prototype being
+              <b>Disclaimer</b>: This Open Climate portal is an alpha prototype being
               developed as part of a broader open source project, which explore
               the use of distributed ledger technologies (DLT) and other
               emerging technologies to enable a transparent global climate
