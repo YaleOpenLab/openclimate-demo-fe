@@ -21,7 +21,7 @@
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1",
+    "react-scripts": "^3.1.1",
     "redux": "^4.0.4",
     "redux-observable": "^1.1.0",
     "rxjs": "^6.5.2",
@@ -34,7 +34,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "format": "prettier 'src/**/*.{js,jsx}' --write"
+    "format": "prettier \"src/**/*.{jsx,js}\" --write"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -52,7 +52,7 @@
     ]
   },
   "devDependencies": {
-    "prettier": "1.18.2",
+    "prettier": "^1.18.2",
     "redux-devtools-extension": "^2.13.8"
   }
 }

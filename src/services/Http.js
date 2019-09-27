@@ -1,11 +1,13 @@
 import Storage from "./Storage";
 import * as axios from "axios";
-import { from } from "rxjs";
-import { map, mergeMap } from "rxjs/operators";
+import { from, Observable, of } from "rxjs";
+import { map, mergeMap, combineLatest } from "rxjs/operators";
 import { sha3_512 } from "js-sha3";
+
 const qs = require("querystring");
 
 export class Http {
+
   static userValidate(username, password) {
     const hash = sha3_512(password);
 
@@ -21,8 +23,63 @@ export class Http {
     );
   }
 
+  /*
+   * Register
+   */
+  static checkIfAccountNameExists(value) {
+    const tempData = [
+      'new york', 'new york state', 'new york & company',
+    ];
+    const fakeRequest = tempData.includes(value.toLowerCase());
+    return of({status: fakeRequest, data: fakeRequest ? tempData : null});
+  }
+
+  static registerUser(data) {
+
+    return this.post("register", data).pipe(
+      map(value => {
+        const entity = value.data && value.data ? value.data : null;
+        Storage.set("token", entity.Token);
+        return value;
+      })
+    );
+  }
+
+  static uploadFile(file) {
+    return this.post("file", file).pipe(
+      map(value => {
+        return value;
+      })
+    );
+  }
+
+
+
+
+
+
+  static getEarthStatus() {
+    return this.get("earth-states").pipe(
+      map(value => {
+        return value;
+      })
+    );
+  }
+
+  /*
+   * Explore Page
+   * -- Review
+   */
   static getNationStates() {
-    return this.post("nation-states", ).pipe(
+    return this.get("nation-states").pipe(
+      map(value => {
+        return value;
+      })
+    );
+  }
+
+  static getExploreReviewData(path, id) {
+    return this.get(`${path}/${id}`).pipe(
       map(value => {
         return value;
       })
@@ -30,7 +87,15 @@ export class Http {
   }
 
   static getMultinationals() {
-    return this.post("multinationals", ).pipe(
+    return this.get("multinationals").pipe(
+      map(value => {
+        return value;
+      })
+    );
+  }
+
+  static getActors() {
+    return this.get("actors").pipe(
       map(value => {
         return value;
       })

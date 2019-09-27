@@ -1,0 +1,125 @@
+@import "../../../../styles/variables";
+
+.account-manage {
+  padding-top: 50px;
+  .title {
+    text-transform: uppercase;
+    font-size: 18px;
+  }
+
+  .manage-section {
+    .action-panel {
+      margin-top: 42px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+
+      .manage-action {
+        width: 212px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 20px;
+
+        .square {
+          width: 157px;
+          height: 139px;
+          border: 1px solid $secondary;
+          border-radius: 12px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          cursor: pointer;
+          &:hover {
+            opacity: 0.8;
+          }
+          &:active {
+            opacity: 0.7;
+          }
+          .image {
+            width: 63px;
+            height: 63px;
+            margin-bottom: 15px;
+
+            img {
+              max-height: 100%;
+              max-width: 100%;
+            }
+          }
+
+          h4 {
+            position: absolute;
+            bottom: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+            text-transform: uppercase;
+            font-weight: normal;
+            color: $secondary;
+          }
+        }
+
+        .desc {
+          margin-top: 15px;
+          font-size: 14px;
+          color: $dark-text;
+        }
+      }
+    }
+  }
+  .display-section {
+    background: $primary-lightest;
+    padding: 34px 0;
+
+    .filter {
+      margin-top: 25px;
+      font-size: 13px;
+      display: flex;
+
+      select {
+        width: 255px;
+        margin-top: 6px;
+        margin-right: 40px;
+      }
+    }
+
+    .table-container {
+      margin-top: 15px;
+      .table {
+        border-collapse: collapse;
+
+        thead {
+          tr {
+            height: 50px;
+          }
+          th {
+            border: none;
+            background: $primary-lightest;
+            text-align: left;
+            font-weight: normal;
+            color: $dark-text;
+            vertical-align: middle;
+            &.--bold {
+              font-size: 18px;
+              font-weight: bold;
+            }
+            &.--icon {
+              text-align: center;
+            }
+          }
+        }
+        tbody {
+          th, td {
+            font-size: 14px;
+            p {
+              margin: 5px 0;
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

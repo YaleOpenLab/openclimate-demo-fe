@@ -1,0 +1,72 @@
+@import "../../../../../../styles/variables";
+
+.verification {
+  color: $dark-text;
+  .description {
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .auth-button {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    button {
+      width: 270px;
+    }
+  }
+
+  .document-select {
+    margin-bottom: 25px;
+    .document-select-label {
+      color: $dark-text;
+      margin-bottom: 20px;
+    }
+    .document-select-actions {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      .document-select-doc {
+        width: 270px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        select {
+          display: block;
+          width: 100%;
+          height: 42px;
+          border-radius: 5px;
+          border: 1px solid lightgray;
+          color: #9B9B9B;
+          font-size: 14px;
+          padding: 7px;
+          cursor: pointer;
+          option {
+            color: $dark-text;
+            cursor: pointer;
+          }
+        }
+      }
+      .file-upload-button {
+        position: relative;
+        .file-name {
+          position: absolute;
+          top: 15px;
+          margin-left: 215px;
+          font-size: 14px;
+          font-weight: 600;
+          color: $dark-gray-text;
+          min-width: 100px;
+        }
+      }
+    }
+    .input-feedback {
+      color: $warning;
+      font-size: 13px;
+      padding: 5px 0;
+      position: absolute;
+      top: 48px;
+    }
+
+  }
+}

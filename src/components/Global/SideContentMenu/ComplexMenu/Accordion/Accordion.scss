@@ -19,6 +19,9 @@
         font-size: 20px;
         padding: 0 35px;
         font-weight: bold;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
       }
       .oc-card-icon {
         width: 60px;
@@ -35,6 +38,13 @@
         height: 63px;
         display: flex;
         border-bottom: 1px solid $lightgray;
+        cursor: pointer;
+        &:active {
+          background: rgba(wheat, 0.2);
+        }
+        &.is-active {
+          background: $primary-lightest;
+        }
         .oc-card-list-item-title {
           flex: 1;
           display: flex;

@@ -1,0 +1,60 @@
+@import "../../../../styles/variables";
+
+.steps-form-header {
+  margin-bottom: 80px;
+
+  .steps-container {
+    display: flex;
+  }
+  .bigger-fonts {
+    .steps-title {
+      font-size: 18px;
+      font-weight: 300;
+    }
+  }
+  .steps-box {
+    align-self: center;
+    display: flex;
+    justify-content: center;
+  }
+  .steps-first-box {
+    margin-left: 31px;
+  }
+  .steps-last-box {
+    margin-right: 31px;
+  }
+  .steps-active {
+    height: 28px;
+    width: 28px;
+    background: $secondary;
+    border-radius: 15px;
+  }
+
+  .steps-inactive {
+    height: 28px;
+    width: 28px;
+    background: $white;
+    border: 2px solid $secondary;
+    border-radius: 15px;
+  }
+
+  .steps-title {
+    position: absolute;
+    top: 45px;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: $dark-text;
+    max-width: 70px;
+    text-align: center;
+    word-break: break-word;
+  }
+  .steps-active-title{
+    color: $dark-text;
+  }
+
+  .divider {
+    flex-grow: 1;
+    border-bottom: 2px solid $secondary;
+    margin: 14px 0 14px 0;
+  }
+}

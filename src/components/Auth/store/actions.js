@@ -5,6 +5,10 @@ export const USER_ACCOUNT_UPDATE = "USER_ACCOUNT_UPDATE";
 export const USER_ACCOUNT_UPDATE_SUCCESS = "USER_ACCOUNT_UPDATE_SUCCESS";
 export const USER_ACCOUNT_UPDATE_FAILURE = "USER_ACCOUNT_UPDATE_FAILURE";
 export const USER_ACCOUNT_LOGOUT = "USER_ACCOUNT_LOGOUT";
+export const USER_ACCOUNT_REGISTER = "USER_ACCOUNT_REGISTER";
+export const USER_ACCOUNT_REGISTER_SUCCESS = "USER_ACCOUNT_REGISTER_SUCCESS";
+export const USER_ACCOUNT_REGISTER_FAILURE = "USER_ACCOUNT_REGISTER_FAILURE";
+export const USER_ACCOUNT_REGISTER_ADD_FIELDS = "USER_ACCOUNT_REGISTER_ADD_FIELDS";
 
 export const fetchUserAccount = payload => ({
   type: USER_ACCOUNT,
@@ -38,4 +42,25 @@ export const updateUserAccountSuccess = (response, newData) => ({
 export const updateUserAccountFailure = message => ({
   type: USER_ACCOUNT_UPDATE_FAILURE,
   payload: message
+});
+
+export const fetchUserAccountRegister = payload => ({
+  type: USER_ACCOUNT_REGISTER,
+  payload
+});
+
+
+export const userAccountRegisterSuccess = (response, newData) => ({
+  type: USER_ACCOUNT_REGISTER_SUCCESS,
+  payload: { response, newData }
+});
+
+export const userAccountRegisterFailure = message => ({
+  type: USER_ACCOUNT_REGISTER_FAILURE,
+  payload: message
+});
+
+export const userAccountRegisterAddFields = payload => ({
+  type: USER_ACCOUNT_REGISTER_ADD_FIELDS,
+  payload
 });

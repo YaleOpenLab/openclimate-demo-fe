@@ -6,12 +6,14 @@
   position: fixed;
   top: 0;
   left: -367px;
-  height: 100vh;
+  min-height: 100vh;
   z-index: 1500;
   color: #fff;
   transition: all 0.3s;
   background-color: $white;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
 
   &.active {
     left: 0;
@@ -24,5 +26,69 @@
     display: flex;
     padding: 0 36px;
     justify-content: space-between;
+  }
+  .sidebar-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .image-area {
+      height: 197px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid $lightgray;
+      img {
+        width: 140px;
+        height: 120px;
+      }
+    }
+    .info-area {
+      color: $dark-text;
+      display: flex;
+      flex-direction: column;
+      .info-separator {
+        justify-content: space-around;
+        display: flex;
+        padding: 15px 0;
+        .info-area-item {
+          width: 125px;
+          text-align: center;
+          .status {
+            font-size: 10px;
+            color: $primary;
+            text-transform: uppercase;
+            font-weight: bold;
+            height: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .value {
+            font-size: 45px;
+          }
+          .description {
+            font-size: 14px;
+            .highlighter {
+              color: $tertiary;
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
+    }
+    .bottom-part {
+      background: $primary-lightest;
+      display: flex;
+      padding: 20px 30px;
+      border-bottom: 1px solid $lightgray;
+    }
+    .footer {
+      flex: 1;
+      background: $primary-lightest;
+      font-size: 13px;
+      padding: 10px 30px;
+      color: $dark-text;
+    }
   }
 }

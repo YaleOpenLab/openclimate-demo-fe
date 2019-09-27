@@ -1,0 +1,22 @@
+@import "../../../styles/variables";
+
+.file-upload-button {
+  .hidden {
+    display: none;
+  }
+  .container {
+    margin: auto;
+  }
+  .primaryBack {
+    background: $lightgray;
+    width: 201px;
+    border-radius: 5px;
+    color: $white;
+  }
+  .--success {
+    background: $secondary;
+  }
+  .--error {
+    background: $warning;
+  }
+}

@@ -3,7 +3,6 @@ import Container from "../../../../hoc/Container/Container";
 import SideBar from "./SideBar/SideBar";
 import EarthView from "../../../../assets/images/earth-preview-sm.png";
 import "./Insights.scss";
-import ContentBox from "./ContentBox/ContentBox";
 
 class Insights extends Component {
   render() {
@@ -19,16 +18,6 @@ class Insights extends Component {
               </div>
             </div>
           </div>
-        </Container>
-        <Container className="secondary-content">
-          <ContentBox
-            title="Data Visualisation Title"
-            details="Data Visualisation Details"
-          />
-          <ContentBox
-            title="Data Visualisation Title"
-            details="Data Visualisation Details"
-          />
         </Container>
       </div>
     );

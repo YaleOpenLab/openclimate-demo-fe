@@ -5,7 +5,7 @@ import AnimateHeight from "react-animate-height";
 import "./SubCardItem.scss";
 import List from "../List/List";
 
-const SubCardItem = ({ title, list, open, handleOpen, handleClose }) => {
+const SubCardItem = ({ title, list, parent, open, handleOpen, handleClose }) => {
   return (
     <div className="oc-sub-card">
       <div
@@ -22,9 +22,11 @@ const SubCardItem = ({ title, list, open, handleOpen, handleClose }) => {
       </div>
       <AnimateHeight duration={200} height={open ? "auto" : 0}>
         <div className={`oc-sub-card-body ${open ? "--show" : ""}`}>
-          {list.map((item, i) => (
-            <List key={i} title={item} />
-          ))}
+          {list.map((item, i) => {
+            return (
+              <List key={i} title={item.title} index={item.index} parent={parent} />
+            )
+          })}
         </div>
       </AnimateHeight>
     </div>

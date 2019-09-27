@@ -1,0 +1,27 @@
+@import "../../../../styles/variables";
+
+.sidebar-menu {
+  color: $dark-text;
+  .menu-items {
+    color: $gray-two;
+    .menu-item {
+      display: flex;
+      margin-bottom: 20px;
+      .icon {
+        margin-right: 25px;
+      }
+    }
+  }
+  .menu-list {
+    margin-top: 50px;
+    ul {
+      padding: 0;
+      li {
+        list-style: none;
+        font-size: 13px;
+        color: $primary;
+        font-weight: 600;
+      }
+    }
+  }
+}

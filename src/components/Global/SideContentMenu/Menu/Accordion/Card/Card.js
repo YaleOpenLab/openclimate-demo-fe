@@ -5,17 +5,18 @@ import AnimateHeight from "react-animate-height";
 import List from "./List/List";
 import SubCardItem from "./SubCardItem/SubCardItem";
 
-const Card = ({ title, list, subCards, open, handleOpen, handleClose }) => {
+const Card = ({ title, itemIndex, selected, list, subCards, open, handleOpen, handleClose }) => {
   const [openIndex, setOpen] = useState(null);
 
   let content;
 
   if (list) {
-    content = list.map((item, i) => <List key={i} title={item} />);
+    content = list.map((item, i) => <List key={i} title={item.title} index={item.index} parent={itemIndex} active={item.index == selected} />);
   } else if (subCards) {
     content = subCards.map((item, index) => {
       return (
         <SubCardItem
+          parent={itemIndex}
           key={index}
           title={item.title}
           list={item.list}

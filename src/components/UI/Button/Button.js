@@ -5,7 +5,8 @@ const Button = ({
   children,
   style,
   variant = "primary",
-  disabled = false
+  disabled = false,
+  onClick,
 }) => {
   return (
     <button
@@ -13,6 +14,7 @@ const Button = ({
       type="submit"
       className={`form-control oc-button ${variant}`}
       disabled={disabled}
+      onClick={onClick}
     >
       {title || children}
     </button>

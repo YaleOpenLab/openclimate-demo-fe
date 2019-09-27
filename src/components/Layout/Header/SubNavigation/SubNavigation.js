@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
   MDBNavbar,
-  MDBNavbarBrand,
   MDBNavbarNav,
   MDBNavbarToggler,
   MDBCollapse
