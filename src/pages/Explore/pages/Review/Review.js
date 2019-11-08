@@ -56,16 +56,21 @@ class Review extends React.PureComponent {
 
   render() {
     const { nation_states, multinationals, current } = this.state;
+    const sorted = [
+      ...nation_states.filter(x => x.Index === 63),
+      ...nation_states.sort((a, b) => a.name < b.name ? -1 : 1).filter(x => x.Index !== 63)
+    ];
+
     const data = [
       {
-        index: 'nation-states',
+        index: "nation-states",
         title: "Nation State",
-        list: nation_states.map(item => {
+        list: sorted.map(item => {
           return { title: item.name, index: item.Index };
         })
       },
       {
-        index: 'multinationals',
+        index: "multinationals",
         title: "Multinationals",
         subCards: [
           {
@@ -83,13 +88,11 @@ class Review extends React.PureComponent {
     return (
       <div className="explore-review container-fluid">
         <div className="row">
-          <div className="col-lg-4" style={{padding: 0}}>
+          <div className="col-lg-5" style={{ padding: 0 }}>
             <SideContentMenu menu={data} current={current}/>
           </div>
           <div className="col-lg-6">
-            {
-              current.id && <ReviewContent data={current}/>
-            }
+            {current.id && <ReviewContent data={current}/>}
           </div>
         </div>
       </div>
