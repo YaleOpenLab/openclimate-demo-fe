@@ -10,7 +10,7 @@ const Accordion = ({ data }) => {
     return (
       <Card
         key={item.index}
-        title={item.title}
+        title={item.name}
         open={openIndex === item.index}
         handleOpen={() => setOpen(item.index)}
         handleClose={() => setOpen(null)}

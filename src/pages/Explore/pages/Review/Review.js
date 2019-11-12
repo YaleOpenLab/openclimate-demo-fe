@@ -1,9 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import SideContentMenu from "../../../../components/Global/SideContentMenu/SideContentMenu";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchExploreReview } from "../../store/actions";
 import ReviewContent from "./Content/Content";
+import "./Review.scss";
 
 const queryString = require("query-string");
 
@@ -12,8 +13,8 @@ class Review extends React.PureComponent {
     nation_states: [],
     multinationals: [],
     current: {
-      category: "",
-      id: null
+      category: this.props.match.params.category,
+      id: this.props.match.params.id
     },
     error: "",
     loading: false
@@ -26,7 +27,7 @@ class Review extends React.PureComponent {
       this.setState({
         current: {
           category: params.category,
-          id: params.id
+          id: params.id,
         }
       });
     }
@@ -55,42 +56,35 @@ class Review extends React.PureComponent {
   };
 
   render() {
-    const { nation_states, multinationals, current } = this.state;
+    const { nation_states, current } = this.state;
+    const sorted = [
+      ...nation_states.filter(x => x.Index === 63),
+      ...nation_states.sort((a, b) => a.name < b.name ? -1 : 1).filter(x => x.Index !== 63)
+    ];
+
     const data = [
       {
-        index: 'nation-states',
+        index: "nation-states",
         title: "Nation State",
-        list: nation_states.map(item => {
-          return { title: item.name, index: item.Index };
-        })
+        list: sorted,
       },
       {
-        index: 'multinationals',
+        index: "multinationals",
         title: "Multinationals",
         subCards: [
-          {
-            title: "Carbon majors",
-            list: [
-              { title: "No Data", index: 0 }
-            ]
-          },
-          {
-            title: "Other Mnc", list: [{ title: "No Data", index: 0 }]
-          }
+          { name: "Carbon majors", list: [{ name: "No Data", Index: 0 }] },
+          { name: "Other Mnc", list: [{ name: "No Data", Index: 0 }] },
         ]
       }
     ];
+
     return (
-      <div className="explore-review container-fluid">
-        <div className="row">
-          <div className="col-lg-4" style={{padding: 0}}>
-            <SideContentMenu menu={data} current={current}/>
-          </div>
-          <div className="col-lg-6">
-            {
-              current.id && <ReviewContent data={current}/>
-            }
-          </div>
+      <div className="Review explore-review container-fluid">
+        <div className="-menu">
+          <SideContentMenu menu={data} current={current}/>
+        </div>
+        <div className="-content">
+          {current.id && <ReviewContent data={current}/>}
         </div>
       </div>
     );

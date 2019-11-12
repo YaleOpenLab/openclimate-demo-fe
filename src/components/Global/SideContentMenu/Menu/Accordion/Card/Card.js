@@ -8,26 +8,6 @@ import SubCardItem from "./SubCardItem/SubCardItem";
 const Card = ({ title, itemIndex, selected, list, subCards, open, handleOpen, handleClose }) => {
   const [openIndex, setOpen] = useState(null);
 
-  let content;
-
-  if (list) {
-    content = list.map((item, i) => <List key={i} title={item.title} index={item.index} parent={itemIndex} active={item.index == selected} />);
-  } else if (subCards) {
-    content = subCards.map((item, index) => {
-      return (
-        <SubCardItem
-          parent={itemIndex}
-          key={index}
-          title={item.title}
-          list={item.list}
-          handleOpen={() => setOpen(index)}
-          handleClose={() => setOpen(null)}
-          open={index === openIndex}
-        />
-      );
-    });
-  }
-
   return (
     <div className="oc-card">
       <div className="oc-card-header" onClick={open ? handleClose : handleOpen}>
@@ -40,7 +20,22 @@ const Card = ({ title, itemIndex, selected, list, subCards, open, handleOpen, ha
         </div>
       </div>
       <AnimateHeight duration={200} height={open ? "auto" : 0}>
-        <div className={`oc-card-body ${open ? "--show" : ""}`}>{content}</div>
+        <div className={`oc-card-body ${open ? "--show" : ""}`}>
+          {!!subCards && subCards.map((item, index) => (
+            <SubCardItem
+              parent={itemIndex}
+              key={index}
+              title={item.name}
+              list={item.list}
+              handleOpen={() => setOpen(index)}
+              handleClose={() => setOpen(null)}
+              open={index === openIndex}
+            />
+          ))}
+          {!!list && list.map((item, i) => (
+            <List key={i} title={item.name} index={item.Index} parent={itemIndex} active={item.name == selected}/>
+          ))}
+        </div>
       </AnimateHeight>
     </div>
   );

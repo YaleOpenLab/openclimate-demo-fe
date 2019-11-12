@@ -17,7 +17,7 @@ const Card = ({ title, list, subCards, open, handleOpen, handleClose }) => {
       return (
         <SubCardItem
           key={index}
-          title={item.title}
+          title={item.name}
           list={item.list}
           handleOpen={() => setOpen(index)}
           handleClose={() => setOpen(null)}

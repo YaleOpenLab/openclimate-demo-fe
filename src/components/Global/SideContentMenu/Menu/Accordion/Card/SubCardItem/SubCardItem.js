@@ -24,7 +24,7 @@ const SubCardItem = ({ title, list, parent, open, handleOpen, handleClose }) => 
         <div className={`oc-sub-card-body ${open ? "--show" : ""}`}>
           {list.map((item, i) => {
             return (
-              <List key={i} title={item.title} index={item.index} parent={parent} />
+              <List key={i} title={item.name} index={item.index} parent={parent} />
             )
           })}
         </div>

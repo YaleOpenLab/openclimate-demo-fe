@@ -1,0 +1,22 @@
+@import "../../../../styles/variables";
+
+.Review {
+  display: flex;
+  padding: 0 !important;
+
+  .-menu {
+    .info, .menu {
+      min-width: 240px;
+    }
+  }
+
+  .-content {
+
+  }
+}
+
+@media (max-width: 1000px) {
+  .Review {
+    flex-direction: column;
+  }
+}

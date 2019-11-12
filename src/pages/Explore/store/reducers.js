@@ -34,7 +34,32 @@ const exploreReducer = (state = initialState, action) => {
       };
     case EXPLORE_REVIEW_SUCCESS:
       let newData = { ...state.review };
-      newData[action.name] = action.data.data;
+      const raw = action.data.data;
+      const augmented = (raw || []).map(state => state.Index === 63 ? {
+        ...state,
+        subnationals: [
+          { Index: 1001, name: 'Arizona' },
+          { Index: 1002, name: 'California' },
+          { Index: 1003, name: 'Colorado' },
+          { Index: 1004, name: 'Connecticut' },
+          { Index: 1005, name: 'Illinois' },
+          { Index: 1006, name: 'Iowa' },
+          { Index: 1007, name: 'Kansas' },
+          { Index: 1008, name: 'Maine' },
+          { Index: 1009, name: 'New York' },
+          { Index: 1010, name: 'North Carolina' },
+          { Index: 1011, name: 'Ohio' },
+          { Index: 1012, name: 'Oklahoma' },
+        ],
+        organizations: [
+          { Index: 2001, name: 'Amazon' },
+          { Index: 2002, name: 'Apple' },
+          { Index: 2003, name: 'Facebook' },
+          { Index: 2004, name: 'Google' },
+          { Index: 2005, name: 'Microsoft' },
+        ],
+      } : state);
+      newData[action.name] = augmented;
       newData.isLoading = false;
       return {
         ...state,
