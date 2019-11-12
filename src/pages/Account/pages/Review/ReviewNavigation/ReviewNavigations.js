@@ -12,7 +12,7 @@ const ReviewNavigation = ({ list = [] }) => {
         className={`navigation-link `}
         to={item.url}
       >
-        {item.title}
+        {item.name}
         <div className="active-overlay" />
       </MDBNavLink>
     );

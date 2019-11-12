@@ -25,7 +25,7 @@ const Card = ({ title, itemIndex, selected, list, subCards, open, handleOpen, ha
             <SubCardItem
               parent={itemIndex}
               key={index}
-              title={item.title}
+              title={item.name}
               list={item.list}
               handleOpen={() => setOpen(index)}
               handleClose={() => setOpen(null)}
@@ -33,7 +33,7 @@ const Card = ({ title, itemIndex, selected, list, subCards, open, handleOpen, ha
             />
           ))}
           {!!list && list.map((item, i) => (
-            <List key={i} title={item.title} index={item.index} parent={itemIndex} active={item.index == selected}/>
+            <List key={i} title={item.name} index={item.Index} parent={itemIndex} active={item.name == selected}/>
           ))}
         </div>
       </AnimateHeight>
