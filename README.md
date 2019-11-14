@@ -1,6 +1,6 @@
 # Openclimate
 
-This is the main repository for the Yale's OpenClimate project, incubated at Tsai CITY.
+This is the main repository for first demonstration version of the the Open Climate portal, incubated at the Yale Open Lab.
 
 For more information, visit: [https://openlab.yale.edu/earthhackathon](https://openlab.yale.edu/earthhackathon).
 
