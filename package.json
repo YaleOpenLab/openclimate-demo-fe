@@ -12,7 +12,7 @@
     "formik": "^1.5.8",
     "js-sha3": "^0.8.0",
     "mdbreact": "^4.19.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "notistack": "^0.8.9",
     "react": "^16.8.6",
     "react-animate-height": "^2.0.15",
